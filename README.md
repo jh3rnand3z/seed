@@ -1,1 +1,1 @@
-seed structures
+seed application structures
