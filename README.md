@@ -1,3 +1,1 @@
-seed application structures
-
-apps: [toronja, banana]
+seed application structures.

@@ -1,0 +1,93 @@
+<div class="jumbotron">
+    <div class="container">
+        
+        <div class="row">
+                
+            <div class="col-md-4 landing-text">
+                
+                <h1>Come on over here!</h1>
+
+                <p>We design, construct and operate concurrent cloud systems and applications; from infrastructure to virtual human experiences.</p>
+                    
+                <p class="landing-actions">
+                    <a href="#contact" class="btn btn-large btn-inverse">Contact</a>
+                    <a href="#dashboard" target="_blank" class="btn btn-large">Visit ph3nix.com</a>
+                </p>        
+                                    
+            </div>
+
+            <div class="col-md-8 landing-screenshot">  
+                <img src="/static/img/stuff/gorillaz.png" class="screengrab" alt="Screenshot" />
+            </div>
+                
+        </div> <!-- .row -->
+            
+    </div> <!-- /container -->
+</div>
+ 
+<div class="container">
+
+    <div class="row">
+        <div id="login-error" class="alert alert-error">
+            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 left_box">
+            <div class="perk_box">
+                <h3>Fun account</h3>
+                <div class="perk">
+                    <span class="icos ico1"></span>
+                    <p><strong>Lorem alteration</strong> in some form  injected humour these randomised words .</p>
+                </div>
+                <div class="perk">
+                    <span class="icos ico2"></span>
+                    <p><strong>There are many variations</strong> of passages of Lorem alteration in some form  injected humour these randomised words.</p>
+                </div>
+                <div class="perk">
+                    <span class="icos ico3"></span>
+                    <p><strong>Alteration in some form</strong> injected humour these randomised words.</p>
+                </div>
+                <div>
+                    <button id="login-btn" class="btn btn-lg btn-secondary btn-block" type="login"><%= translate("signIn") %></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <form id="signup-form" class="form-signup" novalidate="novalidate">
+                <h3><%= translate("createYourUserAccount") %></h3>
+
+                <div class="form-group">
+                    <label for="signup_username"><%= translate("username") %></label>
+                    <input type="text" id="signup_username" name="signup_username" class="form-control" placeholder="Username">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup_email"><%= translate("emailAddress") %></label>
+                    <input type="text" id="signup_email" name="signup_email" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup_password"><%= translate("password") %>:</label>
+                    <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Password"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password"><%= translate("confirmPassword") %>:</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password"/>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" value="read-terms"><%= translate("iHaveReadTermsOfUse") %>
+                </label>
+
+                <button id="signup-btn" class="btn btn-lg btn-primary btn-block" type="submit"><%= translate("signUp") %></button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
