@@ -126,8 +126,8 @@ fun.models.RecordsStart = Backbone.Collection.extend({
     urlRoot: fun.conf.urls.recordsStart,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.start, this.start);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
+        //url = url.replace(fun.conf.startTime, this.start);
         return url;
     },
 
@@ -142,20 +142,22 @@ fun.models.RecordsStart = Backbone.Collection.extend({
 });
 
 
-fun.models.RecordsStartStop = Backbone.Collection.extend({
+fun.models.RecordsStartEnd = Backbone.Collection.extend({
     
     model: fun.models.Record,
 
     initialize: function(options){
         this.start = options.start;
-        this.stop = options.stop;
+        this.end = options.end;
     },
 
-    urlRoot: fun.conf.urls.recordsStartStop,
+    urlRoot: fun.conf.urls.recordsStartEnd,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.stop, this.stop);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
+
+        url = url.replace(fun.conf.endTime, this.end);
+        
         return url;
     },
 
@@ -231,7 +233,7 @@ fun.models.LapseSummaryStart = Backbone.Model.extend({
 
     url: function(){
         var url = this.urlRoot.replace(fun.conf.lapse, this.lapse);
-        url = url.replace(fun.conf.start, this.start);
+        url = url.replace(fun.conf.startTime, this.start);
         return url;
     },
 
@@ -243,22 +245,22 @@ fun.models.LapseSummaryStart = Backbone.Model.extend({
 });
 
 
-fun.models.LapseSummaryStartStop = Backbone.Model.extend({
+fun.models.LapseSummaryStartEnd = Backbone.Model.extend({
 
     idAttribute: 'uuid',
     
     initialize: function(options){
         this.lapse = options.lapse;
         this.start = options.start;
-        this.stop = options.stop;
+        this.end = options.end;
     },
 
-    urlRoot: fun.conf.urls.lapseSummaryStartStop,
+    urlRoot: fun.conf.urls.lapseSummaryStartEnd,
 
     url: function(){
         var url = this.urlRoot.replace(fun.conf.lapse, this.lapse);
-        url = url.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.stop, this.stop);
+        url = url.replace(fun.conf.startTime, this.start);
+        url = url.replace(fun.conf.endTime, this.end);
         return url;
     },
 
@@ -319,7 +321,7 @@ fun.models.SummaryStart = Backbone.Model.extend({
     urlRoot: fun.conf.urls.summaryStart,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
         return url;
     },
 
@@ -342,7 +344,7 @@ fun.models.SummariesStart = Backbone.Collection.extend({
     urlRoot: fun.conf.urls.summariesStart,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
         return url;
     },
 
@@ -357,20 +359,20 @@ fun.models.SummariesStart = Backbone.Collection.extend({
 });
 
 
-fun.models.SummaryStartStop = Backbone.Model.extend({
+fun.models.SummaryStartEnd = Backbone.Model.extend({
 
     idAttribute: 'uuid',
 
     initialize: function(options){
         this.start = options.start;
-        this.stop = options.stop;
+        this.end = options.end;
     },
 
-    urlRoot: fun.conf.urls.summaryStartStop,
+    urlRoot: fun.conf.urls.summaryStartEnd,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.stop, this.stop);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
+        url = url.replace(fun.conf.endTime, this.end);
         return url;
     },
 
@@ -381,20 +383,20 @@ fun.models.SummaryStartStop = Backbone.Model.extend({
 });
 
 
-fun.models.SummariesStartStop = Backbone.Collection.extend({
+fun.models.SummariesStartEnd = Backbone.Collection.extend({
    
-    model: fun.models.SummaryStartStop,
+    model: fun.models.SummaryStartEnd,
 
     initialize:function(options){
         this.start = options.start;
-        this.stop = options.stop;
+        this.end = options.end;
     },
 
-    urlRoot: fun.conf.urls.summariesStartStop,
+    urlRoot: fun.conf.urls.summariesStartEnd,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.stop, this.stop);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
+        url = url.replace(fun.conf.endTime, this.end);
         return url;
     },
 
@@ -458,7 +460,7 @@ fun.models.BillingStart = Backbone.Model.extend({
     urlRoot: fun.conf.urls.billingStart,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
         return url;
     },
 
@@ -469,20 +471,20 @@ fun.models.BillingStart = Backbone.Model.extend({
 });
 
 
-fun.models.BillingStartStop = Backbone.Model.extend({
+fun.models.BillingStartEnd = Backbone.Model.extend({
 
     idAttribute: 'uuid',
 
     initialize: function(options){
         this.start = options.start;
-        this.stop = options.stop;
+        this.end = options.end;
     },
 
-    urlRoot: fun.conf.urls.billingStartStop,
+    urlRoot: fun.conf.urls.billingStartEnd,
 
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.start, this.start);
-        url = url.replace(fun.conf.stop, this.stop);
+        var url = this.urlRoot.replace(fun.conf.startTime, this.start);
+        url = url.replace(fun.conf.endTime, this.end);
         return url;
     },
 

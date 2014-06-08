@@ -53,7 +53,6 @@ fun.views.reports = Backbone.View.extend({
         /*
          find report
         */
-
         event.preventDefault();
         var modelCount = 0;
         var fromDate = this.fromDate.data('datepicker').getDate();
@@ -61,16 +60,16 @@ fun.views.reports = Backbone.View.extend({
         
         // unix timestamps
         this.start = Math.round(fromDate.getTime()/1000);
-        this.stop = Math.round(toDate.getTime()/1000);
+        this.end = Math.round(toDate.getTime()/1000);
 
-        var startStop = {
+        var startEnd = {
             start:this.start,
-            stop:this.stop
+            end:this.end
         };
 
-        var startStopLapse = {
+        var startEndLapse = {
             start:this.start,
-            stop:this.stop,
+            end:this.end,
             
             // get time lapse from dom
             // lapse:this.lapse,
@@ -78,11 +77,12 @@ fun.views.reports = Backbone.View.extend({
         };
 
         var models = {
-            records: new fun.models.RecordsStartStop(startStop),
-            summary: new fun.models.SummaryStartStop(startStop),
-            summaries: new fun.models.SummariesStartStop(startStop),
-            billing: new fun.models.BillingStartStop(startStop)
-            // lapseSummary : new fun.models.LapseSummaryStartStop(startStopLapse)
+            records: new fun.models.RecordsStartEnd(startEnd),
+            summary: new fun.models.SummaryStartEnd(startEnd),
+            // summaries: new fun.models.SummariesStartEnd(startEnd),
+            billing: new fun.models.BillingStartEnd(startEnd)
+
+            // lapseSummary : new fun.models.LapseSummaryStartEnd(startEndLapse)
         };
 
         var success = function() {

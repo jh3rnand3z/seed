@@ -17,8 +17,8 @@ fun.conf = {
    
     lapse: 'lapse',          
 
-    start: 'start',            
-    stop: 'stop',
+    startTime: 'start_time',            
+    endTime: 'end_time',
 
     first: 'first',
     last: 'last',
@@ -109,32 +109,32 @@ fun.conf.urls = {
     summary: '/records/summary',
     summaries: '/records/summaries',
 
-    summaryStart: '/records/summary/start/' + fun.conf.start,
-    summaryStartStop: '/records/summary/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    summaryStart: '/records/summary/start/' + fun.conf.startTime,
+    summaryStartEnd: '/records/summary/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
-    summariesStart: '/records/summaries/start/' + fun.conf.start,
-    summariesStartStop: '/records/summaries/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    summariesStart: '/records/summaries/start/' + fun.conf.startTime,
+    summariesStartEnd: '/records/summaries/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
     lapseSummary: '/records/summary/' + fun.conf.lapse,
     lapseSummaries: '/records/summaries/' + fun.conf.lapse,
 
-    lapseSummaryStart: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.start,
-    lapseSummaryStartStop: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    lapseSummaryStart: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.startTime,
+    lapseSummaryStartEnd: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
-    lapseSummariesStart: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.start,
-    lapseSummariesStartStop: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    lapseSummariesStart: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime,
+    lapseSummariesStartEnd: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
     billingsRecord: '/billings/records/' + fun.conf.uuidRecord,
     billingsRecords: '/billings/records/',
     
-    billingsStart: '/billings/start/' + fun.conf.start,
-    billingsStartStop: '/billings/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    billingsStart: '/billings/start/' + fun.conf.startTime,
+    billingsStartEnd: '/billings/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
-    billingsRecordsStart: '/billings/records/start/' + fun.conf.start,
-    billingsRecordsStartStop: '/billings/records/start/' + fun.conf.start + '/stop/' + fun.conf.stop,
+    billingsRecordsStart: '/billings/records/start/' + fun.conf.startTime,
+    billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
-    recordsStart: '/records/start/' + fun.conf.start,
-    recordsStartStop: '/records/start/' + fun.conf.start + '/stop/' + fun.conf.stop
+    recordsStart: '/records/start/' + fun.conf.startTime,
+    recordsStartEnd: '/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime
 };
 
 /*

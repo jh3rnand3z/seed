@@ -15,11 +15,11 @@ fun.views.navbar = Backbone.View.extend({
         this.$el.show();
 
         if(fun.utils.loggedIn()){
-            console.log('logged in bitch');
+            console.log('Just enter the dungeon!');
             this.renderDashboard();
             
         } else {
-            console.log('no log fucking in');
+            console.log('Out of the dungeon');
             this.renderLanding();
         }
     },
