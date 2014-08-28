@@ -414,9 +414,19 @@ initialize: function(){
     campaigns: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Members');
+        fun.instances.subheader.render('Campaings');
         fun.instances.subheader.renderHeadNav();
-        fun.instances.members.render();
+        fun.instances.campaigns.render();
+        
+        fun.instances.footer.render();
+    },
+
+    orgs: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Orgs');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.orgs.render();
         
         fun.instances.footer.render();
     },

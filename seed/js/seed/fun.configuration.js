@@ -240,19 +240,19 @@ fun.conf.hash = {
     howto: '#howto',
     features: '#features',
     enterprise: '#enterprise',
-    terms:
-    privacy:
-    security:
-    status:
-    developers:
-    help:
+    terms: '#terms',
+    privacy: '#privacy',
+    security: '#security',
+    status: '#status',
+    developers: '#developers',
+    help: '#help',
     support: '#support',
     contact: '#contact',
     signup : '#signup',
     login : '#login',
     dashboard : '#dashboard',
-    orgs:
-    campaigns
+    orgs: '#orgs',
+    campaigns: '#campaigns',
     profile: '#profile',
     activity: '#activity',
     members: '#members',
