@@ -6,21 +6,41 @@ fun.Router = Backbone.Router.extend({
     routes: {
         "": "home",
         "home": "home",
+
         "landing": "landing",
-        "about": "about",
-        "stories": "stories",
-        "technology": "technology",
-        "education": "education",
-        "services": "services",
-        "products": "products",
-        "community": "community",
+
+        "howto": "howto",
+        
+        "features": "features",
+        "enterprise": "enterprise",
+
+        "terms": "terms",
+        "security": "security",
+        "privacy": "privacy",
+        "status": "status",
+        "developers": "developers",
+        "help ": "help ",
+
         "contact": "contact",
+
         "signup": "signup",
         "login": "login",
+
         "dashboard": "dashboard",
+        
+        "campaigns": "campaigns",
+        "orgs": "orgs",
+
+        "activity": "activity",
+        "profile": "profile",
+        "members": "members",
+        "teams": "teams",
+
+        "reports": "reports",
+
         "phone": "phone",
         "recordings": "recordings",
-        "reports": "reports",
+
         "support": "support",
         "settings": "settings",
         "logout": "logout"
@@ -35,46 +55,57 @@ initialize: function(){
 
         // sub header
         fun.instances.subheader = new fun.views.subheader({
-            el:"#fun-subheader"});
+            el:"#fun-subheader"
+        });
 
         // landing
         fun.instances.landing = new fun.views.landing({
             el:"#fun-landing"
         });
-        
-        // about
-        fun.instances.about = new fun.views.about({
-            el:"#fun-about"
+
+        // howto
+        fun.instances.howto = new fun.views.howto({
+            el:"#fun-howto"
         });
 
-        // stories
-        fun.instances.stories = new fun.views.stories({
-            el:"#fun-stories"
+        // features
+        fun.instances.features = new fun.views.features({
+            el:"#fun-features"
         });
 
-        // technology
-        fun.instances.technology = new fun.views.technology({
-            el:"#fun-technology"
+        // enterprise
+        fun.instances.enterprise = new fun.views.enterprise({
+            el:"#fun-enterprise"
         });
 
-        // education
-        fun.instances.education = new fun.views.education({
-            el:"#fun-education"
+        // terms
+        fun.instances.terms = new fun.views.terms({
+            el:"#fun-terms"
         });
 
-        // services
-        fun.instances.services = new fun.views.services({
-            el:"#fun-services"
+        // privacy
+        fun.instances.privacy = new fun.views.privacy({
+            el:"#fun-privacy"
         });
 
-        // products
-        fun.instances.products = new fun.views.products({
-            el:"#fun-products"
+        // security
+        fun.instances.security = new fun.views.security({
+            el:"#fun-security"
         });
 
-        // community
-        fun.instances.community = new fun.views.community({
-            el:"#fun-community"
+        // status
+        fun.instances.status = new fun.views.status({
+            el:"#fun-status"
+        });
+
+        // developers
+        fun.instances.developers = new fun.views.developers({
+            el:"#fun-developers"
+        });
+
+        // help
+        fun.instances.help = new fun.views.help({
+            el:"#fun-help"
         });
 
         // contact
@@ -90,6 +121,38 @@ initialize: function(){
         // dashboard
         fun.instances.dashboard = new fun.views.dashboard({
             el:"#fun-dashboard"
+        });
+
+
+        // campaigns
+        fun.instances.campaigns = new fun.views.campaigns({
+            el:"#fun-campaigns"
+        });
+
+        // orgs
+        fun.instances.orgs = new fun.views.orgs({
+            el:"#fun-orgs"
+        });
+
+
+        // profile
+        fun.instances.profile = new fun.views.profile({
+            el:"#fun-profile"
+        });
+
+        // activity
+        fun.instances.activity = new fun.views.activity({
+            el:"#fun-activity"
+        });
+
+        // members
+        fun.instances.members = new fun.views.members({
+            el:"#fun-members"
+        });
+
+        // teams
+        fun.instances.teams = new fun.views.teams({
+            el:"#fun-teams"
         });
 
         // phone
@@ -147,75 +210,91 @@ initialize: function(){
     },
 
     landing: function(){
-
         fun.utils.hideAll();
-
         fun.instances.navbar.render();
         fun.instances.landing.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
-    about: function(){
+    howto: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('About');
-        fun.instances.about.render();
+        fun.instances.subheader.render('Howto');
+        fun.instances.howto.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
-    stories: function(){
+    features: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Stories');
-        fun.instances.stories.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Features');
+        fun.instances.features.render();
+        
         fun.instances.footer.render();
     },
 
-    technology: function(){
+    enterprise: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Technology');
-        fun.instances.technology.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Enterprise');
+        fun.instances.enterprise.render();
+        
         fun.instances.footer.render();
     },
 
-    community: function(){
+    terms: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Community');
-        fun.instances.community.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Terms');
+        fun.instances.enterprise.render();
+        
         fun.instances.footer.render();
     },
 
-    education: function(){
+    privacy: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Education');
-        fun.instances.education.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Privacy');
+        fun.instances.enterprise.render();
+        
         fun.instances.footer.render();
     },
 
-    products: function(){
+    security: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Products');
-        fun.instances.products.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Security');
+        fun.instances.enterprise.render();
+        
         fun.instances.footer.render();
     },
 
-    services: function(){
+    status: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Services');
-        fun.instances.services.render();
-        fun.instances.extra.render();
+        fun.instances.subheader.render('Status');
+        fun.instances.enterprise.render();
+        
+        fun.instances.footer.render();
+    },
+
+    developers: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Developers');
+        fun.instances.enterprise.render();
+        
+        fun.instances.footer.render();
+    },
+
+    help: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Help');
+        fun.instances.enterprise.render();
+        
         fun.instances.footer.render();
     },
 
@@ -265,6 +344,7 @@ initialize: function(){
     
     dashboard: function(){
         var modelCount = 0;
+        
         var models = {
             records: new fun.models.Records(),
             billings: new fun.models.Billings(),
@@ -297,14 +377,16 @@ initialize: function(){
         };
 
         if(fun.utils.loggedIn()){
-            fun.utils.hideAll();
-
-            fun.instances.navbar.render();
-            fun.instances.subheader.render('Dashboard');
-            fun.instances.dashboard.render();
             
-            for (var x in models){
-                models[x].fetch({
+            fun.utils.hideAll();
+            fun.instances.navbar.render();
+
+            fun.instances.subheader.render('Dashboard');
+            fun.instances.subheader.renderHeadNav();
+
+            fun.instances.dashboard.render();
+            for (var message in models){
+                models[message].fetch({
                     success: onSuccess,
                     error: function() {
                         console.log('error!');
@@ -314,7 +396,67 @@ initialize: function(){
         } else {
             fun.utils.redirect(fun.conf.hash.login);
         }
+
         fun.instances.extra.render();
+        fun.instances.footer.render();
+    },
+
+    members: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Members');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.members.render();
+        
+        fun.instances.footer.render();
+    },
+
+    campaigns: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Members');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.members.render();
+        
+        fun.instances.footer.render();
+    },
+
+    profile: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Profile');
+        fun.instances.profile.render();
+        
+        fun.instances.footer.render();
+    },
+
+    activity: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Activity');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.activity.render();
+        
+        fun.instances.footer.render();
+    },
+
+    members: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Members');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.members.render();
+        
+        fun.instances.footer.render();
+    },
+
+    teams: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Teams');
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.teams.render();
+        
         fun.instances.footer.render();
     },
 
@@ -364,7 +506,7 @@ initialize: function(){
         fun.utils.logout();
         fun.utils.hideAll();
         fun.instances.navbar.render()
-        fun.instances.subheader.render('Stuff');      
+        fun.instances.subheader.render('Good bye!');      
         fun.instances.login.render();
         fun.instances.extra.render();
         fun.instances.footer.render();

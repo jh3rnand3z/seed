@@ -6,18 +6,15 @@ fun.conf = {
 
     urlRoot: '/api/',
 
-    applications: '/static/applications/',
-    domain: 'ph3nix.com',
+    html: '/static/html/',
+    domain: 'iofun.io',
 
-    seedApplication: 'toronja',
-
-    uuidApplication: 'application_uuid',
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
    
     lapse: 'lapse',          
 
-    startTime: 'start_time',            
+    startTime: 'start_time',
     endTime: 'end_time',
 
     first: 'first',
@@ -34,7 +31,7 @@ fun.conf = {
 };
 
 /*
- Configuration stuff for daemons
+ Configuration VoIP daemons
 */
 fun.conf.daemons = {
     ws_server: 'ws://' + fun.conf.domain,
@@ -56,9 +53,8 @@ fun.conf.timeouts = {
 }
 
 /*
- JsSIP client configuration
+ Current JsSIP configuration
 */
-
 fun.conf.sip = {
     registrar_server: fun.conf.daemons.sip_server,
     ws_servers: fun.conf.daemons.ws_server + fun.conf.daemons.ws_port,
@@ -138,85 +134,101 @@ fun.conf.urls = {
 };
 
 /*
- Templates box
+ HTML templates
 */
 fun.conf.templates = {
-    navbar: fun.conf.applications + fun.conf.seedApplication + '/navbar.html',
+    navbar: fun.conf.html + '/navbar.html',
     
-    navLanding: fun.conf.applications + fun.conf.seedApplication + '/navLanding.html',
-    navDashboard: fun.conf.applications + fun.conf.seedApplication + '/navDashboard.html',
-    navAdmin: fun.conf.applications + fun.conf.seedApplication + '/navAdmin.html',
-
-    subheader: fun.conf.applications + fun.conf.seedApplication + '/subheader.html',
+    navLanding: fun.conf.html + '/navLanding.html',
+    navDashboard: fun.conf.html + '/navDashboard.html',
     
-    landing: fun.conf.applications + fun.conf.seedApplication + '/landing.html',
-    about: fun.conf.applications + fun.conf.seedApplication + '/about.html',
-    stories: fun.conf.applications + fun.conf.seedApplication + '/stories.html',
-    technology: fun.conf.applications + fun.conf.seedApplication + '/technology.html',
-    community: fun.conf.applications + fun.conf.seedApplication + '/community.html',
-    education: fun.conf.applications + fun.conf.seedApplication + '/education.html',
-    products: fun.conf.applications + fun.conf.seedApplication + '/products.html',
-    services: fun.conf.applications + fun.conf.seedApplication + '/services.html',
-    support: fun.conf.applications + fun.conf.seedApplication + '/support.html',
-    contact: fun.conf.applications + fun.conf.seedApplication + '/contact.html',
+    navAdmin: fun.conf.html + '/navAdmin.html', // ultimate junk!
+
+    subheader: fun.conf.html + '/subheader.html',
+    headNav: fun.conf.html + '/headNav.html',
     
-    signup: fun.conf.applications + fun.conf.seedApplication + '/signup.html',
-
-    login: fun.conf.applications + fun.conf.seedApplication + '/login.html',
+    landing: fun.conf.html + '/landing.html',
     
-    dashboard: fun.conf.applications + fun.conf.seedApplication + '/dashboard.html',
+    support: fun.conf.html + '/support.html',
+    contact: fun.conf.html + '/contact.html',
+    features: fun.conf.html + '/features.html',
+    enterprise: fun.conf.html + '/enterprise.html',
+    howto: fun.conf.html + '/howto.html',
+    status: fun.conf.html + '/status.html',
+    developers: fun.conf.html + '/developers.html',
+    help: fun.conf.html + '/help.html',
+    security: fun.conf.html + '/security.html',
+    terms: fun.conf.html + '/terms.html',
+
     
-    recordRow: fun.conf.applications + fun.conf.seedApplication + '/recordRow.html',
-    typeRow: fun.conf.applications + fun.conf.seedApplication + '/typeRow.html',
-    sumRow: fun.conf.applications + fun.conf.seedApplication + '/sumRow.html',
+    signup: fun.conf.html + '/signup.html',
 
-    lastRecord: fun.conf.applications + fun.conf.seedApplication + '/lastRecord.html',
-    latestRecords: fun.conf.applications + fun.conf.seedApplication + '/latestRecords.html',
-
-    recordType: fun.conf.applications + fun.conf.seedApplication + '/recordType.html',  
-    recordSummary: fun.conf.applications + fun.conf.seedApplication + '/recordSummary.html',
-
-    todaySummary: fun.conf.applications + fun.conf.seedApplication + '/todaySummary.html',
-    todayActivityChart: fun.conf.applications + fun.conf.seedApplication + '/todayActivityChart.html',
-
-    dialBox: fun.conf.applications + fun.conf.seedApplication + '/dialBox.html',
+    login: fun.conf.html + '/login.html',
     
-    messages: fun.conf.applications + fun.conf.seedApplication + '/messages.html',
-    videos: fun.conf.applications + fun.conf.seedApplication + '/videos.html',
+    dashboard: fun.conf.html + '/dashboard.html',
 
-    controlTo: fun.conf.applications + fun.conf.seedApplication + '/controlTo.html',
-    controlFrom: fun.conf.applications + fun.conf.seedApplication + '/controlFrom.html',
-    findLapse: fun.conf.applications + fun.conf.seedApplication + '/findLapse.html',
+    orgs: fun.conf.html + '/orgs.html',
+    campaigns: fun.conf.html + '/campaigns.html',
     
-    message: fun.conf.applications + fun.conf.seedApplication + '/message.html',
-    mesSmall: fun.conf.applications + fun.conf.seedApplication + '/mesSmall.html',
-    mesMedium: fun.conf.applications + fun.conf.seedApplication + '/mesMedium.html',
-    mesLarge: fun.conf.applications + fun.conf.seedApplication + '/mesLarge.html',
+    recordRow: fun.conf.html + '/recordRow.html',
+    typeRow: fun.conf.html + '/typeRow.html',
+    sumRow: fun.conf.html + '/sumRow.html',
 
-    warning: fun.conf.applications + fun.conf.seedApplication + '/warning.html',
-    warSmall: fun.conf.applications + fun.conf.seedApplication + '/warSmall.html',
-    warMedium: fun.conf.applications + fun.conf.seedApplication + '/warMedium.html',
-    warLarge: fun.conf.applications + fun.conf.seedApplication + '/warLarge.html',
+    lastRecord: fun.conf.html + '/lastRecord.html',
+    latestRecords: fun.conf.html + '/latestRecords.html',
 
-    error: fun.conf.applications + fun.conf.seedApplication + '/error.html',
-    errSmall: fun.conf.applications + fun.conf.seedApplication + '/errSmall.html',
-    errMedium: fun.conf.applications + fun.conf.seedApplication + '/errMedium.html',
-    errLarge: fun.conf.applications + fun.conf.seedApplication + '/errLarge.html',
+    recordType: fun.conf.html + '/recordType.html',  
+    recordSummary: fun.conf.html + '/recordSummary.html',
 
-    phone: fun.conf.applications + fun.conf.seedApplication + '/phone.html',
-    recordings: fun.conf.applications + fun.conf.seedApplication + '/recordings.html',
-    reports: fun.conf.applications + fun.conf.seedApplication + '/reports.html',
-    settings: fun.conf.applications + fun.conf.seedApplication + '/settings.html',
+    todaySummary: fun.conf.html + '/todaySummary.html',
+    todayActivityChart: fun.conf.html + '/todayActivityChart.html',
 
-    extra: fun.conf.applications + fun.conf.seedApplication + '/extra.html',
-    extraNavbar: fun.conf.applications + fun.conf.seedApplication + '/extraNavbar.html',
-    extraNavLanding: fun.conf.applications + fun.conf.seedApplication + '/extraNavLanding.html',
-    extraNavDashboard: fun.conf.applications + fun.conf.seedApplication + '/extraNavDashboard.html',
+    dialBox: fun.conf.html + '/dialBox.html', //eventually rename this to dialpad.
     
-    social: fun.conf.applications + fun.conf.seedApplication + '/social.html',
-    subscribe: fun.conf.applications + fun.conf.seedApplication + '/subscribe.html',
+    messages: fun.conf.html + '/messages.html',
+    videos: fun.conf.html + '/videos.html',
 
-    footer: fun.conf.applications + fun.conf.seedApplication + '/footer.html'
+    controlTo: fun.conf.html + '/controlTo.html',
+    controlFrom: fun.conf.html + '/controlFrom.html',
+    findLapse: fun.conf.html + '/findLapse.html',
+    
+    message: fun.conf.html + '/message.html',
+    messageSmall: fun.conf.html + '/messageSmall.html',
+    messageMedium: fun.conf.html + '/messageMedium',
+    messageLarge: fun.conf.html + '/messageLarge',
+
+    warning: fun.conf.html + '/warning.html',
+    warningSmall: fun.conf.html + '/warningSmall.html',
+    warningMedium: fun.conf.html + '/warningMedium.html',
+    warningLarge: fun.conf.html + '/warningLarge.html',
+
+    error: fun.conf.html + '/error.html',
+    errorSmall: fun.conf.html + '/errorSmall.html',
+    errorMedium: fun.conf.html + '/errorMedium.html',
+    errorLarge: fun.conf.html + '/errorLarge.html',
+
+    phone: fun.conf.html + '/phone.html',
+
+    profile: fun.conf.html + '/profile.html',
+
+    activity: fun.conf.html + '/activity.html',
+    members: fun.conf.html + '/members.html',
+    teams: fun.conf.html + '/teams.html',
+
+
+    recordings: fun.conf.html + '/recordings.html',
+    reports: fun.conf.html + '/reports.html',
+    settings: fun.conf.html + '/settings.html',
+
+    extra: fun.conf.html + '/extra.html',
+    extraNavbar: fun.conf.html + '/extraNavbar.html',
+    extraNavLanding: fun.conf.html + '/extraNavLanding.html',
+    extraNavDashboard: fun.conf.html + '/extraNavDashboard.html',
+    
+    social: fun.conf.html + '/social.html',
+    subscribe: fun.conf.html + '/subscribe.html',
+
+    footer: fun.conf.html + '/footer.html'
 };
 
 /*
@@ -225,18 +237,26 @@ fun.conf.templates = {
 fun.conf.hash = {
     home: '#home',
     landing : '#landing',
-    about: '#about',
-    stories: '#stories',
-    technology: '#technology',
-    community: '#community',
-    education: '#education',
-    products: '#products',
-    services: '#services',
+    howto: '#howto',
+    features: '#features',
+    enterprise: '#enterprise',
+    terms:
+    privacy:
+    security:
+    status:
+    developers:
+    help:
     support: '#support',
     contact: '#contact',
     signup : '#signup',
     login : '#login',
     dashboard : '#dashboard',
+    orgs:
+    campaigns
+    profile: '#profile',
+    activity: '#activity',
+    members: '#members',
+    teams: '#teams',
     phone: '#phone',
     reports : '#reports',
     recordings: '#recordings',

@@ -79,7 +79,7 @@ fun.views.reports = Backbone.View.extend({
         var models = {
             records: new fun.models.RecordsStartEnd(startEnd),
             summary: new fun.models.SummaryStartEnd(startEnd),
-            // summaries: new fun.models.SummariesStartEnd(startEnd),
+            summaries: new fun.models.SummariesStartEnd(startEnd),
             billing: new fun.models.BillingStartEnd(startEnd)
 
             // lapseSummary : new fun.models.LapseSummaryStartEnd(startEndLapse)

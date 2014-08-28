@@ -47,7 +47,7 @@ body {
 p { 
     margin-bottom: 1.7em;
 
-    font: 13px/1.7em 'Open Sans';   
+    font: 14px/1.7em 'Open Sans';   
 }
 
 ul {
@@ -146,7 +146,13 @@ textarea {
     color: #81994D;
 }
 
+.jumbotron p.text-muted {
+    font-size: 14px;
+}
 
+.nav-tabs {
+    margin-bottom: 1.7em;
+}
 
 /*------------------------------------------------------------------
 [3. Landing / #landing]
@@ -226,6 +232,24 @@ textarea {
 [6. Extra / #extra]
 */
 
+.marketing-header {
+    text-align: center;
+}
+
+/* Center align the text within the three columns below the marketing header */
+.marketing .col-md-6 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-md-6 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
 #extra {    
     border-top: 1px solid #000;
 }
@@ -238,10 +262,105 @@ textarea {
     border-top: 1px solid #555;
 }
 
+.vcard-stat {
+    float: left;
+    width: 33.333%;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.vcard-username {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    color: #666;
+    text-overflow: ellipsis;
+}
+
+.vcard-fullname {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 26px;
+    line-height: 30px;
+    text-overflow: ellipsis;
+}
+
+.vcard-names {
+    margin-top: 5px;
+    line-height: 1;
+}
+
+.vcard-details {
+    list-style: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid #eee;
+}
+
+.vcard-stats {
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.vcard-stat-count {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
+/* repo list */
+
+.repolist {
+    padding-top: 10px;
+}
+
+.repolist > li {
+    position: relative;
+    min-height: 66px;
+    padding-left: 45px;
+    padding-bottom: 20px;
+    margin: 0 0 20px;
+    list-style: none;
+    border-bottom: 1px solid #eee;
+}
+
+.repolist .repolist-icon {
+    float: left;
+    margin-left: -45px;
+    text-align: center;
+    width: 35px;
+    color: #bbb;
+}
+
+/* blankslate state */
+.blankslate {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 1.7em;
+    text-align: center;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
 
 /*------------------------------------------------------------------
 [7. Footer / #footer]
 */
+ 
+
 
 #footer {
     border-top: 1px solid #000;
@@ -357,154 +476,4 @@ textarea {
     display: table-cell;
 
     text-align: center;
-}
-
-
-#AlertDiv h1{
-    margin:auto;
-    vertical-align : middle;
-    border: 2px solid green;
-    text-align: center;
-} 
-
-
-#fun-match-score-blue {
-  display:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-#fun-match-score-blue h1 {
-  display:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-#fun-match-score-pink {
-  display:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-#fun-match-score-pink h1 {
-  display:inline;
-  text-align: center;
-  vertical-align:middle; 
-}
-
-
-#fun-game-score-blue {
-  ddisplay:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-#fun-game-score-blue h1 {
-  display:inline;
-  text-align: center;
-  vertical-align:middle; 
-}
-
-
-#fun-game-score-pink {
-  display:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-#fun-game-score-pink h1 {
-  display:inline;
-  text-align: center;
-  vertical-align:middle;
-}
-
-/*------------------------------------------------------------------
-[12. Circle Icon]
-*/
-
-.circle-icon {  
-    position: relative;
-
-    width: 50px;
-    height: 50px;
-
-    background: #292929;
-
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.circle-icon div {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 44px;
-    height: 44px;
-    
-    margin-top: -22px;
-    margin-left: -22px;
-
-    font-size: 24px;
-    text-align: center;
-    line-height: 40px;
-    color: #FFF;
-
-    border: 2px solid #FFF;
-    
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-
-
-/*------------------------------------------------------------------
-[13. Round Image]
-*/
-
-.img {
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 100px;
-}
-
-.img img {
-    max-width: 100%;
-}
-
-
-
-
-/*------------------------------------------------------------------
-[14. Miscellaneous]
-*/
-
-.big-intro {
-    font-size: 28px;
-    line-height: 1.7em;
-    color: #888;
-    
-    padding: 25px 0;
-    
-    border: 1px dotted #CCC;
-    border-right: none;
-    border-left: none;
-}
-
-
-
-.slash {
-    padding-right: .25em;
-    color: #81994D;
 }

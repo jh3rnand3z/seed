@@ -34,6 +34,5 @@ fun.strings = {
     eight: "8",
     nine: "9",
     asterisk: "*",
-    pound: "#",
-    hola: "hola"
+    pound: "#"
 }

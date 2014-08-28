@@ -40,7 +40,12 @@
 }
 
 
+@media (min-width: 768px){
 
+    .navbar .container .navbar-brand {
+        margin-left: 0;
+    }
+}
 
 /*------------------------------------------------------------------
 [3. Max Width: 979px]
@@ -194,22 +199,4 @@
         margin-bottom: 3em;
     }
 
-
-    /*----------------------------
-    [Screenshots / #screenshots]
-    */
-
-    #screenshots {
-        margin-right: -20px;
-        margin-left: -20px;
-    }
-
-    #screenshots .inner {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    .screenshot {
-        margin-bottom: 1.5em;
-    }
 }
