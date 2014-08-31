@@ -1,29 +1,28 @@
 fun.views.help = Backbone.View.extend({
 
-    /**
+    /*
     * Bind the event functions to the different HTML elements
     */
-    // click events missing
-    events: {
+    events : {
 
     },
-
-    /**
+    
+    /*
     * Class constructor
     */
-    initialize: function(options){
+    initialize : function(options) {
         fun.containers.help = this.$el;
     },
-
-    /**
-    * Render view
+    
+    /*
+    * Render the help view
     */
-    render: function(){
-        console.log('render help view');
-
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.help));
-
-        this.$el.html(template);
+    render : function(){
+        if (!this.$el.html()){
+            var template = _.template(fun.utils.getTemplate(fun.conf.templates.help));
+            this.$el.html(template);
+        }
         this.$el.show();
     }
+
 });
