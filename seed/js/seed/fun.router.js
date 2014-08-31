@@ -248,7 +248,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Terms');
-        fun.instances.enterprise.render();
+        fun.instances.terms.render();
         
         fun.instances.footer.render();
     },
@@ -257,7 +257,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Privacy');
-        fun.instances.enterprise.render();
+        fun.instances.privacy.render();
         
         fun.instances.footer.render();
     },
@@ -266,7 +266,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Security');
-        fun.instances.enterprise.render();
+        fun.instances.security.render();
         
         fun.instances.footer.render();
     },
@@ -275,7 +275,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Status');
-        fun.instances.enterprise.render();
+        fun.instances.status.render();
         
         fun.instances.footer.render();
     },
@@ -284,7 +284,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Developers');
-        fun.instances.enterprise.render();
+        fun.instances.developers.render();
         
         fun.instances.footer.render();
     },
@@ -293,7 +293,7 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Help');
-        fun.instances.enterprise.render();
+        fun.instances.help.render();
         
         fun.instances.footer.render();
     },
@@ -424,7 +424,7 @@ initialize: function(){
     orgs: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Orgs');
+        fun.instances.subheader.render('Organizations');
         fun.instances.subheader.renderHeadNav();
         fun.instances.orgs.render();
         

@@ -160,6 +160,8 @@ fun.conf.templates = {
     security: fun.conf.html + '/security.html',
     terms: fun.conf.html + '/terms.html',
 
+    privacy: fun.conf.html + '/privacy.html',
+
     
     signup: fun.conf.html + '/signup.html',
 
@@ -183,7 +185,7 @@ fun.conf.templates = {
     todaySummary: fun.conf.html + '/todaySummary.html',
     todayActivityChart: fun.conf.html + '/todayActivityChart.html',
 
-    dialBox: fun.conf.html + '/dialBox.html', //eventually rename this to dialpad.
+    dialpad: fun.conf.html + '/dialpad.html',
     
     messages: fun.conf.html + '/messages.html',
     videos: fun.conf.html + '/videos.html',
