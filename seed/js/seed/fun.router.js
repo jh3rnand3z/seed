@@ -325,7 +325,7 @@ initialize: function(){
             fun.instances.subheader.render('Signup');
             fun.instances.signup.render();
         }
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
     
@@ -338,7 +338,7 @@ initialize: function(){
             fun.instances.subheader.render('Login');
             fun.instances.login.render();
         }
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
     
@@ -397,7 +397,7 @@ initialize: function(){
             fun.utils.redirect(fun.conf.hash.login);
         }
 
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -475,7 +475,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Phone');
         fun.instances.phone.render();
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -490,7 +490,7 @@ initialize: function(){
         } else {
             fun.utils.redirect(fun.conf.hash.login);
         }
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -499,7 +499,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Recordings');
         fun.instances.recordings.render();
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -508,7 +508,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Settings');
         fun.instances.settings.render();
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -518,7 +518,7 @@ initialize: function(){
         fun.instances.navbar.render()
         fun.instances.subheader.render('Good bye!');      
         fun.instances.login.render();
-        fun.instances.extra.render();
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     }
 
