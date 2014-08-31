@@ -415,7 +415,8 @@ initialize: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Campaings');
-
+        fun.instances.subheader.renderHeadNavCampaigns();
+        
         fun.instances.campaigns.render();
         
         fun.instances.footer.render();
