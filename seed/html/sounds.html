@@ -1,0 +1,120 @@
+<div class="container">
+        
+    <div class="row">
+                        
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">answer</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="answer-sound-form" class="form-sound" novalidate="novalidate">
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Remember to mention the Transfer and Do Not Call options and digits in this message.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="campaign_description"><%= translate("description") %> (optional)</label>
+                            <input type="text" id="campaign_description" name="campaign_description" class="form-control">
+                        </div>
+
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                    </form>
+                          
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">transfer</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="answer-sound-form" class="form-sound" novalidate="novalidate">
+  
+
+                        <div class="form-group input-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Select a message that plays when the Transfer option is chosen.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transfer_description"><%= translate("description") %> (optional)</label>
+                            <input type="text" id="campaign_description" name="transfer_description" class="form-control">
+                        </div>
+
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                    </form>
+                          
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">answering machine</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="answer-machine-sound-form" class="form-sound" novalidate="novalidate">
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Select a message that plays when an answering machine picks up your call.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="campaign_description"><%= translate("description") %> (optional)</label>
+                            <input type="text" id="campaign_description" name="campaign_description" class="form-control">
+                        </div>
+
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                    </form>
+                          
+                </div>
+            </div>
+
+        </div>
+
+                        
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">do not call</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="do_not_call-sound-form" class="form-sound" novalidate="novalidate">
+  
+
+                        <div class="form-group input-group">
+                                            
+                            <label for="audioFile">File input</label>
+                            <input type="file" id="audioFile">
+                            <p class="help-block">Select a message that plays to acknowledge that the Do Not Call option has been chosen.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="do_not_call_description"><%= translate("description") %> (optional)</label>
+                            <input type="text" id="do_not_call_description" name="do_not_call_description" class="form-control">
+                        </div>
+
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                    </form>
+                          
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

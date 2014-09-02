@@ -497,7 +497,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Contacts');
         fun.instances.subheader.renderHeadNavCampaigns();
-        fun.instances.phone.render();
+        fun.instances.contacts.render();
         //fun.instances.extra.render();
         fun.instances.footer.render();
     },

@@ -151,6 +151,7 @@ fun.conf.templates = {
     subheader: fun.conf.html + '/subheader.html',
     headNav: fun.conf.html + '/headNav.html',
     headNavCampaigns: fun.conf.html + '/headNavCampaigns.html',
+    headNavReports: fun.conf.html + '/headNavReports.html',
     
     landing: fun.conf.html + '/landing.html',
     

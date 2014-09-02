@@ -42,10 +42,6 @@ fun.views.subheader = Backbone.View.extend({
         var headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
-
-        /*
-        this.$el.show();
-        */
     },
 
     renderHeadNavCampaigns : function(){
@@ -56,10 +52,16 @@ fun.views.subheader = Backbone.View.extend({
         var headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
+    },
 
-        /*
-        this.$el.show();
-        */
+    renderHeadNavReports : function(){
+        var template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.headNavReports)
+        );
+
+        var headNav = this.$('#fun-head-nav');
+
+        headNav.html(template);
     },
 
 });
