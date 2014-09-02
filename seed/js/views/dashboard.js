@@ -20,6 +20,22 @@ fun.views.dashboard = Backbone.View.extend({
         this.renderTodayActivityChart();
         this.renderLatestRecords();
         this.renderRecordType();
+
+        $('div.btn-group[data-toggle-name]').each(function() {
+            var group = $(this);
+            var name = group.attr('data-toggle-name');
+            var hidden = $('input[name="' + name + '"]', $form);
+            $('label', group).each(function() {
+                var button = $(this).find('input:radio');
+                $(this).on('click', function() {
+                    //console.log( button.val() );
+                    hidden.val(button.val());
+            });
+        if (button.val() == hidden.val()) {
+            $(this).addClass('active');
+        }
+    });
+});
     },
 
     renderTodaySummary : function(account, summary, billing){

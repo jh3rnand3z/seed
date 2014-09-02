@@ -6,9 +6,7 @@ fun.Router = Backbone.Router.extend({
     routes: {
         "": "home",
         "home": "home",
-
         "landing": "landing",
-
         "howto": "howto",
         
         "features": "features",
@@ -21,13 +19,11 @@ fun.Router = Backbone.Router.extend({
         "developers": "developers",
         "help": "help",
 
-        "contact": "contact",
-
         "signup": "signup",
         "login": "login",
 
         "dashboard": "dashboard",
-        
+
         "campaigns": "campaigns",
         "orgs": "orgs",
 
@@ -39,7 +35,10 @@ fun.Router = Backbone.Router.extend({
         "reports": "reports",
 
         "phone": "phone",
+        "contacts": "contacts",
+        "sounds":"sounds",
         "recordings": "recordings",
+        "gateways": "gateways",
 
         "support": "support",
         "settings": "settings",
@@ -160,11 +159,21 @@ initialize: function(){
             el:"#fun-phone"
         });
 
+        // contacts
+        fun.instances.contacts = new fun.views.contacts({
+            el:"#fun-contacts"
+        });
+
         // recordings
         fun.instances.recordings = new fun.views.recordings({
             el:"#fun-recordings"
         });
-          
+        
+        // sounds
+        fun.instances.sounds = new fun.views.sounds({
+            el:"#fun-sounds"
+        });
+
         // reports
         fun.instances.reports = new fun.views.reports({
             el:"#fun-reports"
@@ -325,6 +334,7 @@ initialize: function(){
             fun.instances.subheader.render('Signup');
             fun.instances.signup.render();
         }
+
         //fun.instances.extra.render();
         fun.instances.footer.render();
     },
@@ -338,6 +348,7 @@ initialize: function(){
             fun.instances.subheader.render('Login');
             fun.instances.login.render();
         }
+
         //fun.instances.extra.render();
         fun.instances.footer.render();
     },
@@ -356,6 +367,7 @@ initialize: function(){
 
         var onSuccess = function(){
             if(++modelCount == _.keys(models).length){
+                console.log('spawn');
                 console.log('daemon');
                 console.log('success!');
 
@@ -414,7 +426,7 @@ initialize: function(){
     campaigns: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Campaings');
+        fun.instances.subheader.render('Campaigns');
         fun.instances.subheader.renderHeadNavCampaigns();
 
         fun.instances.campaigns.render();
@@ -480,18 +492,39 @@ initialize: function(){
         fun.instances.footer.render();
     },
 
+    contacts: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Contacts');
+        fun.instances.subheader.renderHeadNavCampaigns();
+        fun.instances.phone.render();
+        //fun.instances.extra.render();
+        fun.instances.footer.render();
+    },
+
+    sounds: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Sounds');
+        fun.instances.subheader.renderHeadNavCampaigns();
+        fun.instances.sounds.render();
+        //fun.instances.extra.render();
+        fun.instances.footer.render();
+    },
+
     reports: function(){
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
             fun.instances.navbar.render();
 
             fun.instances.subheader.render('Reports');
+            fun.instances.subheader.renderHeadNavReports();
 
             fun.instances.reports.render();
         } else {
             fun.utils.redirect(fun.conf.hash.login);
         }
-        //fun.instances.extra.render();
+        
         fun.instances.footer.render();
     },
 

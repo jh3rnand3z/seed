@@ -3,7 +3,6 @@
 */
 fun.conf = {
     account: 'account',
-
     urlRoot: '/api/',
 
     html: '/static/html/',
@@ -11,7 +10,7 @@ fun.conf = {
 
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
-   
+
     lapse: 'lapse',          
 
     startTime: 'start_time',
@@ -31,7 +30,7 @@ fun.conf = {
 };
 
 /*
- Configuration VoIP daemons
+ Configuration SIP WS
 */
 fun.conf.daemons = {
     ws_server: 'ws://' + fun.conf.domain,
@@ -50,7 +49,7 @@ fun.conf.timeouts = {
     big: 60000,
     medium: 15000,
     small: 5000
-}
+};
 
 /*
  Current JsSIP configuration
@@ -92,7 +91,7 @@ fun.conf.urls = {
 
     user: '/users/' + fun.conf.account,
     users: '/users',
-    
+
     org: '/orgs/' + fun.conf.account,
     orgs: '/orgs/',
 
@@ -120,6 +119,10 @@ fun.conf.urls = {
     lapseSummariesStart: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime,
     lapseSummariesStartEnd: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
+
+    recordsStart: '/records/start/' + fun.conf.startTime,
+    recordsStartEnd: '/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+
     billingsRecord: '/billings/records/' + fun.conf.uuidRecord,
     billingsRecords: '/billings/records/',
     
@@ -129,8 +132,9 @@ fun.conf.urls = {
     billingsRecordsStart: '/billings/records/start/' + fun.conf.startTime,
     billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
-    recordsStart: '/records/start/' + fun.conf.startTime,
-    recordsStartEnd: '/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime
+
+    /*contacts, sounds, recordings*/
+
 };
 
 /*
@@ -218,7 +222,8 @@ fun.conf.templates = {
     members: fun.conf.html + '/members.html',
     teams: fun.conf.html + '/teams.html',
 
-
+    contacts: fun.conf.html + '/contacts.html',
+    sounds: fun.conf.html + '/sounds.html',
     recordings: fun.conf.html + '/recordings.html',
     reports: fun.conf.html + '/reports.html',
     settings: fun.conf.html + '/settings.html',
@@ -262,6 +267,8 @@ fun.conf.hash = {
     teams: '#teams',
     phone: '#phone',
     reports : '#reports',
+    contacts: '#contacts',
+    sounds: '#sounds',
     recordings: '#recordings',
     settings : '#settings'
 };
