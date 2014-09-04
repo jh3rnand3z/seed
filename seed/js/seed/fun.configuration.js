@@ -10,6 +10,10 @@ fun.conf = {
 
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
+    uuidCampaign: 'campaign_uuid',
+    uuidContact: 'contact_uuid',
+    uuidDirectory: 'directory_uuid',
+    uuidSound: 'sound_uuid',
 
     lapse: 'lapse',          
 
@@ -89,7 +93,7 @@ fun.conf.urls = {
     login: '/login',
     logout: '/logout',
 
-    user: '/users/' + fun.conf.account,
+    user: fun.utils.format('/users/%s', fun.conf.account),
     users: '/users',
 
     org: '/orgs/' + fun.conf.account,
@@ -141,7 +145,7 @@ fun.conf.urls = {
  HTML templates
 */
 fun.conf.templates = {
-    navbar: fun.conf.html + '/navbar.html',
+    navbar: fun.utils.format('%s/navbar.html', fun.conf.html),
     
     navLanding: fun.conf.html + '/navLanding.html',
     navDashboard: fun.conf.html + '/navDashboard.html',

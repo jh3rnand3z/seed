@@ -215,6 +215,18 @@ fun.utils.validationRules = function () {
     return custom;
 };
 
+/**
+ * string 'join' format
+ */
+fun.utils.format = function () {
+    var args = [].slice.call(arguments);
+    var initial = args.shift();
+
+    function replacer (text, replacement) {
+        return text.replace('%s', replacement);
+    }
+    return args.reduce(replacer, initial);
+};
 
 /**
  * jQuery validator custom error messages
@@ -249,3 +261,4 @@ jQuery.extend(jQuery.validator.messages, {
  */
 var translate = fun.utils.translate;
 var round = fun.utils.round;
+
