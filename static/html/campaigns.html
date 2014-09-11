@@ -7,6 +7,7 @@
                 <i class="fa fa-random fa-stack-1x"></i>
             </span>
         </div>
+
         <div class="col-md-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -60,29 +61,26 @@
                             </label>
                             <span class="mega-octicon octicon-repo"></span>
 
-                                <span class="note">
-                                    Anyone can see this campaign. You choose who can send messages.
-                                </span>
+                            <span class="note">
+                                Anyone can see this campaign. You choose who can send messages.
+                            </span>
                         </div>
 
                         <div class="form-checkbox">
-                                <label>
-                                    <input class="js-privacy-toggle" id="repository_public_false" name="repository[public]" tabindex="5" type="radio" value="false">
-                                                  <%= translate("outbound") %>
-                                </label>
-                                <span class="mega-octicon octicon-lock"></span>
-                                <span class="note">
-                                    You choose who can see and use this campaign.
-                                </span>
-                            </div>
+                            <label>
+                                <input class="js-privacy-toggle" id="repository_public_false" name="repository[public]" tabindex="5" type="radio" value="false">
+                                        <%= translate("outbound") %>
+                            </label>
+                            <span class="mega-octicon octicon-lock"></span>
+                            <span class="note">
+                                You choose who can see and use this campaign.
+                            </span>
+                        </div>
 
-                                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("createCampaign") %></button>
-                                    </form>
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("createCampaign") %></button>
+                    </form>
                       
-                                </div>
-                            </div>
-
-
-            
-    </div>
+                </div>
+            </div>
+        </div>
 </div>
