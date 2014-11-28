@@ -1,0 +1,24 @@
+<div class="col-md-4">
+    <h3><%= translate("summary") %></h3>
+
+    <table class="table stat-table">
+        <tbody>
+            <tr>
+                <td class="value"><%= records %></td>
+                <td class="full"><%= translate("records") %></td>
+            </tr>
+            <tr>
+                <td class="value"><%= minutes %></td>
+                <td class="full"><%= translate("minutes") %></td>
+            </tr>
+            <tr>
+                <td class="value"><%= rec_avg %></td>
+                <td class="full"><%= translate("durationAverage") %></td>
+            </tr>
+            <tr>
+                <td class="value">$<%= billing %></td>
+                <td class="full"><%= translate("total") %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
