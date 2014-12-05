@@ -15,7 +15,7 @@ fun.conf = {
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
 
-    lapse: 'lapse',          
+    lapse: 'lapse',
 
     startTime: 'start_time',
     endTime: 'end_time',

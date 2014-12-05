@@ -31,11 +31,11 @@ fun.views.dashboard = Backbone.View.extend({
                     //console.log( button.val() );
                     hidden.val(button.val());
             });
-        if (button.val() == hidden.val()) {
-            $(this).addClass('active');
-        }
-    });
-});
+                if (button.val() == hidden.val()) {
+                    $(this).addClass('active');
+                }
+            });
+        });
     },
 
     renderTodaySummary : function(account, summary, billing){
