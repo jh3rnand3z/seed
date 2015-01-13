@@ -34,5 +34,7 @@ fun.strings = {
     eight: "8",
     nine: "9",
     asterisk: "*",
+    ioFunBanner: "Fantastical unbelievable communication.",
+    ioFunLandingText: "Powerful organization, call review, and account management for inbound and outbound campaigns.",
     pound: "#"
 }
