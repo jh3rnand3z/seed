@@ -138,7 +138,6 @@ fun.strings = {
     newOption: "New",
     userDoesntHaveAnyCampaignsYet: "User doesn't have any campaigns yet",
     userHasNoActivityDuringThisPeriod: "User has no activity during this period",
-    
     resources: "Resources",
     nodes: "Nodes",
     clusters: "Clusters",
@@ -164,6 +163,11 @@ fun.strings = {
     minutes: "Minutes",
     average: "Average",
     billing: "Billing",
+
+
+    whyLove: "Why you'll love io fun",
+    growingMango: "Growing mango trees in the home landscape will give you a lifetime of fresh pungent fruit from an attractive shade tree",
+
 
     asterisk: "*",
     pound: "#"
