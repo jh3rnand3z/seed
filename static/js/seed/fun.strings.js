@@ -32,7 +32,7 @@ fun.strings = {
     eight: "8",
     nine: "9",
     ioFunBanner: "Fantastical unbelievable communication.",
-    ioFunLandingText: "Powerful organization, call review, and account management for inbound and outbound campaigns.",
+    ioFunLandingText: "Powerful organization, account management, record and call review for inbound and outbound campaigns.",
     howItWorks: "How it works",
     getStarted: "Get started",
     needEnterpriseResources: "Need enterprise resources",
@@ -42,6 +42,8 @@ fun.strings = {
     signup: "Signup",
     isFastToGetStarted: "Is fast to get started",
     createYourUserAccount: "Create your user account",
+    itsFastToGetStarted: "Fast to GET started",
+    todayActivity: "Today Activity",
     yourUsername: "Your Username",
     yourAccount: "Your Account",
     yourEmail: "Your Email",
@@ -139,6 +141,7 @@ fun.strings = {
     userDoesntHaveAnyCampaignsYet: "User doesn't have any campaigns yet",
     userHasNoActivityDuringThisPeriod: "User has no activity during this period",
     resources: "Resources",
+    accounts: "Accounts",
     nodes: "Nodes",
     clusters: "Clusters",
     clouds: "Clouds",
@@ -163,11 +166,12 @@ fun.strings = {
     minutes: "Minutes",
     average: "Average",
     billing: "Billing",
-
-
+    find: "Find",
+    accounts: "Accounts",
+    cohorts: "Cohorts",
     whyLove: "Why you'll love io fun",
     growingMango: "Growing mango trees in the home landscape will give you a lifetime of fresh pungent fruit from an attractive shade tree",
-
+    outboundCampaigns: "Outbound campaigns for the loudest animals",
 
     asterisk: "*",
     pound: "#"
