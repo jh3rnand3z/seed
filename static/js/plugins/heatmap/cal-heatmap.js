@@ -1,4 +1,4 @@
-/*! cal-heatmap v3.4.0 (Tue May 13 2014 12:22:20)
+/*! cal-heatmap v3.5.2 (Thu Feb 05 2015 17:06:47)
  *  ---------------------------------------------
  *  Cal-Heatmap is a javascript module to create calendar heatmap to visualize time series data
  *  https://github.com/kamisama/cal-heatmap
@@ -460,7 +460,7 @@ var CalHeatMap = function() {
 			format: {
 				date: "%B Week #%W",
 				legend: "%B Week #%W",
-				connector: "on"
+				connector: "in"
 			},
 			extractUnit: function(d) {
 				var dt = new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -488,7 +488,7 @@ var CalHeatMap = function() {
 			format: {
 				date: "%B %Y",
 				legend: "%B",
-				connector: "on"
+				connector: "in"
 			},
 			extractUnit: function(d) {
 				return new Date(d.getFullYear(), d.getMonth()).getTime();
@@ -506,7 +506,7 @@ var CalHeatMap = function() {
 			format: {
 				date: "%Y",
 				legend: "%Y",
-				connector: "on"
+				connector: "in"
 			},
 			extractUnit: function(d) {
 				return new Date(d.getFullYear()).getTime();
@@ -862,17 +862,32 @@ var CalHeatMap = function() {
 
 				if (options.tooltip) {
 					selection.on("mouseover", function(d) {
-						var domainNode = this.parentNode.parentNode.parentNode;
+						var domainNode = this.parentNode.parentNode;
 
 						self.tooltip
 						.html(self.getSubDomainTitle(d))
 						.attr("style", "display: block;")
 						;
 
+						var tooltipPositionX = self.positionSubDomainX(d.t) - self.tooltip[0][0].offsetWidth/2 + options.cellSize/2;
+						var tooltipPositionY = self.positionSubDomainY(d.t) - self.tooltip[0][0].offsetHeight - options.cellSize/2;
+
+						// Offset by the domain position
+						tooltipPositionX += parseInt(domainNode.getAttribute("x"), 10);
+						tooltipPositionY += parseInt(domainNode.getAttribute("y"), 10);
+
+						// Offset by the calendar position (when legend is left/top)
+						tooltipPositionX += parseInt(self.root.select(".graph").attr("x"), 10);
+						tooltipPositionY += parseInt(self.root.select(".graph").attr("y"), 10);
+
+						// Offset by the inside domain position (when label is left/top)
+						tooltipPositionX += parseInt(domainNode.parentNode.getAttribute("x"), 10);
+						tooltipPositionY += parseInt(domainNode.parentNode.getAttribute("y"), 10);
+
 						self.tooltip.attr("style",
-							"display: block; " +
-							"left: " + (self.positionSubDomainX(d.t) - self.tooltip[0][0].offsetWidth/2 + options.cellSize/2 + parseInt(domainNode.getAttribute("x"), 10)) + "px; " +
-							"top: " + (self.positionSubDomainY(d.t) - self.tooltip[0][0].offsetHeight - options.cellSize/2 + parseInt(domainNode.getAttribute("y"), 10)) + "px;")
+						"display: block; " +
+						"left: " + tooltipPositionX + "px; " +
+						"top: " + tooltipPositionY + "px;")
 						;
 					});
 
@@ -1371,7 +1386,15 @@ CalHeatMap.prototype = {
 			}
 
 			element.attr("fill", function(d) {
-				if (d.v === 0 && options.legendColors !== null && options.legendColors.hasOwnProperty("empty")) {
+				if (d.v === null && (options.hasOwnProperty("considerMissingDataAsZero") && !options.considerMissingDataAsZero)) {
+					if (options.legendColors.hasOwnProperty("base")) {
+						return options.legendColors.base;
+					}
+				}
+
+				if (options.legendColors !== null && options.legendColors.hasOwnProperty("empty") &&
+					(d.v === 0 || (d.v === null && options.hasOwnProperty("considerMissingDataAsZero") && options.considerMissingDataAsZero))
+				) {
 					return options.legendColors.empty;
 				}
 
@@ -1386,24 +1409,30 @@ CalHeatMap.prototype = {
 		rect.transition().duration(options.animationDuration).select("rect")
 			.attr("class", function(d) {
 
-				var htmlClass = parent.getHighlightClassName(d.t);
+				var htmlClass = parent.getHighlightClassName(d.t).trim().split(" ");
+				var pastDate = parent.dateIsLessThan(d.t, new Date());
 
-				if (parent.legendScale === null) {
-					htmlClass += " graph-rect";
+				if (parent.legendScale === null ||
+					(d.v === null && (options.hasOwnProperty("considerMissingDataAsZero") && !options.considerMissingDataAsZero) &&!options.legendColors.hasOwnProperty("base"))
+				) {
+					htmlClass.push("graph-rect");
+				}
+
+				if (!pastDate && htmlClass.indexOf("now") === -1) {
+					htmlClass.push("future");
 				}
 
 				if (d.v !== null) {
-					htmlClass += " " + parent.Legend.getClass(d.v, (parent.legendScale === null));
-				} else if (options.considerMissingDataAsZero &&
-					parent.dateIsLessThan(d.t, new Date())) {
-					htmlClass += " " + parent.Legend.getClass(0, (parent.legendScale === null));
+					htmlClass.push(parent.Legend.getClass(d.v, (parent.legendScale === null)));
+				} else if (options.considerMissingDataAsZero && pastDate) {
+					htmlClass.push(parent.Legend.getClass(0, (parent.legendScale === null)));
 				}
 
 				if (options.onClick !== null) {
-					htmlClass += " hover_cursor";
+					htmlClass.push("hover_cursor");
 				}
 
-				return htmlClass;
+				return htmlClass.join(" ");
 			})
 			.call(addStyle)
 		;
@@ -1889,6 +1918,8 @@ CalHeatMap.prototype = {
 				dateA.getDate() === dateB.getDate();
 		case "x_week":
 		case "week":
+			return dateA.getFullYear() === dateB.getFullYear() &&
+				this.getWeekNumber(dateA) === this.getWeekNumber(dateB);
 		case "x_month":
 		case "month":
 			return dateA.getFullYear() === dateB.getFullYear() &&
@@ -1900,7 +1931,7 @@ CalHeatMap.prototype = {
 
 
 	/**
-	 * Returns weather or not dateA is less than or equal to dateB. This function is subdomain aware.
+	 * Returns wether or not dateA is less than or equal to dateB. This function is subdomain aware.
 	 * Performs automatic conversion of values.
 	 * @param dateA may be a number or a Date
 	 * @param dateB may be a number or a Date
@@ -2852,7 +2883,7 @@ CalHeatMap.prototype = {
 			.each("end", function() {
 				if (typeof callback === "function") {
 					callback();
-				} else if (arguments.length > 0) {
+				} else if (typeof callback !== "undefined") {
 					console.log("Provided callback for destroy() is not a function.");
 				}
 			})

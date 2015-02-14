@@ -5,7 +5,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">answer</h3>
+                    <h3 class="panel-title"><%= translate("answer") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -17,13 +17,13 @@
                     <form id="answer-sound-form" class="form-sound" novalidate="novalidate">
 
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
+                            <label for="exampleInputFile"><%= translate("fileInput") %></label>
                             <input type="file" id="exampleInputFile">
                             <p class="help-block">Remember to mention the Transfer and Do Not Call options and digits in this message.</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="answer_description"><%= translate("description") %> (optional)</label>
+                            <label for="answer_description"><%= translate("descriptionOptional") %></label>
                             <input type="text" id="answer_description" name="answer_description" class="form-control">
                         </div>
 
@@ -37,7 +37,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">transfer</h3>
+                    <h3 class="panel-title"><%= translate("transfer") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -50,13 +50,13 @@
   
 
                         <div class="form-group input-group">
-                            <label for="exampleInputFile">File input</label>
+                            <label for="exampleInputFile"><%= translate("fileInput") %></label>
                             <input type="file" id="exampleInputFile">
                             <p class="help-block">Select a message that plays when the Transfer option is chosen.</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="transfer_description"><%= translate("description") %> (optional)</label>
+                            <label for="transfer_description"><%= translate("descriptionOptional") %></label>
                             <input type="text" id="campaign_description" name="transfer_description" class="form-control">
                         </div>
 
@@ -107,12 +107,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="transfer_number"><%= translate("transfer number") %></label>
+                            <label for="transfer_number"><%= translate("transferNumber") %></label>
                             <input type="text" id="transfer_number" name="transfer_number" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label for="transfer_max"><%= translate("max transfer") %></label>
+                            <label for="transfer_max"><%= translate("maxTransfers") %></label>
                             <input type="text" id="max_transfers" name="max_transfers" class="form-control">
                         </div>
 
@@ -126,7 +126,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">answering machine</h3>
+                    <h3 class="panel-title"><%= translate("answeringMachine") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -138,13 +138,13 @@
                     <form id="answer-machine-sound-form" class="form-sound" novalidate="novalidate">
 
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
+                            <label for="exampleInputFile"><%= translate("fileInput") %></label>
                             <input type="file" id="exampleInputFile">
                             <p class="help-block">Select a message that plays when an answering machine picks up your call.</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="machine_description"><%= translate("description") %> (optional)</label>
+                            <label for="machine_description"><%= translate("descriptionOptional") %></label>
                             <input type="text" id="machine_description" name="machine_description" class="form-control">
                         </div>
 
@@ -161,7 +161,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">do not call</h3>
+                    <h3 class="panel-title"><%= translate("doNotCall") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -175,13 +175,13 @@
 
                         <div class="form-group input-group">
                                             
-                            <label for="audioFile">File input</label>
+                            <label for="audioFile"><%= translate("fileInput") %></label>
                             <input type="file" id="audioFile">
                             <p class="help-block">Select a message that plays to acknowledge that the Do Not Call option has been chosen.</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="do_not_call_description"><%= translate("description") %> (optional)</label>
+                            <label for="do_not_call_description"><%= translate("descriptionOptional") %></label>
                             <input type="text" id="do_not_call_description" name="do_not_call_description" class="form-control">
                         </div>
 
