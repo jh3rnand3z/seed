@@ -384,7 +384,7 @@ initialize: function(){
                 );
                 
                 console.log('Distribution Missing!')                    
-                // fun.instances.dashboard.renderRecordType();
+                fun.instances.dashboard.renderRecordType();
             }
         };
 

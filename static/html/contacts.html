@@ -2,12 +2,42 @@
         
     <div class="row">
                         
-        
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= translate("upload") %></h3>
+                </div>
+                <div class="panel-body">
+
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                        <i class="fa fa-cloud-upload fa-stack-1x"></i>
+                    </span>
+
+                    <form id="upload-contacts-form" class="form-contacts" novalidate="novalidate">
+
+                        <div class="form-group">
+                            <label for="contact_first_name"><%= translate("directoryName") %></label>
+                            <input type="text" id="contact_first_name" name="contact_first_name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Upload from my device.</p>
+                        </div>
+
+                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                    </form>
+                          
+                </div>
+            </div>
+        </div>
 
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">get contact directory</h3>
+                    <h3 class="panel-title"><%= translate("selectContactDirectory") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -31,7 +61,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">add contacts</h3>
+                    <h3 class="panel-title"><%= translate("addContact") %></h3>
                 </div>
                 <div class="panel-body">
 
@@ -53,23 +83,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="contact_state"><%= translate("state") %></label>
-                            <input type="text" id="contact_state" name="contact_state" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact_zip_code"><%= translate("zip_code") %></label>
-                            <input type="text" id="contact_zip_code" name="contact_zip_code" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact_address"><%= translate("address") %></label>
-                            <input type="text" id="contact_address" name="contact_address" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact_phone"><%= translate("phone") %></label>
-                            <input type="text" id="contact_phone" name="contact_phone" class="form-control">
+                            <label for="contact_phone"><%= translate("phoneNumber") %></label>
+                            <input type="tel" id="new-phone-number" name="contact_phone_number" class="form-control">
                         </div>
 
                         <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
@@ -80,32 +95,42 @@
 
         </div>
 
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">upload</h3>
-                </div>
-                <div class="panel-body">
+    </div>
 
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle-thin fa-stack-2x"></i>
-                        <i class="fa fa-cloud-upload fa-stack-1x"></i>
-                    </span>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- start detail -->
+            <h3 class="title"><%= translate("allContacts") %></h3>
 
-                    <form id="upload-contacts-form" class="form-contacts" novalidate="novalidate">
+            <table id="contacts-list" class="table">
+                <thead>
+                    <tr>
+                        <th><%= translate("firstName") %></th>
+                        <th><%= translate("lastName") %></th>
+                        <th><%= translate("phoneNumber") %></th>
+                        <th><%= translate("country") %></th>
+                        <th><%= translate("location") %></th>
+                        <th><%= translate("timezone") %></th>
+                        <th><%= translate("checked") %></th>
+                        <th><%= translate("dnc") %></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
 
-                        <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="exampleInputFile">
-                            <p class="help-block">Upload from my device.</p>
-                        </div>
-
-                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
-                    </form>
-                          
-                </div>
+            <div class="pagination">
+                <ul class="pagination">
+                    <li><a href="javascript:;"><%= translate("previous") %></a></li>
+                    <li class="active"><a href="javascript:;">1</a></li>
+                    <li><a href="javascript:;">2</a></li>
+                    <li><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;"><%= translate("next") %></a></li>
+                </ul>
             </div>
+                    
+            <div id="no-contacts"></div>
+            <!-- end detail-->
         </div>
-
     </div>
 </div>

@@ -24,5 +24,7 @@ fun.views.contacts = Backbone.View.extend({
 
         this.$el.html(template);
         this.$el.show();
+
+        $("#new-phone-number").intlTelInput();
     }
 });

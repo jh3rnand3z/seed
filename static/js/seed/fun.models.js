@@ -493,3 +493,49 @@ fun.models.BillingStartEnd = Backbone.Model.extend({
         return Backbone.sync(method, model, options);
     }
 });
+
+
+fun.models.Contact = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.contactId = options.contactId;
+    },
+
+    urlRoot: fun.conf.urls.contact,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.contactId, this.contactId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.Contacts = Backbone.Collection.extend({
+
+    model: fun.models.Contact,
+
+    urlRoot: fun.conf.urls.contacts,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.results;
+    }
+});

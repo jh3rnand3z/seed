@@ -21,21 +21,7 @@ fun.views.dashboard = Backbone.View.extend({
         this.renderLatestRecords();
         this.renderRecordType();
 
-        $('div.btn-group[data-toggle-name]').each(function() {
-            var group = $(this);
-            var name = group.attr('data-toggle-name');
-            var hidden = $('input[name="' + name + '"]', $form);
-            $('label', group).each(function() {
-                var button = $(this).find('input:radio');
-                $(this).on('click', function() {
-                    //console.log( button.val() );
-                    hidden.val(button.val());
-            });
-                if (button.val() == hidden.val()) {
-                    $(this).addClass('active');
-                }
-            });
-        });
+        
     },
 
     renderTodaySummary : function(account, summary, billing){
@@ -183,7 +169,7 @@ fun.views.dashboard = Backbone.View.extend({
     noRecords : function() {
     	var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
-        )({msg:'noDataAvailable'});
+        )({message:'noDataAvailable'});
 
         var noRecords = this.$('#no-records');
 
