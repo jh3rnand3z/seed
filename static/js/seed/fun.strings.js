@@ -94,6 +94,7 @@ fun.strings = {
     newMember: "New Member",
     newCampaign: "New Campaign",
     newContact: "New Contact",
+    uploadFromMyDevice: "Upload from my device",
     newOrganization: "New Organization",
     organizationProfile: "Organization profile",
     accountSettings: "Account Settings",

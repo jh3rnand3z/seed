@@ -539,3 +539,95 @@ fun.models.Contacts = Backbone.Collection.extend({
         return response.results;
     }
 });
+
+
+fun.models.Directory = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.directoryId = options.directoryId;
+    },
+
+    urlRoot: fun.conf.urls.directory,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.directoryId, this.directoryId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.Directories = Backbone.Collection.extend({
+
+    model: fun.models.Directory,
+
+    urlRoot: fun.conf.urls.directories,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.results;
+    }
+});
+
+
+fun.models.Campaign = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.campaignId = options.campaignId;
+    },
+
+    urlRoot: fun.conf.urls.campaign,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.campaignId, this.campaignId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.Campaigns = Backbone.Collection.extend({
+
+    model: fun.models.Campaign,
+
+    urlRoot: fun.conf.urls.campaigns,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.results;
+    }
+});

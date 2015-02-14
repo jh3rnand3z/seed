@@ -15,6 +15,8 @@ fun.Router = Backbone.Router.extend({
         "terms": "terms",
         "security": "security",
         "privacy": "privacy",
+
+        "blog": "blog",
         "status": "status",
         "developers": "developers",
         "help": "help",
@@ -90,6 +92,11 @@ initialize: function(){
         // security
         fun.instances.security = new fun.views.security({
             el:"#fun-security"
+        });
+
+        // blog
+        fun.instances.blog = new fun.views.blog({
+            el:"#fun-blog"
         });
 
         // status
@@ -276,6 +283,15 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Security');
         fun.instances.security.render();
+        
+        fun.instances.footer.render();
+    },
+
+    blog: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Blog');
+        fun.instances.blog.render();
         
         fun.instances.footer.render();
     },

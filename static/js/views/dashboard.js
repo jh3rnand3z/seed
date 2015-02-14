@@ -130,9 +130,25 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     renderRecordType : function(){
-        var data = {
-            
-        };
+        //var data = {  
+        //};
+
+        // Randomly Generated Data
+
+        var data = [],
+            series = Math.floor(Math.random() * 6) + 3;
+
+        for (var i = 0; i < series; i++) {
+            data[i] = {
+                label: "Series" + (i + 1),
+                data: Math.floor(Math.random() * 100) + 1
+            }
+        }
+
+        // A custom label formatter used by several of the plots
+        function labelFormatter(label, series) {
+            return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+        }
 
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.recordType)
@@ -141,6 +157,26 @@ fun.views.dashboard = Backbone.View.extend({
         var recordType = this.$('#fun-record-type');
         
         recordType.html(template);
+
+        $.plot('#pie-chart', data, {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 1,
+                    label: {
+                        show: true,
+                        radius: 1,
+                        formatter: labelFormatter,
+                        background: {
+                            opacity: 0.8
+                        }
+                    }
+                }
+            },
+            legend: {
+                show: false
+            }
+        });
     },
 
     renderRows: function(){

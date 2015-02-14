@@ -136,8 +136,16 @@ fun.conf.urls = {
     billingsRecordsStart: fun.utils.format('/billings/records/start/%s', fun.conf.startTime),
     billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
+    contact: fun.utils.format('/contacts/%s', fun.conf.uuidContact),
+    contacts: '/contacts',
 
-    /*contacts, sounds, recordings*/
+    directory: fun.utils.format('/directories/%s', fun.conf.uuidDirectory),
+    directories: '/directories',
+
+    campaign: fun.utils.format('/campaigns/%s', fun.conf.uuidCampaign),
+    campaigns: '/campaigns',
+
+    /*sounds, recordings*/
 
 };
 
@@ -164,6 +172,7 @@ fun.conf.templates = {
     features: fun.utils.format('%s/features.html', fun.conf.html),
     enterprise: fun.utils.format('%s/enterprise.html', fun.conf.html),
     howto: fun.utils.format('%s/howto.html', fun.conf.html),
+    blog: fun.utils.format('%s/blog.html', fun.conf.html),
     status: fun.utils.format('%s/status.html', fun.conf.html),
     developers: fun.utils.format('%s/developers.html', fun.conf.html),
     help: fun.utils.format('%s/help.html', fun.conf.html),
@@ -256,6 +265,7 @@ fun.conf.hash = {
     terms: '#terms',
     privacy: '#privacy',
     security: '#security',
+    blog: '#blog',
     status: '#status',
     developers: '#developers',
     help: '#help',
