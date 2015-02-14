@@ -130,8 +130,7 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     renderRecordType : function(){
-        //var data = {  
-        //};
+        //var data = {};
 
         // Randomly Generated Data
 
@@ -157,7 +156,7 @@ fun.views.dashboard = Backbone.View.extend({
         var recordType = this.$('#fun-record-type');
         
         recordType.html(template);
-
+        /*
         $.plot('#pie-chart', data, {
             series: {
                 pie: {
@@ -175,6 +174,15 @@ fun.views.dashboard = Backbone.View.extend({
             },
             legend: {
                 show: false
+            }
+        });
+        */
+
+        $.plot('#pie-chart', data, {
+            series: {
+                pie: {
+                    show: true
+                }
             }
         });
     },
