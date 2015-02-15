@@ -168,7 +168,6 @@ fun.conf.templates = {
     landing: fun.utils.format('%s/landing.html', fun.conf.html),
     
     support: fun.utils.format('%s/support.html', fun.conf.html),
-    contact: fun.utils.format('%s/contact.html', fun.conf.html),
     features: fun.utils.format('%s/features.html', fun.conf.html),
     enterprise: fun.utils.format('%s/enterprise.html', fun.conf.html),
     howto: fun.utils.format('%s/howto.html', fun.conf.html),
@@ -270,7 +269,6 @@ fun.conf.hash = {
     developers: '#developers',
     help: '#help',
     support: '#support',
-    contact: '#contact',
     signup : '#signup',
     login : '#login',
     dashboard : '#dashboard',

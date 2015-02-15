@@ -114,11 +114,6 @@ initialize: function(){
             el:"#fun-help"
         });
 
-        // contact
-        fun.instances.contact = new fun.views.contact({
-            el:"#fun-contact"
-        });
-
         // login
         fun.instances.login = new fun.views.login({
             el:"#fun-login"
@@ -332,12 +327,52 @@ initialize: function(){
         fun.instances.footer.render();
     },
 
-    contact: function(){
-        fun.utils.hideAll();
-        fun.instances.navbar.render();
-        fun.instances.subheader.render('Contact');
-        fun.instances.contact.render();
-        fun.instances.extra.render();
+    contacts: function(){
+        // and now for something completely different
+        var resourceCount = 0;
+        
+        var resources = {
+            contacts: new fun.models.Contacts(),
+            directories: new fun.models.Directories()
+            //lapseSummary: new fun.models.LapseSummary({
+            //    lapse: 'hours'
+            //})
+        };
+
+        var onSuccess = function(){
+            if(++resourceCount == _.keys(resources).length){
+                console.log('get resources success!');
+
+                fun.instances.contact.renderContactLists(
+                    resources.contacts
+                );
+            }
+        };
+
+        if(fun.utils.loggedIn()){
+            
+            fun.utils.hideAll();
+            fun.instances.navbar.render();
+
+
+            fun.instances.subheader.render('Contacts');
+            fun.instances.subheader.renderHeadNavCampaigns();
+
+            fun.instances.contacts.render();
+
+            for (var resource in resources){
+                resources[resource].fetch({
+                    success: onSuccess,
+                    error: function() {
+                        console.log('fuck error!');
+                    }
+                });
+            }
+        } else {
+            fun.utils.redirect(fun.conf.hash.login);
+        }
+
+        //fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
@@ -373,6 +408,7 @@ initialize: function(){
         var modelCount = 0;
         
         var models = {
+            contacts: new fun.models.Contacts(),
             records: new fun.models.Records(),
             billings: new fun.models.Billings(),
             summary: new fun.models.Summary(),
@@ -504,16 +540,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Phone');
         fun.instances.phone.render();
-        //fun.instances.extra.render();
-        fun.instances.footer.render();
-    },
-
-    contacts: function(){
-        fun.utils.hideAll();
-        fun.instances.navbar.render();
-        fun.instances.subheader.render('Contacts');
-        fun.instances.subheader.renderHeadNavCampaigns();
-        fun.instances.contacts.render();
         //fun.instances.extra.render();
         fun.instances.footer.render();
     },
