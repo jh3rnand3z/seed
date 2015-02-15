@@ -20,8 +20,6 @@ fun.views.dashboard = Backbone.View.extend({
         this.renderTodayActivityChart();
         this.renderLatestRecords();
         this.renderRecordType();
-
-        
     },
 
     renderTodaySummary : function(account, summary, billing){
@@ -156,6 +154,7 @@ fun.views.dashboard = Backbone.View.extend({
         var recordType = this.$('#fun-record-type');
         
         recordType.html(template);
+
         /*
         $.plot('#pie-chart', data, {
             series: {
