@@ -1,14 +1,14 @@
 fun.views.dashboard = Backbone.View.extend({
 
-    events : {
+    events: {
         
     },
 
-    initialize : function(options) {
+    initialize: function(options) {
         fun.containers.dashboard = this.$el;
     },
 
-    render : function(account, summary, billing){
+    render: function(account, summary, billing){
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.dashboard)
         );
@@ -24,7 +24,7 @@ fun.views.dashboard = Backbone.View.extend({
         this.renderRecordType();
     },
 
-    renderTodaySummary : function(account, summary, billing){
+    renderTodaySummary: function(account, summary, billing){
         if(account){
             this.account = account;
         } else {
@@ -61,7 +61,7 @@ fun.views.dashboard = Backbone.View.extend({
         todaySummary.html(template);
     },
 
-    renderTodayActivityChart : function(summary){
+    renderTodayActivityChart: function(summary){
         // This hole summary can be parsed in a single requests
         // directly to the flot.js library. example on pag 5 of the mango docs.
         var data = []
@@ -109,7 +109,7 @@ fun.views.dashboard = Backbone.View.extend({
         Charts.line('#line-chart', data);
     },
 
-    renderLatestRecords : function(collection){
+    renderLatestRecords: function(collection){
         if (collection) {
             this.collection = collection;
         } else {
@@ -129,7 +129,7 @@ fun.views.dashboard = Backbone.View.extend({
         this.renderRows();
     },
 
-    renderRecordType : function(){
+    renderRecordType: function(){
         //var data = {};
 
         // Randomly Generated Data
@@ -211,7 +211,7 @@ fun.views.dashboard = Backbone.View.extend({
         }
     },
     
-    noRecords : function() {
+    noRecords: function() {
     	var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});

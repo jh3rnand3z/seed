@@ -343,21 +343,18 @@ initialize: function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
 
-                fun.instances.contact.renderContactLists(
+                fun.instances.contacts.renderContactLists(
                     resources.contacts
                 );
             }
         };
 
         if(fun.utils.loggedIn()){
-            
             fun.utils.hideAll();
             fun.instances.navbar.render();
-
-
             fun.instances.subheader.render('Contacts');
             fun.instances.subheader.renderHeadNavCampaigns();
-
+            // render contacts view
             fun.instances.contacts.render();
 
             for (var resource in resources){

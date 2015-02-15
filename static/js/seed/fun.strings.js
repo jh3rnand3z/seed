@@ -135,6 +135,7 @@ fun.strings = {
     deleteAccount: "Delete account",
     email: "Email",
     sendVerificationEmail: "Send verification email",
+    usernameOrPasswordError: "The username or password you entered is incorrect.",
     addEmailAddress: "Add email address",
     add: "Add",
     primary: "Primary",

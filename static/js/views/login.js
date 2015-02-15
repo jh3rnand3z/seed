@@ -68,7 +68,8 @@ fun.views.login = Backbone.View.extend({
             error : function(jqXHR, textStatus, errorThrown) {
                 switch(jqXHR.status) {
                     case 403:
-                        loginError.find('p').html('The username or password you entered is incorrect.');
+                        var message = fun.utils.translate("usernameOrPasswordError");
+                        loginError.find('p').html(message);
                         loginError.removeClass("hide" ).addClass("show");
                         break;
                     case 200:
