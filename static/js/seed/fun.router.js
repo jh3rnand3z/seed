@@ -408,7 +408,6 @@ initialize: function(){
         var modelCount = 0;
         
         var models = {
-            contacts: new fun.models.Contacts(),
             records: new fun.models.Records(),
             billings: new fun.models.Billings(),
             summary: new fun.models.Summary(),
