@@ -24,7 +24,7 @@ fun.views.login = Backbone.View.extend({
             this.$el.html(template);
             
             // Cache the DOM stuff
-            this.loginError = this.$('#login-error');
+            this.loginError = this.$('#signin-alert');
             // form inputs
             this.username = this.$('#username');
             this.password = this.$('#password');
@@ -54,21 +54,29 @@ fun.views.login = Backbone.View.extend({
             // Clear the stuff from the inputs ;)
             view.$('#username').val('');
             view.$('#password').val('');
-            loginError.hide();
+            loginError.removeClass("show" ).addClass("hide");
             fun.utils.redirect(fun.conf.hash.dashboard);
         };
         
         fun.utils.login(username, password, {
             success : function(jqXHR, textStatus){
+                // currently this success call is never executed
+                // the success stuff is going on case 200 of the error function.
+                // Why? well... I really don't fucking know...
                 loginSuccess(view, loginError);
             },
             error : function(jqXHR, textStatus, errorThrown) {
-                loginError.show();
                 switch(jqXHR.status) {
                     case 403:
                         loginError.find('p').html('The username or password you entered is incorrect.');
+                        loginError.removeClass("hide" ).addClass("show");
                         break;
                     case 200:
+                        // Check browser support
+                        if (typeof(Storage) != "undefined") {
+                            // Store
+                            localStorage.setItem("username", username);
+                        }
                         loginSuccess(view, loginError);
                         break;
                     default:

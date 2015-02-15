@@ -418,10 +418,8 @@ initialize: function(){
 
         var onSuccess = function(){
             if(++modelCount == _.keys(models).length){
-                console.log('spawn');
-                console.log('daemon');
-                console.log('success!');
-
+                console.log('spawn daemon success!');
+                
                 fun.instances.dashboard.renderLatestRecords(
                     models.records
                 );
@@ -434,7 +432,7 @@ initialize: function(){
                     models.lapseSummary
                 );
                 
-                console.log('Distribution Missing!')                    
+                // need to pass stuff to renderRecordType()                   
                 fun.instances.dashboard.renderRecordType();
             }
         };

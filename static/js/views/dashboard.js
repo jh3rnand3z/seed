@@ -16,6 +16,8 @@ fun.views.dashboard = Backbone.View.extend({
         this.$el.html(template);
         this.$el.show();
 
+        //alert( "username = " + localStorage.getItem("username"));
+
         this.renderTodaySummary(account, summary, billing);
         this.renderTodayActivityChart();
         this.renderLatestRecords();
