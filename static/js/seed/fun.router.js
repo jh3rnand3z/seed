@@ -330,6 +330,10 @@ initialize: function(){
                 fun.instances.contacts.renderContactLists(
                     resources.contacts
                 );
+
+                fun.instances.contacts.renderDirectoryLists(
+                    resources.directories
+                );
             }
         };
 
@@ -337,7 +341,7 @@ initialize: function(){
             fun.utils.hideAll();
             fun.instances.navbar.render();
             fun.instances.subheader.render('Contacts');
-            fun.instances.subheader.renderHeadNavCampaigns();
+            fun.instances.subheader.renderHeadNav();
             // render contacts view
             fun.instances.contacts.render();
 

@@ -582,7 +582,7 @@ fun.models.Directories = Backbone.Collection.extend({
     },
 
     parse: function(response){
-        return response.results;
+        return response.directories;
     }
 });
 

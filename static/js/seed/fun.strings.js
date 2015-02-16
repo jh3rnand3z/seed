@@ -140,6 +140,8 @@ fun.strings = {
     add: "Add",
     primary: "Primary",
     unverified: "Unverified",
+    directories: "Directories",
+    uuid: "UUID",
     exit: "Exit",
     reports: "Reports",
     activity: "Activity",

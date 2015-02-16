@@ -236,7 +236,10 @@ fun.conf.templates = {
     teams: fun.utils.format('%s/teams.html', fun.conf.html),
 
     contacts: fun.utils.format('%s/contacts.html', fun.conf.html),
+    allContacts: fun.utils.format('%s/allContacts.html', fun.conf.html),
+    directoryList: fun.utils.format('%s/directoryList.html', fun.conf.html),
     contactRow: fun.utils.format('%s/contactRow.html', fun.conf.html),
+    directoryRow: fun.utils.format('%s/directoryRow.html', fun.conf.html),
     sounds: fun.utils.format('%s/sounds.html', fun.conf.html),
     recordings: fun.utils.format('%s/recordings.html', fun.conf.html),
     reports: fun.utils.format('%s/reports.html', fun.conf.html),
