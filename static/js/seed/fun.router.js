@@ -8,47 +8,36 @@ fun.Router = Backbone.Router.extend({
         "home": "home",
         "landing": "landing",
         "howto": "howto",
-        
         "features": "features",
         "enterprise": "enterprise",
-
         "terms": "terms",
         "security": "security",
         "privacy": "privacy",
-
         "blog": "blog",
         "status": "status",
         "developers": "developers",
         "help": "help",
-
         "signup": "signup",
         "login": "login",
-
         "dashboard": "dashboard",
-
         "campaigns": "campaigns",
         "orgs": "orgs",
-
         "activity": "activity",
         "profile": "profile",
         "members": "members",
         "teams": "teams",
-
         "reports": "reports",
-
         "phone": "phone",
         "contacts": "contacts",
         "sounds":"sounds",
         "recordings": "recordings",
         "gateways": "gateways",
-
         "support": "support",
         "settings": "settings",
         "logout": "logout"
     },
 
 initialize: function(){
-      
         // navigation bar
         fun.instances.navbar = new fun.views.navbar({
             el:"#fun-navbar"
@@ -124,7 +113,6 @@ initialize: function(){
             el:"#fun-dashboard"
         });
 
-
         // campaigns
         fun.instances.campaigns = new fun.views.campaigns({
             el:"#fun-campaigns"
@@ -134,7 +122,6 @@ initialize: function(){
         fun.instances.orgs = new fun.views.orgs({
             el:"#fun-orgs"
         });
-
 
         // profile
         fun.instances.profile = new fun.views.profile({
@@ -205,9 +192,6 @@ initialize: function(){
         fun.instances.footer = new fun.views.footer({
             el:"#fun-footer"
         });
-
-
-        // stuff from localStorage
     },
     
     home: function(){
