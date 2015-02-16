@@ -102,10 +102,10 @@ fun.views.contacts = Backbone.View.extend({
 
         if (length > 0){
             var rows = this.dtbody.html('');
-            for (i; i < 20; ++i) {
-                var data = _.extend(this.directories.at(i).toJSON(), {i:i});
+            //for (i; i < 20; ++i) {
+            for (i; i < length; ++i) {
 
-                console.log(data);
+                var data = _.extend(this.directories.at(i).toJSON(), {i:i});
 
                 var template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.directoryRow)
