@@ -154,7 +154,8 @@ fun.views.contacts = Backbone.View.extend({
 
     addContact: function(event){
         event.preventDefault();
-        console.log('addContact event');
+
+        console.log('new contact event');
 
         var firstName = this.contactFirstName.val();
 
@@ -164,15 +165,15 @@ fun.views.contacts = Backbone.View.extend({
 
         var countryData = this.newPhoneNumber.intlTelInput("getSelectedCountryData");
 
-        
+        var numberType = this.newPhoneNumber.intlTelInput("getNumberType");
 
         var contact = new fun.models.Contact({
-            phone_number: newNumber,
             first_name: firstName,
-            last_name: lastName 
+            last_name: lastName,
+            phone_number: newNumber,
+            number_type: numberType
         });
 
         contact.save();
-
     }
 });
