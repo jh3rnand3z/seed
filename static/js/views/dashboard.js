@@ -1,7 +1,14 @@
 fun.views.dashboard = Backbone.View.extend({
 
+    
+    /**
+    * Bind the event functions to the different HTML elements
+    */
     events: {
-        
+        'click #today-btn': 'today',
+        'click #this-week-btn': 'thisWeek',
+        'click #this-month-btn': 'thisMonth',
+        'click #this-year-btn': 'thisYear'
     },
 
     initialize: function(options) {
@@ -9,14 +16,18 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     render: function(account, summary, billing){
+        account = localStorage.getItem("username");
+
+        console.log("username = " + account)
+
+
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.dashboard)
-        );
+        )({'account':account});
 
         this.$el.html(template);
         this.$el.show();
 
-        console.log("username = " + localStorage.getItem("username"))
 
         this.renderTodaySummary(account, summary, billing);
         this.renderTodayActivityChart();
@@ -27,8 +38,6 @@ fun.views.dashboard = Backbone.View.extend({
     renderTodaySummary: function(account, summary, billing){
         if(account){
             this.account = account;
-        } else {
-            this.account = 'anonymoxuxious';
         }
 
         if(summary){
@@ -219,5 +228,22 @@ fun.views.dashboard = Backbone.View.extend({
         var noRecords = this.$('#no-records');
 
         noRecords.html(template);
+    },
+
+    today: function(event){
+        console.log('today event');
+    },
+
+    thisWeek: function(event) {
+        console.log('this week event');
+    },
+
+    thisMonth: function(event){
+        console.log('this month event');
+    },
+
+    thisYear: function(event){
+        console.log('this year event');
     }
+
 });

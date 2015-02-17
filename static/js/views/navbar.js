@@ -1,7 +1,7 @@
 fun.views.navbar = Backbone.View.extend({
 
 	events: {
-
+        "click #details-report-btn": 'detailsReport'
 	},
 
     initialize: function(options) {
@@ -43,5 +43,9 @@ fun.views.navbar = Backbone.View.extend({
 
         var navAdmin = this.$('#fun-nav-admin');
         navAdmin.html(template);
+    },
+
+    detailsReport: function() {
+        console.log('navbar detail reports')
     }
 });

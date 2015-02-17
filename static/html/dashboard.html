@@ -14,16 +14,20 @@
                         <div class="btn-group">
                             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                                 <i class="fa fa-user fa-fw"></i>
-                                <span data-label-placement="">cebus</span>
+                                <span data-label-placement=""><%= account %></span>
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
                                     <input type="radio" id="current_account_1" name="current_account" value="1" checked="">
-                                    <label for="current_account_1">cebus</label>
+                                    <label for="current_account_1"><%= account %></label>
                                 </li>
                                 <li>
                                     <input type="radio" id="current_account_2" name="current_account" value="2">
+                                    <label for="current_account_1">cebus</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="current_account_3" name="current_account" value="3">
                                     <label for="current_account_2">iofun</label>
                                 </li>
                                 <li class="divider"></li>
@@ -51,16 +55,16 @@
                     </form>
 
                     <div class="btn-group pull-right" data-toggle="buttons">
-                        <label class="btn btn-default active">
+                        <label id="today-btn" class="btn btn-default active">
                             <input type="radio" name="private" value="1"> <%= translate("today") %>
                         </label>
-                        <label class="btn btn-default">
+                        <label id="this-week-btn" class="btn btn-default">
                             <input type="radio" name="private" value="2"> <%= translate("thisWeek") %>
                         </label>
-                        <label class="btn btn-default">
+                        <label id="this-month-btn" class="btn btn-default">
                             <input type="radio" name="private" value="3"> <%= translate("thisMonth") %>
                         </label>
-                        <label class="btn btn-default">
+                        <label id="this-year-btn" class="btn btn-default">
                             <input type="radio" name="private" value="4"> <%= translate("thisYear") %>
                         </label>
                     </div>

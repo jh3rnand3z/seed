@@ -3,6 +3,7 @@ fun.views.reports = Backbone.View.extend({
     events : {
         'click #fun-btn-find' : 'findReport',
         'click #fun-btn-hours' : 'hours',
+        "click #details-report-btn": 'detailsReport',
         'click #fun-btn-days' : 'days',
         'click #fun-btn-weeks' : 'weeks',
         'click #fun-btn-months' : 'months',
@@ -213,6 +214,10 @@ fun.views.reports = Backbone.View.extend({
         this.data = data;
         this.stuffSummary = this.$('#summary-list > tbody');
         this.renderSummaryRows();
+    },
+
+    detailsReport: function() {
+        console.log('navbar detail reports')
     }
 
 
