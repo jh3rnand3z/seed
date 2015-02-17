@@ -20,7 +20,6 @@ fun.views.dashboard = Backbone.View.extend({
 
         console.log("username = " + account)
 
-
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.dashboard)
         )({'account':account});
