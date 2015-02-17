@@ -155,6 +155,9 @@ fun.views.contacts = Backbone.View.extend({
     addContact: function(event){
         event.preventDefault();
 
+        // view cache
+        var view = this;
+
         console.log('new contact event');
 
         var firstName = this.contactFirstName.val();
@@ -175,5 +178,10 @@ fun.views.contacts = Backbone.View.extend({
         });
 
         contact.save();
+        
+        // Clear the stuff from the inputs ;)
+        view.$('#contact_first_name').val('');
+        view.$('#contact_last_name').val('');
+        view.$('#new-phone-number').val('');
     }
 });
