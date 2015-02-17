@@ -17,8 +17,13 @@
                     <form id="upload-contacts-form" class="form-contacts" novalidate="novalidate">
 
                         <div class="form-group">
-                            <label for="contact_first_name"><%= translate("directoryName") %></label>
-                            <input type="text" id="contact_first_name" name="contact_first_name" class="form-control">
+                            <label for="directory_name"><%= translate("directoryName") %></label>
+                            <input type="text" id="directory_name" name="directory_name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="directory_description"><%= translate("descriptionOptional") %></label>
+                            <input type="text" id="directory_description" name="directory_description" class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -27,7 +32,7 @@
                             <p class="help-block"><%= translate("uploadFromMyDevice") %>.</p>
                         </div>
 
-                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                        <button id="upload-csv-btn" class="btn btn-success btn-block" type="submit"><%= translate("uploadCSVfile") %></button>
                     </form>
                           
                 </div>
@@ -51,7 +56,7 @@
 
                         <p class="help-block">Get a directory contact list already added.</p>
 
-                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                        <button id="get-dir-btn" class="btn btn-success btn-block" type="submit"><%= translate("getDirectory") %></button>
                     </form>
                           
                 </div>
@@ -70,7 +75,7 @@
                         <i class="fa fa-user fa-stack-1x"></i>
                     </span>
 
-                    <form id="answer-machine-sound-form" class="form-sound" novalidate="novalidate">
+                    <form id="add-contact-form" novalidate="novalidate">
 
                         <div class="form-group">
                             <label for="contact_first_name"><%= translate("firstName") %></label>
@@ -87,7 +92,7 @@
                             <input type="tel" id="new-phone-number" name="contact_phone_number" class="form-control">
                         </div>
 
-                        <button id="create-btn" class="btn btn-success btn-block" type="submit"><%= translate("selectMessage") %></button>
+                        <button id="add-contact-btn" class="btn btn-success btn-block" type="submit"><%= translate("addContact") %></button>
                     </form>
                           
                 </div>

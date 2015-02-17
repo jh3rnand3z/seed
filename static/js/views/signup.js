@@ -4,8 +4,8 @@ fun.views.signup = Backbone.View.extend({
      * Bind the events functions to the different HTML elements
      */
     events : {
-        'click #login-btn' : 'login',
-        'click #signup-btn' : 'signup'
+        'click #login-btn': 'login',
+        'click #signup-btn': 'signup'
     },
     
     /**
@@ -37,14 +37,14 @@ fun.views.signup = Backbone.View.extend({
     /**
      * login event
      */
-    login : function() {
+    login: function() {
         window.location = fun.conf.hash.login;
     },
     
     /**
      * signup event
      */
-    signup : function(event){
+    signup: function(event){
         //event.preventDefault();
         var signupError = this.signupError;
         var account = this.account.val();

@@ -4,21 +4,21 @@ fun.views.login = Backbone.View.extend({
     * Bind the event functions to the different HTML elements
     */
     events : {
-        'click #login-btn' : 'login',
-        'click #signup-btn' : 'signup'
+        'click #login-btn': 'login',
+        'click #signup-btn': 'signup'
     },
     
     /**
      * Class constructor
      */
-    initialize : function(options) {
+    initialize: function(options) {
         fun.containers.login = this.$el;
     },
     
     /**
      * Renders the login view
      */
-    render : function(){
+    render: function(){
         if (!this.$el.html()){
             var template = _.template(fun.utils.getTemplate(fun.conf.templates.login));
             this.$el.html(template);
@@ -35,14 +35,14 @@ fun.views.login = Backbone.View.extend({
     /**
      * signup event
      */ 
-    signup : function() {
+    signup: function() {
         window.location = fun.conf.hash.signup;
     },
     
     /**
      * login event
      */
-    login : function(event){
+    login: function(event){
         event.preventDefault();
         
         var loginError = this.loginError;

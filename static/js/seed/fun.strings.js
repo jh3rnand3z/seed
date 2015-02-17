@@ -128,6 +128,8 @@ fun.strings = {
     settings: "Settings",
     changeUsername: "Change username",
     changePassword: "Change password",
+    uploadCSVfile: "Upload CSV file",
+    getDirectory: "Get directory",
     oldPassword: "Old password",
     newPassword: "New password",
     confirmNewPassword: "Confirm new password",

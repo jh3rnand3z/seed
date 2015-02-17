@@ -1,15 +1,15 @@
 /*
- Seed models configuration 
+ Seed models configuration
 */
 
 fun.models.Account = Backbone.Model.extend({
-    urlRoot : fun.conf.urls.users
+    urlRoot: fun.conf.urls.users
 });
 
 
 fun.models.login = Backbone.Model.extend({
 
-    urlRoot : fun.conf.urls.login,
+    urlRoot: fun.conf.urls.login,
 
     url: function(){
         return this.urlRoot;
@@ -19,7 +19,7 @@ fun.models.login = Backbone.Model.extend({
 
 fun.models.logout = Backbone.Model.extend({
 
-    urlRoot : fun.conf.urls.logout,
+    urlRoot: fun.conf.urls.logout,
 
     url: function(){
         return this.urlRoot;
@@ -509,6 +509,8 @@ fun.models.Contact = Backbone.Model.extend({
         var url = this.urlRoot.replace(fun.conf.contactId, this.contactId);
         if (!this.isNew()){
             url += '/' + this.id;
+        } else {
+            url = fun.conf.urls.contacts;
         }
         return url;
     },
@@ -629,5 +631,51 @@ fun.models.Campaigns = Backbone.Collection.extend({
 
     parse: function(response){
         return response.results;
+    }
+});
+
+
+fun.models.Call = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.campaignId = options.callId;
+    },
+
+    urlRoot: fun.conf.urls.calls,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.callId, this.callId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.Calls = Backbone.Collection.extend({
+
+    model: fun.models.Call,
+
+    urlRoot: fun.conf.urls.calls,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.calls;
     }
 });

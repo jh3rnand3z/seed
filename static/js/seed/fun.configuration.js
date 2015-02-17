@@ -94,16 +94,16 @@ fun.conf.urls = {
     logout: '/logout',
 
     user: fun.utils.format('/users/%s', fun.conf.account),
-    users: '/users',
+    users: '/users/',
 
     org: fun.utils.format('/orgs/%s', fun.conf.account),
     orgs: '/orgs/',
 
     record: fun.utils.format('/records/%s', fun.conf.uuidRecord),
-    records: '/records',
+    records: '/records/',
 
     billing: fun.utils.format('/billings/%s', fun.conf.uuidBilling),
-    billings: '/billings',
+    billings: '/billings/',
     
     summary: '/records/summary',
     summaries: '/records/summaries',
@@ -137,13 +137,13 @@ fun.conf.urls = {
     billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
     contact: fun.utils.format('/contacts/%s', fun.conf.uuidContact),
-    contacts: '/contacts',
+    contacts: '/contacts/',
 
     directory: fun.utils.format('/directories/%s', fun.conf.uuidDirectory),
-    directories: '/directories',
+    directories: '/directories/',
 
     campaign: fun.utils.format('/campaigns/%s', fun.conf.uuidCampaign),
-    campaigns: '/campaigns',
+    campaigns: '/campaigns/',
 
     /*sounds, recordings*/
 

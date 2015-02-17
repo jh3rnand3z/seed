@@ -4,7 +4,9 @@ fun.views.contacts = Backbone.View.extend({
     * Bind the event functions to the different HTML elements
     */
     events: {
-
+        'click #upload-csv-btn': 'uploadCSV',
+        'click #get-dir-btn': 'getDirectory',
+        'click #add-contact-btn': 'addContact'
     },
 
     /**
@@ -19,13 +21,23 @@ fun.views.contacts = Backbone.View.extend({
     */
     render: function(){
         console.log('render contacts view');
-
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.contacts));
-
-        this.$el.html(template);
+        if (!this.$el.html()){
+            var template = _.template(fun.utils.getTemplate(fun.conf.templates.contacts));
+            this.$el.html(template);
+            // DOM cache stuff on form fields
+            this.contactFirstName = this.$('#contact_first_name');
+            this.contactLastName = this.$('#contact_last_name');
+            this.newPhoneNumber = this.$('#new-phone-number');
+            // directory fields
+            this.directoryName = this.$('#directory_name');
+            this.directoryDescription = this.$('#directory_description');
+            // CSV input file
+            this.exampleInputFile = this.$('#exampleInputFile');
+        }
+        this.newPhoneNumber.intlTelInput({
+            utilsScript: "static/js/plugins/libphonenumber/utils.js"
+        });
         this.$el.show();
-
-        $("#new-phone-number").intlTelInput();
     },
 
     renderContactLists: function(contacts){
@@ -48,9 +60,10 @@ fun.views.contacts = Backbone.View.extend({
     },
 
     renderContactRows: function(){
-        var i = 0;
+        // contacts length
         var length = this.contacts.length;
-
+        var i = 0;
+        console.log(length)
         if (length > 0){
             var rows = this.tbody.html('');
             for (i; i < 20; ++i) {
@@ -97,9 +110,10 @@ fun.views.contacts = Backbone.View.extend({
     },
 
     renderDirectoryRows: function(){
-        var i = 0;
+        // directory length
         var length = this.directories.length;
-
+        var i = 0;
+        console.log(length)
         if (length > 0){
             var rows = this.dtbody.html('');
             //for (i; i < 20; ++i) {
@@ -126,5 +140,39 @@ fun.views.contacts = Backbone.View.extend({
         var noContacts = this.$('#no-directories');
 
         noContacts.html(template);
+    },
+
+    uploadCSV: function(event){
+        event.preventDefault();
+        console.log('uploadCSV event');
+    },
+
+    getDirectory: function(event){
+        event.preventDefault();
+        console.log('getDirectory event');
+    },
+
+    addContact: function(event){
+        event.preventDefault();
+        console.log('addContact event');
+
+        var firstName = this.contactFirstName.val();
+
+        var lastName = this.contactLastName.val();
+
+        var newNumber = this.newPhoneNumber.intlTelInput("getNumber");
+
+        var countryData = this.newPhoneNumber.intlTelInput("getSelectedCountryData");
+
+        
+
+        var contact = new fun.models.Contact({
+            phone_number: newNumber,
+            first_name: firstName,
+            last_name: lastName 
+        });
+
+        contact.save();
+
     }
 });
