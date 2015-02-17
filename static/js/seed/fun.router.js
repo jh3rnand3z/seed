@@ -372,7 +372,7 @@ initialize: function(){
         }
 
         //fun.instances.extra.render();
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
     
     login: function(){
@@ -386,7 +386,7 @@ initialize: function(){
         }
 
         //fun.instances.extra.render();
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
     
     dashboard: function(){
@@ -465,7 +465,7 @@ initialize: function(){
 
         fun.instances.campaigns.render();
         
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
 
     orgs: function(){
@@ -475,7 +475,7 @@ initialize: function(){
         fun.instances.subheader.renderHeadNav();
         fun.instances.orgs.render();
         
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
 
     profile: function(){
@@ -533,7 +533,7 @@ initialize: function(){
         fun.instances.subheader.renderHeadNavCampaigns();
         fun.instances.sounds.render();
         //fun.instances.extra.render();
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
 
     reports: function(){
@@ -578,7 +578,7 @@ initialize: function(){
         fun.instances.subheader.render('Good bye!');      
         fun.instances.login.render();
         //fun.instances.extra.render();
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     }
 
 });
