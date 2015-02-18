@@ -20,14 +20,43 @@ fun.views.orgs = Backbone.View.extend({
     render: function(){
         console.log('render orgs view');
 
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.orgs));
-
-        this.$el.html(template);
+        if (!this.$el.html()){
+            var template = _.template(fun.utils.getTemplate(fun.conf.templates.orgs));
+            this.$el.html(template);
+            // DOM cache stuff on form fields
+            this.orgName = this.$('#organization_name');
+            this.orgEmail = this.$('#billing_email');
+        }
         this.$el.show();
     },
 
+    /*
+    * New ORG
+    */
     newORG: function(event){
         event.preventDefault();
         console.log('new org event');
+
+         // view cache
+        var view = this;
+
+        //var account = this.account;
+
+        var orgName = this.orgName.val();
+
+        var orgEmail = this.orgEmail.val();
+
+        var org = new fun.models.Org({
+            account: orgName,
+            email: orgEmail
+        });
+
+        org.save();
+        
+        // Clear the stuff from the inputs ;)
+        view.$('#organization_name').val('');
+        view.$('#billing_email').val('');
+
+        window.location = fun.conf.hash.settings;
     }
 });
