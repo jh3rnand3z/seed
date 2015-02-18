@@ -40,6 +40,9 @@ fun.views.contacts = Backbone.View.extend({
         this.$el.show();
     },
 
+    /*
+    * Render contact lists
+    */
     renderContactLists: function(contacts){
         console.log('render contact lists');
         if (contacts) {
@@ -59,6 +62,9 @@ fun.views.contacts = Backbone.View.extend({
         this.renderContactRows();
     },
 
+    /*
+    * Render contact rows
+    */
     renderContactRows: function(){
         // contacts length
         var length = this.contacts.length;
@@ -80,6 +86,9 @@ fun.views.contacts = Backbone.View.extend({
         }
     },
 
+    /*
+    * No contacts
+    */
     noContacts: function(){
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
@@ -90,6 +99,9 @@ fun.views.contacts = Backbone.View.extend({
         noContacts.html(template);
     },
 
+    /*
+    * Render directory lists
+    */
     renderDirectoryLists: function(directories){
         console.log('render directory lists');
         if (directories) {
@@ -109,6 +121,9 @@ fun.views.contacts = Backbone.View.extend({
         this.renderDirectoryRows();
     },
 
+    /*
+    * Render directory rows
+    */
     renderDirectoryRows: function(){
         // directory length
         var length = this.directories.length;
@@ -132,6 +147,9 @@ fun.views.contacts = Backbone.View.extend({
         }
     },
 
+    /*
+    * No directories
+    */
     noDirectories: function(){
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
@@ -142,16 +160,25 @@ fun.views.contacts = Backbone.View.extend({
         noContacts.html(template);
     },
 
+    /*
+    * Upload CSV
+    */
     uploadCSV: function(event){
         event.preventDefault();
         console.log('uploadCSV event');
     },
 
+    /*
+    * Get directory
+    */
     getDirectory: function(event){
         event.preventDefault();
         console.log('getDirectory event');
     },
 
+    /*
+    * Add contact
+    */
     addContact: function(event){
         event.preventDefault();
 

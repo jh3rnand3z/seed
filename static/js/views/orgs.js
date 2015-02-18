@@ -3,9 +3,8 @@ fun.views.orgs = Backbone.View.extend({
     /**
     * Bind the event functions to the different HTML elements
     */
-    // click events missing
     events: {
-
+        'click #new-org-btn': 'newORG',
     },
 
     /**
@@ -25,5 +24,10 @@ fun.views.orgs = Backbone.View.extend({
 
         this.$el.html(template);
         this.$el.show();
+    },
+
+    newORG: function(event){
+        event.preventDefault();
+        console.log('new org event');
     }
 });
