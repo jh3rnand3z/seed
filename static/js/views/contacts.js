@@ -72,7 +72,7 @@ fun.views.contacts = Backbone.View.extend({
         console.log(length)
         if (length > 0){
             var rows = this.tbody.html('');
-            for (i; i < 20; ++i) {
+            for (i; i < length; ++i) {
                 var data = _.extend(this.contacts.at(i).toJSON(), {i:i});
 
                 var template = _.template(
