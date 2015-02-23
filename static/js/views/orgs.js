@@ -40,7 +40,8 @@ fun.views.orgs = Backbone.View.extend({
          // view cache
         var view = this;
 
-        //var account = this.account;
+        // known also as a username.
+        //var account = this.account; 
 
         var orgName = this.orgName.val();
 
@@ -58,5 +59,7 @@ fun.views.orgs = Backbone.View.extend({
         view.$('#billing_email').val('');
 
         window.location = fun.conf.hash.settings;
+
+        // where is the uuid of the new org?
     }
 });
