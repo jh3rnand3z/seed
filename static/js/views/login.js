@@ -81,7 +81,7 @@ fun.views.login = Backbone.View.extend({
                         loginSuccess(view, loginError);
                         break;
                     default:
-                        alert('the monkey is down');
+                        console.log('the monkey is down');
                         break;
                 }
             }

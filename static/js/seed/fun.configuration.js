@@ -90,7 +90,7 @@ fun.conf.sip = {
  System urls
 */
 fun.conf.urls = {
-    login: '/login',
+    login: 'http://iofun.techgcs.com/login',
     logout: '/logout',
 
     user: fun.utils.format('/users/%s', fun.conf.account),
