@@ -72,6 +72,8 @@ fun.strings = {
     date: "Date",
     source: "Source",
     destination: "Destination",
+    carrier: "Carrier",
+    carriers: "Carriers",
     duration: "Duration",
     status: "Status",
     terms: "Terms",

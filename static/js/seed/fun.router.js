@@ -28,6 +28,8 @@ fun.Router = Backbone.Router.extend({
         "teams": "teams",
         "reports": "reports",
         "phone": "phone",
+        "numbers": "phone_numbers",
+        "carriers": "carriers",
         "contacts": "contacts",
         "sounds":"sounds",
         "recordings": "recordings",
@@ -146,6 +148,26 @@ initialize: function(){
         // phone
         fun.instances.phone = new fun.views.phone({
             el:"#fun-phone"
+        });
+
+        // phone numbers
+        fun.instances.phoneNumbers = new fun.views.phoneNumbers({
+            el:"#fun-phone-numbers"
+        });
+
+        // gateways
+        fun.instances.gateways = new fun.views.gateways({
+            el:"#fun-gateways"
+        });
+
+        // carriers
+        fun.instances.carriers = new fun.views.carriers({
+            el:"#fun-carriers"
+        });
+
+        // campaigns
+        fun.instances.campaigns = new fun.views.campaigns({
+            el:"#fun-campaigns"
         });
 
         // contacts
@@ -468,6 +490,28 @@ initialize: function(){
         //fun.instances.footer.render();
     },
 
+    carriers: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Carriers');
+        fun.instances.subheader.renderHeadNav();
+
+        fun.instances.carriers.render();
+        
+        //fun.instances.footer.render();
+    },
+
+    gateways: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Gateways');
+        fun.instances.subheader.renderHeadNav();
+
+        fun.instances.gateways.render();
+        
+        //fun.instances.footer.render();
+    },
+
     orgs: function(){
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -522,6 +566,15 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Phone');
         fun.instances.phone.render();
+        //fun.instances.extra.render();
+        fun.instances.footer.render();
+    },
+
+    phoneNumbers: function(){
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render('Numbers');
+        fun.instances.phoneNumbers.render();
         //fun.instances.extra.render();
         fun.instances.footer.render();
     },

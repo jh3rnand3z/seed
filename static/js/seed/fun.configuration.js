@@ -3,17 +3,22 @@
 */
 fun.conf = {
     account: 'account',
-    urlRoot: '/api/',
 
     html: '/static/html',
     domain: 'iofun.io',
 
+    urlRoot: '/api/',
+
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
+    uuidCarrier: 'carrier_uuid',
     uuidCampaign: 'campaign_uuid',
     uuidContact: 'contact_uuid',
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
+
+    uuidGateway: 'gateway_uuid',
+    uuidPhoneNumber: 'phone_number_uuid',
 
     lapse: 'lapse',
 
@@ -90,7 +95,7 @@ fun.conf.sip = {
  System urls
 */
 fun.conf.urls = {
-    login: 'http://iofun.techgcs.com/login',
+    login: '/login',
     logout: '/logout',
 
     user: fun.utils.format('/users/%s', fun.conf.account),
@@ -136,6 +141,9 @@ fun.conf.urls = {
     billingsRecordsStart: fun.utils.format('/billings/records/start/%s', fun.conf.startTime),
     billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
 
+    carrier: fun.utils.format('/carriers/%s', fun.conf.uuidCarrier),
+    carriers: '/carriers/',
+
     contact: fun.utils.format('/contacts/%s', fun.conf.uuidContact),
     contacts: '/contacts/',
 
@@ -144,6 +152,15 @@ fun.conf.urls = {
 
     campaign: fun.utils.format('/campaigns/%s', fun.conf.uuidCampaign),
     campaigns: '/campaigns/',
+
+    gateway: fun.utils.format('/gateways/%s', fun.conf.uuidGateway),
+    gateways: '/gateways/',
+
+    phoneNumber: fun.utils.format('/phonenumbers/%s', fun.conf.uuidPhoneNumber),
+    phoneNumbers: '/phonenumbers/',
+
+
+    sounds: fun.utils.format('/sounds/')
 
     /*sounds, recordings*/
 
@@ -179,7 +196,6 @@ fun.conf.templates = {
     terms: fun.utils.format('%s/terms.html', fun.conf.html),
 
     privacy: fun.utils.format('%s/privacy.html', fun.conf.html),
-
     
     signup: fun.utils.format('%s/signup.html', fun.conf.html),
 
@@ -227,7 +243,7 @@ fun.conf.templates = {
     errorMedium: fun.utils.format('%s/errorMedium.html', fun.conf.html),
     errorLarge: fun.utils.format('%s/errorLarge.html', fun.conf.html),
 
-    phone: fun.utils.format('%s/phone.html', fun.conf.html),
+    phoneNumbers: fun.utils.format('%s/phoneNumbers.html', fun.conf.html),
 
     profile: fun.utils.format('%s/profile.html', fun.conf.html),
 
@@ -284,6 +300,7 @@ fun.conf.hash = {
     teams: '#teams',
     phone: '#phone',
     reports : '#reports',
+    carriers: '#carriers',
     contacts: '#contacts',
     sounds: '#sounds',
     recordings: '#recordings',

@@ -4,7 +4,7 @@ fun.views.members = Backbone.View.extend({
     * Bind the event functions to the different HTML elements
     */
     events: {
-        'click #new-member-btn': 'addmember',
+        'click #new-member-btn': 'addMember',
     },
 
     /**

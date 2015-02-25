@@ -539,6 +539,54 @@ fun.models.BillingStartEnd = Backbone.Model.extend({
 });
 
 
+fun.models.PhoneNumber = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.phoneNumberId = options.phoneNumberId;
+    },
+
+    urlRoot: fun.conf.urls.phoneNumber,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.phoneNumberId, this.phoneNumberId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        } else {
+            url = fun.conf.urls.phoneNumbers;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.PhoneNumbers = Backbone.Collection.extend({
+
+    model: fun.models.PhoneNumber,
+
+    urlRoot: fun.conf.urls.PhoneNumbers,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.phoneNumbers;
+    }
+});
+
+
 fun.models.Contact = Backbone.Model.extend({
 
     idAttribute: 'uuid',
@@ -724,5 +772,53 @@ fun.models.Calls = Backbone.Collection.extend({
 
     parse: function(response){
         return response.calls;
+    }
+});
+
+
+fun.models.Carrier = Backbone.Model.extend({
+
+    idAttribute: 'uuid',
+
+    initialize: function(options) {
+        this.carrierId = options.carrierId;
+    },
+
+    urlRoot: fun.conf.urls.carrier,
+
+    url: function() {
+        var url = this.urlRoot.replace(fun.conf.carrierId, this.carrierId);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        } else {
+            url = fun.conf.urls.carriers;
+        }
+        return url;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
+});
+
+
+fun.models.Carriers = Backbone.Collection.extend({
+
+    model: fun.models.Carriers,
+
+    urlRoot: fun.conf.urls.carriers,
+
+    url: function() {
+        return this.urlRoot;
+    },
+
+    sync: function(method, model, options) {
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    },
+
+    parse: function(response){
+        return response.results;
     }
 });

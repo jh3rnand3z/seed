@@ -3,9 +3,11 @@ fun.views.profile = Backbone.View.extend({
     /**
     * Bind the event functions to the different HTML elements
     */
-    // click events missing
     events: {
-
+        'click #act_1': 'oneDay',
+        'click #act_2': 'threeDays',
+        'click #act_3': 'oneWeek',
+        'click #act_4': 'oneMonth'
     },
 
     /**
@@ -111,5 +113,21 @@ fun.views.profile = Backbone.View.extend({
 		//		position: "top"
 		//	}
         //});
+    },
+
+    oneDay: function(event){
+        console.log('one day event');
+    },
+
+    threeDays: function(event){
+        console.log('three days event');
+    },
+
+    oneWeek: function(event){
+        console.log('one week event');
+    },
+
+    oneMonth: function(event){
+        console.log('one month event');
     }
 });
