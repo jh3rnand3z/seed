@@ -49,6 +49,7 @@ fun.strings = {
     yourAccount: "Your Account",
     yourEmail: "Your Email",
     password: "Password",
+    daemons: "Daemons",
     confirmPassword: "Confirm Password",
     signUp: "Sign Up",
     signIn: "Sign In",
