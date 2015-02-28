@@ -340,9 +340,6 @@ initialize: function(){
         var resources = {
             contacts: new fun.models.Contacts(),
             directories: new fun.models.Directories()
-            //lapseSummary: new fun.models.LapseSummary({
-            //    lapse: 'hours'
-            //})
         };
 
         var onSuccess = function(){

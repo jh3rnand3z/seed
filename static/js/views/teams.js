@@ -3,9 +3,8 @@ fun.views.teams = Backbone.View.extend({
     /**
     * Bind the event functions to the different HTML elements
     */
-    // click events missing
     events: {
-
+        'click #new-team-btn': 'addTeam',
     },
 
     /**
@@ -25,5 +24,12 @@ fun.views.teams = Backbone.View.extend({
 
         this.$el.html(template);
         this.$el.show();
+    },
+
+    /*
+    * Add team
+    */
+    addTeam: function(){
+        console.log("new team event");
     }
 });
