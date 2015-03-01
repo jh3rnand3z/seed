@@ -167,9 +167,11 @@ fun.utils.redirect = function(url) {
  */
 fun.utils.hideAll = function() {
     for (var i in fun.containers){
-        if ( i != 'footer'){
-            fun.containers[i].hide();
-        }
+        // hide all containers including footer
+        fun.containers[i].hide();
+        //if ( i != 'footer'){
+        //    fun.containers[i].hide();
+        //}
     }
 };
 
