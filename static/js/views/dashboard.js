@@ -1,6 +1,5 @@
 fun.views.dashboard = Backbone.View.extend({
-
-    
+   
     /**
     * Bind the event functions to the different HTML elements
     */
@@ -11,7 +10,7 @@ fun.views.dashboard = Backbone.View.extend({
         'click #this-year-btn': 'thisYear'
     },
 
-    initialize: function(options) {
+    initialize: function(options){
         fun.containers.dashboard = this.$el;
     },
 
@@ -27,11 +26,59 @@ fun.views.dashboard = Backbone.View.extend({
         this.$el.html(template);
         this.$el.show();
 
-
         this.renderTodaySummary(account, summary, billing);
         this.renderTodayActivityChart();
         this.renderLatestRecords();
         this.renderRecordType();
+    },
+
+    renderAccountDropdown: function(account){
+
+        // Can I get the list from localStorage?, pretty please.
+
+        if (account) {
+            data = account.toJSON();
+            this.orgs = data.orgs;
+        } else {
+            this.orgs = 0;
+        }
+
+        var template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.accountDropdown)
+        )({'account':data.account});
+
+        var accountDropdown = this.$('#fun-drop-accounts');
+
+        accountDropdown.html(template);
+
+        this.$el.show();
+
+        this.accountList = this.$('#account-dropdown ul');
+
+        var i = 0;
+        var length = this.orgs.length;
+        
+        if (length > 0){
+            //var items = this.accountList.html('');
+           
+            // da fuq dude?
+            for ( i; i < length; ++i ) {
+
+                var orgData = {
+                    'account': data.account,
+                    'org': this.orgs[i]
+                };
+
+                var itemData = _.extend(orgData, {i:i+1});
+
+                var itemTemplate = _.template(
+                    fun.utils.getTemplate(fun.conf.templates.accountListItem)
+                )(itemData);
+
+                this.accountList.append(itemTemplate);
+            }
+        }
+        
     },
 
     renderTodaySummary: function(account, summary, billing){

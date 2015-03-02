@@ -6,36 +6,7 @@
 
             <div class="row">
 
-                <div class="col-md-2 pull-left">
-
-
-                    <div class="bs-example">
-
-                        <div class="btn-group">
-                            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                                <i class="fa fa-user fa-fw"></i>
-                                <span data-label-placement=""><%= account %></span>
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <input type="radio" id="current_account_1" name="current_account" value="1" checked="">
-                                    <label for="current_account_1"><%= account %></label>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#settings"><i class="fa fa-users fa-fw"></i> <%= translate("manageOrganizations") %></a>
-                                </li>
-                                <li>
-                                    <a href="#orgs"><i class="fa fa-plus fa-fw"></i> <%= translate("createOrganization") %></a>
-                                </li>
-                            </ul>
-                        </div>
-                    
-                     </div>
-
-                    
-                </div>
+                <div id="fun-drop-accounts" class="col-md-2 pull-left"></div>
 
                 <div class="col-md-6 pull-right">
 

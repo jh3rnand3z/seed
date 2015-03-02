@@ -205,6 +205,9 @@ fun.conf.templates = {
 
     orgs: fun.utils.format('%s/orgs.html', fun.conf.html),
     campaigns: fun.utils.format('%s/campaigns.html', fun.conf.html),
+
+    accountDropdown: fun.utils.format('%s/dropAccounts.html', fun.conf.html),
+    accountListItem: fun.utils.format('%s/accountListItem.html', fun.conf.html),
     
     recordRow: fun.utils.format('%s/recordRow.html', fun.conf.html),
     typeRow: fun.utils.format('%s/typeRow.html', fun.conf.html),
@@ -277,7 +280,7 @@ fun.conf.templates = {
 */
 fun.conf.hash = {
     home: '#home',
-    landing : '#landing',
+    landing: '#landing',
     howto: '#howto',
     features: '#features',
     enterprise: '#enterprise',
@@ -289,9 +292,13 @@ fun.conf.hash = {
     developers: '#developers',
     help: '#help',
     support: '#support',
-    signup : '#signup',
-    login : '#login',
+    signup: '#signup',
+    login: '#login',
+
     dashboard : '#dashboard',
+    dashboardWithAccount: '#dashboard/a{account}',
+    dashboardWithOrg: '#dashboard/o{org}',
+
     orgs: '#orgs',
     campaigns: '#campaigns',
     profile: '#profile',
@@ -299,10 +306,14 @@ fun.conf.hash = {
     members: '#members',
     teams: '#teams',
     phone: '#phone',
-    reports : '#reports',
+    reports: '#reports',
+    reportsWithPage: '#reports/p{page}',
     carriers: '#carriers',
+
     contacts: '#contacts',
+    contactsWithPage: '#contacts/p{page}',
+
     sounds: '#sounds',
     recordings: '#recordings',
-    settings : '#settings'
+    settings: '#settings'
 };

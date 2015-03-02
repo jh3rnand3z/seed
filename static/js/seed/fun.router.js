@@ -19,18 +19,30 @@ fun.Router = Backbone.Router.extend({
         "help": "help",
         "signup": "signup",
         "login": "login",
+        
+        "dashboard/a:account": "dashboard",
+        "dashboard/o:org": "dashboard",
+        "dashboard/a:account/o:org": "dashboard",
+
         "dashboard": "dashboard",
+        
         "campaigns": "campaigns",
         "orgs": "orgs",
         "activity": "activity",
         "profile": "profile",
         "members": "members",
         "teams": "teams",
+
         "reports": "reports",
+        "reports/p:page": "reports",
+        
         "phone": "phone",
         "numbers": "phone_numbers",
         "carriers": "carriers",
+        
         "contacts": "contacts",
+        "contacts/p:page": "contacts",
+        
         "sounds":"sounds",
         "recordings": "recordings",
         "gateways": "gateways",
@@ -331,9 +343,9 @@ initialize: function(){
         fun.instances.support.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
-    },
+    },  
 
-    contacts: function(){
+    contacts: function(page){
         // and now for something completely different
         var resourceCount = 0;
         
@@ -355,6 +367,10 @@ initialize: function(){
                 );
             }
         };
+
+        if (isNaN(page)) {
+            page = 1;
+        }
 
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
@@ -407,11 +423,78 @@ initialize: function(){
         //fun.instances.extra.render();
         //fun.instances.footer.render();
     },
+
+    trade: function (page, quote) {
+        'use strict';
+        var i,
+            models,
+            onFetchSuccess,
+            count = 0,
+            size;
+        if (isNaN(page)) {
+            page = 1;
+        }
+        if (nano.utils.loggedIn()) {
+            nano.utils.hideAll();
+            // Hide the loading Message
+            nano.containers.loading.show();
+            nano.instances.navbar.render(nano.conf.hash.trade);
+            nano.instances.footer.render();
+            models = {
+                orders: new nano.models.Orders({ accountid : nano.session.accountid }),
+                holdings: new nano.models.Holdings({ accountid : nano.session.accountid })
+            }
+            if (quote) {
+                models.quote = new nano.models.Quote({ quoteid : quote });  
+            }
+            size = _.size(models);
+            onFetchSuccess = function () {
+                if (++count === size) {
+                    nano.containers.loading.hide();
+                    // Render the Holdings with the newly fetched info
+                    nano.instances.holdings.render(models.holdings, page);
+                    nano.instances.orders.render(models.orders, page, nano.conf.hash.tradeWithPage);
+                    if (models.quote) {
+                        nano.instances.quotes.render(models.quote); 
+                    } else {
+                        nano.instances.quotes.render(); 
+                    }
+                }
+            };
+            for (i in models) {
+                models[i].fetch({
+                    data: {page: page},
+                    success : onFetchSuccess,
+                    error : nano.utils.onApiError
+                });
+            }
+        } else {
+            // "reload" the current view by adding a random number to trigger a refresh
+            nano.instances.router.navigate(window.location + '?r=' + Math.floor(Math.random()*101), true);
+        }
+    },
     
-    dashboard: function(){
+    dashboard: function(account, org){
+        'use strict';
+
+
+
+        console.log(account, org);
+
+        if (!account){
+            var account = localStorage.getItem("username");
+        } else {
+            if (account.substring(0, 1) == ':') { 
+                account = account.substring(1);
+            }
+        }
+
+        console.log(account);
+
         var modelCount = 0;
         
         var models = {
+            user: new fun.models.User({'account':account}),
             records: new fun.models.Records(),
             billings: new fun.models.Billings(),
             summary: new fun.models.Summary(),
@@ -419,6 +502,16 @@ initialize: function(){
                 lapse: 'hours'
             })
         };
+
+
+        if (org) {
+            console.log('hello');
+            models.org = new fun.models.Org({'org': org});
+
+            //window.history.pushState('orgDashboard', 'Dashboard', '/orgs/iofun/dashboard');
+        } else {
+            console.log('ok bye');
+        }
 
         var onSuccess = function(){
             if(++modelCount == _.keys(models).length){
@@ -436,6 +529,10 @@ initialize: function(){
                     models.lapseSummary
                 );
                 
+                fun.instances.dashboard.renderAccountDropdown(
+                    models.user
+                );
+
                 // need to pass stuff to renderRecordType()                   
                 fun.instances.dashboard.renderRecordType();
             }
@@ -586,7 +683,7 @@ initialize: function(){
         //fun.instances.footer.render();
     },
 
-    reports: function(){
+    reports: function(page){
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
             fun.instances.navbar.render();
