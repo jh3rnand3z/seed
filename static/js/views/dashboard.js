@@ -267,7 +267,7 @@ fun.views.dashboard = Backbone.View.extend({
     },
     
     noRecords: function() {
-    	var template = _.template(
+        var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});
 
