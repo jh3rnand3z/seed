@@ -53,6 +53,10 @@ fun.views.dashboard = Backbone.View.extend({
 
         this.$el.show();
 
+        // The button draw needs to be move to dashboard render
+        // to avoid those random moment when we're on the dashboard
+        // and the account dropdown button is missing.
+
         this.accountList = this.$('#account-dropdown ul');
 
         var i = 0;
