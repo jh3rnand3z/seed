@@ -206,7 +206,6 @@ fun.conf.templates = {
     orgs: fun.utils.format('%s/orgs.html', fun.conf.html),
     campaigns: fun.utils.format('%s/campaigns.html', fun.conf.html),
 
-    accountDropdown: fun.utils.format('%s/dropAccounts.html', fun.conf.html),
     accountListItem: fun.utils.format('%s/accountListItem.html', fun.conf.html),
     
     recordRow: fun.utils.format('%s/recordRow.html', fun.conf.html),

@@ -7,7 +7,8 @@ fun.views.dashboard = Backbone.View.extend({
         'click #today-btn': 'today',
         'click #this-week-btn': 'thisWeek',
         'click #this-month-btn': 'thisMonth',
-        'click #this-year-btn': 'thisYear'
+        'click #this-year-btn': 'thisYear',
+        'click input[name="current_account"]': 'thisIsAtest'
     },
 
     initialize: function(options){
@@ -42,20 +43,6 @@ fun.views.dashboard = Backbone.View.extend({
         } else {
             this.orgs = 0;
         }
-
-        var template = _.template(
-            fun.utils.getTemplate(fun.conf.templates.accountDropdown)
-        )({'account':data.account});
-
-        var accountDropdown = this.$('#fun-drop-accounts');
-
-        accountDropdown.html(template);
-
-        this.$el.show();
-
-        // The button draw needs to be move to dashboard render
-        // to avoid those random moment when we're on the dashboard
-        // and the account dropdown button is missing.
 
         this.accountList = this.$('#account-dropdown ul');
 
@@ -294,6 +281,10 @@ fun.views.dashboard = Backbone.View.extend({
 
     thisYear: function(event){
         console.log('this year event');
+    },
+
+    thisIsAtest: function(event){
+        console.log('pretty please');
     }
 
 });
