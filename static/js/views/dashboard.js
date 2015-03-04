@@ -8,7 +8,7 @@ fun.views.dashboard = Backbone.View.extend({
         'click #this-week-btn': 'thisWeek',
         'click #this-month-btn': 'thisMonth',
         'click #this-year-btn': 'thisYear',
-        'click input[name="current_account"]': 'thisIsAtest'
+        'click input[name="current_account"]': 'setContext'
     },
 
     initialize: function(options){
@@ -50,8 +50,7 @@ fun.views.dashboard = Backbone.View.extend({
         var length = this.orgs.length;
         
         if (length > 0){
-            //var items = this.accountList.html('');
-           
+
             // da fuq dude?
             for ( i; i < length; ++i ) {
 
@@ -283,8 +282,7 @@ fun.views.dashboard = Backbone.View.extend({
         console.log('this year event');
     },
 
-    thisIsAtest: function(event){
-        console.log('pretty please');
+    setContext: function(event){
 
         $('input[name="current_account"]:checked').each(function() {
             var idVal = $(this).attr("id");
