@@ -285,6 +285,16 @@ fun.views.dashboard = Backbone.View.extend({
 
     thisIsAtest: function(event){
         console.log('pretty please');
+
+        $("input[type='radio']:checked").each(function() {
+            var idVal = $(this).attr("id");
+
+            // Check browser support
+            if (typeof(Storage) != "undefined") {
+                // Store
+                localStorage.setItem("context", $("label[for='"+idVal+"']").text());
+            }
+        });
     }
 
 });
