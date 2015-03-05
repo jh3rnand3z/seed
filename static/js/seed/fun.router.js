@@ -232,6 +232,18 @@ initialize: function(){
 
         console.log('spawn some fun get account and context');
 
+        // get account and context
+        this.account = localStorage.getItem("username");
+        this.context = sessionStorage.getItem("context");
+
+        console.log(this.account, this.context);
+
+        if (this.account === this.context){
+            console.log('account same as context');
+        } else {
+            console.log('missing or different context');
+        }
+
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
         } else {

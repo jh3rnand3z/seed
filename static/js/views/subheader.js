@@ -15,7 +15,7 @@ fun.views.subheader = Backbone.View.extend({
 
         // get account and context
         this.account = localStorage.getItem("username");
-        this.context = localStorage.getItem("context");
+        this.context = sessionStorage.getItem("context");
     },
     
     /**
@@ -46,6 +46,14 @@ fun.views.subheader = Backbone.View.extend({
         var headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
+
+        if (this.account !== this.context){
+            this.$('#head-nav-members').removeClass('hide').addClass('show');
+            this.$('#head-nav-teams').removeClass('hide').addClass('show');
+        } else {
+            this.$('#head-nav-members').removeClass('show').addClass('hide');
+            this.$('#head-nav-teams').removeClass('show').addClass('hide');   
+        }
     },
 
     renderHeadNavCampaigns : function(){
