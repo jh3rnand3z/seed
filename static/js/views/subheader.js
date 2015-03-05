@@ -14,6 +14,8 @@ fun.views.subheader = Backbone.View.extend({
         fun.containers.subheader = this.$el;
 
         // get account and context
+        this.account = localStorage.getItem("username");
+        this.context = localStorage.getItem("context");
     },
     
     /**

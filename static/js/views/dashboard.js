@@ -13,21 +13,23 @@ fun.views.dashboard = Backbone.View.extend({
 
     initialize: function(options){
         fun.containers.dashboard = this.$el;
+
+        this.account = localStorage.getItem("username");
     },
 
     render: function(account, summary, billing){
-        account = localStorage.getItem("username");
+        //account = localStorage.getItem("username");
 
-        console.log("username = " + account)
+        console.log("username = " + this.account)
 
         var template = _.template(
             fun.utils.getTemplate(fun.conf.templates.dashboard)
-        )({'account':account});
+        )({'account':this.account});
 
         this.$el.html(template);
         this.$el.show();
 
-        this.renderTodaySummary(account, summary, billing);
+        this.renderTodaySummary(this.account, summary, billing);
         this.renderTodayActivityChart();
         this.renderLatestRecords();
         this.renderRecordType();
@@ -72,8 +74,14 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     renderTodaySummary: function(account, summary, billing){
-        if(account){
-            this.account = account;
+        'use strict';
+        var account,
+            data,
+            template,
+            todaySummary;
+
+        if(account !== this.account){
+            account = this.account;
         }
 
         if(summary){
@@ -85,12 +93,12 @@ fun.views.dashboard = Backbone.View.extend({
         }
 
         if(summary && billing){
-            var data = _.extend(this.summary.toJSON(), 
-                                {'account':this.account},
+            data = _.extend(this.summary.toJSON(), 
+                                {'account':account},
                                 this.billing.toJSON());
         } else {
-            var data = {
-                account: this.account,
+            data = {
+                account: account,
                 seconds: 0,
                 minutes: 0,
                 records: 0,
@@ -98,11 +106,11 @@ fun.views.dashboard = Backbone.View.extend({
                 rec_avg: 0
             };
         }
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.todaySummary)
         )(data);
         
-        var todaySummary = this.$('#fun-today-summary');
+        todaySummary = this.$('#fun-today-summary');
         todaySummary.html(template);
     },
 
@@ -283,6 +291,8 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     setContext: function(event){
+
+        console.log('setting up activity context');
 
         $('input[name="current_account"]:checked').each(function() {
             var idVal = $(this).attr("id");
