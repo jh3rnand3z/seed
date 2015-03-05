@@ -6,6 +6,8 @@ fun.views.navbar = Backbone.View.extend({
 
     initialize: function(options) {
         fun.containers.navbar = this.$el;
+
+        // get account and context
     },
     
     render: function(){

@@ -12,6 +12,8 @@ fun.views.subheader = Backbone.View.extend({
      */
     initialize : function(options) {
         fun.containers.subheader = this.$el;
+
+        // get account and context
     },
     
     /**

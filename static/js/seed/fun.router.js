@@ -21,7 +21,7 @@ fun.Router = Backbone.Router.extend({
         "login": "login",
         
         "dashboard/a:account": "dashboard",
-        "dashboard/o:org": "dashboard",
+        //"dashboard/o:org": "dashboard",
         "dashboard/a:account/o:org": "dashboard",
 
         "dashboard": "dashboard",
