@@ -229,6 +229,9 @@ initialize: function(){
     },
     
     home: function(){
+
+        console.log('spawn some fun get account and context');
+
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
         } else {
