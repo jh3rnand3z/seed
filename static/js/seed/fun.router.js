@@ -492,8 +492,6 @@ initialize: function(){
     dashboard: function(account, org){
         'use strict';
 
-
-
         console.log(account, org);
 
         if (!account){
