@@ -11,7 +11,8 @@ var fun = {
     strings: {},
     conf: {},
     session: {},
-    cache: {templates : {}}
+    cache: {templates : {}},
+    omnibus: _.extend({}, Backbone.Events)
 };
 
 

@@ -303,6 +303,14 @@ fun.views.dashboard = Backbone.View.extend({
                 sessionStorage.setItem("context", $("label[for='"+idVal+"']").text());
             }
         });
+
+
+        //console.log(fun.conf.hash.dashboard);
+        //Backbone.history.loadUrl();
+        fun.instances.subheader.renderHeadNav();
+        return false;
+
+        //fun.utils.redirect(fun.conf.hash.dashboard);
     }
 
 });
