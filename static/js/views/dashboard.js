@@ -305,10 +305,17 @@ fun.views.dashboard = Backbone.View.extend({
         });
 
 
+        fun.omnibus.once("some:event", function(){
+          console.log("some event was fired on dashboard!");
+        });
+
+        fun.omnibus.trigger("some:event");
+
         //console.log(fun.conf.hash.dashboard);
         //Backbone.history.loadUrl();
-        fun.instances.subheader.renderHeadNav();
-        return false;
+        //fun.instances.subheader.renderHeadNav();
+        //fun.instances.subheader.noRecords();
+        //return false;
 
         //fun.utils.redirect(fun.conf.hash.dashboard);
     }

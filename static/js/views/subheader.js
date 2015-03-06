@@ -16,6 +16,11 @@ fun.views.subheader = Backbone.View.extend({
         // get account and context
         this.account = localStorage.getItem("username");
         this.context = sessionStorage.getItem("context");
+
+        fun.omnibus.on("some:event", function(){
+            //console.log("some event was fired on subheader!");
+            fun.instances.subheader.renderHeadNav();
+        });
     },
     
     /**
@@ -36,18 +41,31 @@ fun.views.subheader = Backbone.View.extend({
 
         this.$el.html(template);
         this.$el.show();
+
+        this.noRecords();
     },
 
     renderHeadNav : function(){
-        var template = _.template(
+        'use strict';
+        var template,
+            headNav,
+            account, 
+            context;
+
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.headNav)
         );
 
-        var headNav = this.$('#fun-head-nav');
+        headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
 
-        if (this.account !== this.context){
+        account = localStorage.getItem("username");
+        context = sessionStorage.getItem("context");
+
+        console.log(account, context);
+
+        if (account !== context){
             this.$('#head-nav-members').removeClass('hide').addClass('show');
             this.$('#head-nav-teams').removeClass('hide').addClass('show');
         } else {
@@ -75,5 +93,9 @@ fun.views.subheader = Backbone.View.extend({
 
         headNav.html(template);
     },
+
+    noRecords: function(){
+        console.log('no stuffs');
+    }
 
 });
