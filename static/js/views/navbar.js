@@ -11,9 +11,8 @@ fun.views.navbar = Backbone.View.extend({
         this.context = sessionStorage.getItem("context");
 
         fun.omnibus.on("some:event", function(){
-            //console.log("some event was fired on subheader!");
-            fun.instances.navbar.renderDashboard();
-        });
+            this.renderDashboard();
+        }, this);
     },
     
     render: function(){
@@ -71,10 +70,5 @@ fun.views.navbar = Backbone.View.extend({
 
     detailsReport: function() {
         console.log('navbar detail reports')
-    },
-
-    omnibusEvents: function(){
-        // Set seed omnibus events for this view
-        console.log('make sense?');
     }
 });

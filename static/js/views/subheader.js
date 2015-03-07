@@ -19,8 +19,8 @@ fun.views.subheader = Backbone.View.extend({
 
         fun.omnibus.on("some:event", function(){
             //console.log("some event was fired on subheader!");
-            fun.instances.subheader.renderHeadNav();
-        });
+            this.renderHeadNav();
+        }, this);
     },
     
     /**
@@ -41,8 +41,6 @@ fun.views.subheader = Backbone.View.extend({
 
         this.$el.html(template);
         this.$el.show();
-
-        this.noRecords();
     },
 
     renderHeadNav : function(){
@@ -90,10 +88,6 @@ fun.views.subheader = Backbone.View.extend({
         var headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
-    },
-
-    noRecords: function(){
-        console.log('no stuffs');
     }
 
 });
