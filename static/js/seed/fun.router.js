@@ -358,7 +358,57 @@ initialize: function(){
         fun.instances.support.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
-    },  
+    },
+
+    members: function(){
+        'use strict';
+        var resourceCount = 0,
+            resources,
+            resource,
+            account,
+            context,
+            onSuccess;
+
+        context = sessionStorage.getItem("context");
+
+        console.log(context);
+        
+        resources = {
+            org: new fun.models.Org({'account':context})
+        };
+
+        onSuccess = function(){
+            if(++resourceCount == _.keys(resources).length){
+                console.log('get resources success!');
+
+                fun.instances.members.renderMembersList(
+                    resources.org
+                );
+            }
+        };
+
+        if(fun.utils.loggedIn()){
+            fun.utils.hideAll();
+            fun.instances.navbar.render();
+            fun.instances.subheader.render('Members');
+            fun.instances.subheader.renderHeadNav();
+            // render memberss view
+            fun.instances.members.render();
+
+            for (resource in resources){
+                resources[resource].fetch({
+                    success: onSuccess,
+                    error: function() {
+                        console.log('fuck error!');
+                    }
+                });
+            }
+        } else {
+            fun.utils.redirect(fun.conf.hash.login);
+        }
+
+        fun.instances.footer.render();
+    },
 
     contacts: function(page){
         // and now for something completely different
@@ -518,12 +568,8 @@ initialize: function(){
 
 
         if (org) {
-            console.log('hello');
-            models.org = new fun.models.Org({'org': org});
-
+            models.org = new fun.models.Org({'account': org});
             //window.history.pushState('orgDashboard', 'Dashboard', '/orgs/iofun/dashboard');
-        } else {
-            console.log('ok bye');
         }
 
         var onSuccess = function(){
@@ -573,16 +619,6 @@ initialize: function(){
         }
 
         //fun.instances.extra.render();
-        fun.instances.footer.render();
-    },
-
-    members: function(){
-        fun.utils.hideAll();
-        fun.instances.navbar.render();
-        fun.instances.subheader.render('Members');
-        fun.instances.subheader.renderHeadNav();
-        fun.instances.members.render();
-        
         fun.instances.footer.render();
     },
 
@@ -644,16 +680,6 @@ initialize: function(){
         fun.instances.subheader.render('Activity');
         fun.instances.subheader.renderHeadNav();
         fun.instances.activity.render();
-        
-        fun.instances.footer.render();
-    },
-
-    members: function(){
-        fun.utils.hideAll();
-        fun.instances.navbar.render();
-        fun.instances.subheader.render('Members');
-        fun.instances.subheader.renderHeadNav();
-        fun.instances.members.render();
         
         fun.instances.footer.render();
     },

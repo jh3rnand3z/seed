@@ -3,6 +3,7 @@
 */
 fun.conf = {
     account: 'account',
+    context: 'context', // dashboard context "organization"
 
     html: '/static/html',
     domain: 'iofun.io',
@@ -296,7 +297,7 @@ fun.conf.hash = {
 
     dashboard : '#dashboard',
     dashboardWithAccount: '#dashboard/a{account}',
-    dashboardWithOrg: '#dashboard/o{org}',
+    //dashboardWithOrg: '#dashboard/o{org}',
 
     orgs: '#orgs',
     campaigns: '#campaigns',

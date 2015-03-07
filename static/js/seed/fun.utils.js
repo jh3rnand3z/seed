@@ -10,7 +10,7 @@ var fun = {
     models: {},
     strings: {},
     conf: {},
-    session: {},
+    session: {}, //account and context maybe?
     cache: {templates : {}},
     omnibus: _.extend({}, Backbone.Events)
 };

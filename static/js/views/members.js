@@ -12,6 +12,9 @@ fun.views.members = Backbone.View.extend({
     */
     initialize: function(options){
         fun.containers.members = this.$el;
+
+        this.account = localStorage.getItem("username");
+        this.context = sessionStorage.getItem("context");
     },
 
     /**
@@ -20,10 +23,20 @@ fun.views.members = Backbone.View.extend({
     render: function(){
         console.log('render members view');
 
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.members));
+        //var template = _.template(fun.utils.getTemplate(fun.conf.templates.members));
+
+        console.log("org = " + this.context)
+
+        var template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.members)
+        )({'org':this.context});
 
         this.$el.html(template);
         this.$el.show();
+    },
+
+    renderMembersList: function(){
+        console.log('render members list');
     },
 
     /*
