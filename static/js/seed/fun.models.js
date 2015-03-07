@@ -68,31 +68,6 @@ fun.models.Users = Backbone.Collection.extend({
     }
 });
 
-/*
-fun.models.User = Backbone.Model.extend({
-
-    idAttribute: 'uuid',
-    
-    initialize: function(options) {
-        this.account = options.account;
-    },
-    
-    urlRoot: fun.conf.urls.user,
-    
-    url: function(){
-        var url = this.urlRoot.replace(fun.conf.account, this.account);
-        if (!this.isNew()){
-            url += '/' + this.id;
-        }
-        return url;
-    },
-    
-    sync: function(method, model, options){
-        options.contentType = 'application/json';
-        return Backbone.sync(method, model, options);
-    }
-}); 
-*/
 
 fun.models.Org = Backbone.Model.extend({
 

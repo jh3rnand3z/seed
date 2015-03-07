@@ -485,58 +485,7 @@ initialize: function(){
             fun.instances.login.render();
         }
 
-        //fun.instances.extra.render();
         //fun.instances.footer.render();
-    },
-
-    trade: function (page, quote) {
-        'use strict';
-        var i,
-            models,
-            onFetchSuccess,
-            count = 0,
-            size;
-        if (isNaN(page)) {
-            page = 1;
-        }
-        if (nano.utils.loggedIn()) {
-            nano.utils.hideAll();
-            // Hide the loading Message
-            nano.containers.loading.show();
-            nano.instances.navbar.render(nano.conf.hash.trade);
-            nano.instances.footer.render();
-            models = {
-                orders: new nano.models.Orders({ accountid : nano.session.accountid }),
-                holdings: new nano.models.Holdings({ accountid : nano.session.accountid })
-            }
-            if (quote) {
-                models.quote = new nano.models.Quote({ quoteid : quote });  
-            }
-            size = _.size(models);
-            onFetchSuccess = function () {
-                if (++count === size) {
-                    nano.containers.loading.hide();
-                    // Render the Holdings with the newly fetched info
-                    nano.instances.holdings.render(models.holdings, page);
-                    nano.instances.orders.render(models.orders, page, nano.conf.hash.tradeWithPage);
-                    if (models.quote) {
-                        nano.instances.quotes.render(models.quote); 
-                    } else {
-                        nano.instances.quotes.render(); 
-                    }
-                }
-            };
-            for (i in models) {
-                models[i].fetch({
-                    data: {page: page},
-                    success : onFetchSuccess,
-                    error : nano.utils.onApiError
-                });
-            }
-        } else {
-            // "reload" the current view by adding a random number to trigger a refresh
-            nano.instances.router.navigate(window.location + '?r=' + Math.floor(Math.random()*101), true);
-        }
     },
     
     dashboard: function(account, org){

@@ -118,29 +118,28 @@ fun.conf.urls = {
     summaryStartEnd: fun.utils.format('/records/summary/start/%s/end/%s', fun.conf.startTime, fun.conf.endTime),
 
     summariesStart: fun.utils.format('/records/summaries/start/%s', fun.conf.startTime),
-    summariesStartEnd: '/records/summaries/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+    summariesStartEnd: fun.utils.format('/records/summaries/start/%s/end/%s', fun.conf.startTime, fun.conf.endTime),
 
     lapseSummary: fun.utils.format('/records/summary/%s', fun.conf.lapse),
     lapseSummaries: fun.utils.format('/records/summaries/%s', fun.conf.lapse),
 
-    lapseSummaryStart: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.startTime,
-    lapseSummaryStartEnd: '/records/summary/' + fun.conf.lapse + '/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+    lapseSummaryStart: fun.utils.format('/records/summary/%s/start/%s', fun.conf.lapse, fun.conf.startTime),
+    lapseSummaryStartEnd: fun.utils.format('/records/summary/%s/start/%s/end/%s', fun.conf.lapse, fun.conf.startTime, fun.conf.endTime),
 
-    lapseSummariesStart: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime,
-    lapseSummariesStartEnd: '/records/summaries/' + fun.conf.lapse + '/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
-
+    lapseSummariesStart: fun.utils.format('/records/summaries/%s/start/%s', fun.conf.lapse, fun.conf.startTime),
+    lapseSummariesStartEnd: fun.utils.format('/records/summaries/%s/start/%s/end/%s', fun.conf.lapse, fun.conf.startTime, fun.conf.endTime),
 
     recordsStart: fun.utils.format('/records/start/%s', fun.conf.startTime),
-    recordsStartEnd: '/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+    recordsStartEnd: fun.utils.format('/records/start/%s/end/%s', fun.conf.startTime, fun.conf.endTime),
 
     billingsRecord: fun.utils.format('/billings/records/%s', fun.conf.uuidRecord),
     billingsRecords: '/billings/records/',
     
     billingsStart: fun.utils.format('/billings/start/%s', fun.conf.startTime),
-    billingsStartEnd: '/billings/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+    billingsStartEnd: fun.utils.format('/billings/start/%s/end/%s', fun.conf.startTime, fun.conf.endTime),
 
     billingsRecordsStart: fun.utils.format('/billings/records/start/%s', fun.conf.startTime),
-    billingsRecordsStartEnd: '/billings/records/start/' + fun.conf.startTime + '/end/' + fun.conf.endTime,
+    billingsRecordsStartEnd: fun.utils.format('/billings/records/start/%s/end/%s', fun.conf.startTime, fun.conf.endTime),
 
     carrier: fun.utils.format('/carriers/%s', fun.conf.uuidCarrier),
     carriers: '/carriers/',
