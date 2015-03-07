@@ -66,10 +66,10 @@ fun.conf.timeouts = {
 */
 fun.conf.sip = {
     registrar_server: fun.conf.daemons.sip_server,
-    ws_servers: fun.conf.daemons.ws_server + fun.conf.daemons.ws_port,
+    ws_servers: fun.utils.format('%s%s', fun.conf.daemons.ws_server, fun.conf.daemons.ws_port),
 
-    stun_servers: fun.conf.daemons.stun_server + ':' + fun.conf.daemons.stun_port,
-    turn_servers: fun.conf.daemons.turn_server + ':' + fun.conf.daemons.turn_port,
+    stun_servers: fun.utils.format('%s:%s', fun.conf.daemons.stun_server, fun.conf.daemons.stun_port),
+    turn_servers: fun.utils.format('%s:%s', fun.conf.daemons.turn_server, fun.conf.daemons.turn_port),
 
     register: true,
     register_expires: '600',
@@ -77,7 +77,7 @@ fun.conf.sip = {
     connection_recovery_min_interval: '3',
     connection_recovery_max_interval: '30',
 
-    uri: 'sip:' + fun.conf.account + '@' + fun.conf.domain,
+    uri: fun.utils.format('sip:%s@%s', fun.conf.account, fun.conf.domain),
     password: '',
 
     display_name: 'Juan Monk',
