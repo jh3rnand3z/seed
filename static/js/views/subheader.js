@@ -63,8 +63,6 @@ fun.views.subheader = Backbone.View.extend({
         account = localStorage.getItem("username");
         context = sessionStorage.getItem("context");
 
-        console.log(account, context);
-
         if (account !== context){
             this.$('#head-nav-members').removeClass('hide').addClass('show');
             this.$('#head-nav-teams').removeClass('hide').addClass('show');

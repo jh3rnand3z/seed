@@ -6,11 +6,14 @@ fun.views.navbar = Backbone.View.extend({
 
     initialize: function(options) {
         fun.containers.navbar = this.$el;
-
-        // get account and context
-        // get account and context
+        // get account and context from local and session storages.
         this.account = localStorage.getItem("username");
         this.context = sessionStorage.getItem("context");
+
+        fun.omnibus.on("some:event", function(){
+            //console.log("some event was fired on subheader!");
+            fun.instances.navbar.renderDashboard();
+        });
     },
     
     render: function(){
@@ -36,12 +39,21 @@ fun.views.navbar = Backbone.View.extend({
     },
 
     renderDashboard: function(){
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.navDashboard));
+        'use strict';
+        var template,
+            navDashboard,
+            account,
+            context;
 
-        var navDashboard = this.$('#fun-nav-dashboard');
+        template = _.template(fun.utils.getTemplate(fun.conf.templates.navDashboard));
+
+        navDashboard = this.$('#fun-nav-dashboard');
         navDashboard.html(template);
 
-        if (this.account !== this.context){
+        account = localStorage.getItem("username");
+        context = sessionStorage.getItem("context");
+
+        if (account !== context){
             this.$('#nav-new-member').removeClass('hide').addClass('show');
             this.$('#nav-new-team').removeClass('hide').addClass('show');
         } else {
@@ -59,5 +71,10 @@ fun.views.navbar = Backbone.View.extend({
 
     detailsReport: function() {
         console.log('navbar detail reports')
+    },
+
+    omnibusEvents: function(){
+        // Set seed omnibus events for this view
+        console.log('make sense?');
     }
 });
