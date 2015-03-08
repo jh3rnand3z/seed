@@ -381,7 +381,7 @@ initialize: function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
 
-                fun.instances.members.renderMembersList(
+                fun.instances.members.renderMembersPanel(
                     resources.org
                 );
             }
