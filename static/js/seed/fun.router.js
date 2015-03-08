@@ -1,7 +1,7 @@
 fun.Router = Backbone.Router.extend({
 
     /*
-     seed urls router
+     Seed routes
     */
     routes: {
         "": "home",
@@ -19,12 +19,10 @@ fun.Router = Backbone.Router.extend({
         "help": "help",
         "signup": "signup",
         "login": "login",
-        
-        "dashboard/a:account": "dashboard",
-        //"dashboard/o:org": "dashboard",
-        "dashboard/a:account/o:org": "dashboard",
 
-        "dashboard": "dashboard",
+        "dashboard": "dashboard",        
+        "dashboard/a:account": "dashboard",
+        "dashboard/a:account/o:org": "dashboard",
         
         "campaigns": "campaigns",
         "orgs": "orgs",
@@ -718,6 +716,7 @@ initialize: function(){
 
 });
 
+// init the shit out of this
 $(function(){
     fun.instances.router = new fun.Router();
     Backbone.history.start();
