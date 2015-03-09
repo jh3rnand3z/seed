@@ -273,7 +273,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Features');
         fun.instances.features.render();
-        
         fun.instances.footer.render();
     },
 
@@ -282,7 +281,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Enterprise');
         fun.instances.enterprise.render();
-        
         fun.instances.footer.render();
     },
 
@@ -291,7 +289,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Terms');
         fun.instances.terms.render();
-        
         fun.instances.footer.render();
     },
 
@@ -300,7 +297,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Privacy');
         fun.instances.privacy.render();
-        
         fun.instances.footer.render();
     },
 
@@ -309,7 +305,6 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render('Security');
         fun.instances.security.render();
-        
         fun.instances.footer.render();
     },
 
@@ -323,33 +318,34 @@ initialize: function(){
     },
 
     status: function(){
+        'use strict';
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Status');
         fun.instances.status.render();
-        
         fun.instances.footer.render();
     },
 
     developers: function(){
+        'use strict';
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Developers');
         fun.instances.developers.render();
-        
         fun.instances.footer.render();
     },
 
     help: function(){
+        'use strict';
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Help');
         fun.instances.help.render();
-        
         fun.instances.footer.render();
     },
 
     support: function(){
+        'use strict';
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render('Support');
@@ -370,7 +366,6 @@ initialize: function(){
         context = sessionStorage.getItem("context");
 
         console.log(context);
-        
         resources = {
             org: new fun.models.Org({'account':context})
         };
@@ -409,6 +404,7 @@ initialize: function(){
     },
 
     contacts: function(page){
+        '';
         // and now for something completely different
         var resourceCount = 0;
         
@@ -518,7 +514,7 @@ initialize: function(){
         var onSuccess = function(){
             if(++modelCount == _.keys(models).length){
                 console.log('spawn daemon success!');
-                
+
                 fun.instances.dashboard.renderLatestRecords(
                     models.records
                 );
@@ -526,11 +522,11 @@ initialize: function(){
                 fun.instances.dashboard.renderTodaySummary(
                     models.summary, models.billing
                 );
-                
+
                 fun.instances.dashboard.renderTodayActivityChart(
                     models.lapseSummary
                 );
-                
+
                 fun.instances.dashboard.renderAccountDropdown(
                     models.user
                 );
@@ -541,7 +537,7 @@ initialize: function(){
         };
 
         if(fun.utils.loggedIn()){
-            
+
             fun.utils.hideAll();
             fun.instances.navbar.render();
 
@@ -564,20 +560,28 @@ initialize: function(){
     },
 
     campaigns: function(){
+        'use strict';
         fun.utils.hideAll();
+
         fun.instances.navbar.render();
+
         fun.instances.subheader.render('Campaigns');
+
         fun.instances.subheader.renderHeadNavCampaigns();
 
         fun.instances.campaigns.render();
-        
+
         //fun.instances.footer.render();
     },
 
     carriers: function(){
+        'use strict';
         fun.utils.hideAll();
+
         fun.instances.navbar.render();
+
         fun.instances.subheader.render('Carriers');
+
         fun.instances.subheader.renderHeadNav();
 
         fun.instances.carriers.render();
