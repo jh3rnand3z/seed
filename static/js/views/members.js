@@ -1,13 +1,13 @@
 fun.views.members = Backbone.View.extend({
 
-    /**
+    /*
     * Bind the event functions to the different HTML elements
     */
     events: {
         'click #new-member-btn': 'addMember',
     },
 
-    /**
+    /*
     * Class constructor
     */
     initialize: function(options){
@@ -17,15 +17,19 @@ fun.views.members = Backbone.View.extend({
         this.context = sessionStorage.getItem("context");
     },
 
-    /**
+    /*
     * Render view
     */
-    render: function(){
+    render: function(org){
         'use strict';
         var data,
             template;
 
         console.log('render members view');
+
+        if (org) {
+            this.members = org.get("members");
+        }
 
         data = {
             'org': this.context,
@@ -40,26 +44,6 @@ fun.views.members = Backbone.View.extend({
         )(data);
 
         this.$el.html(template);
-        this.$el.show();
-    },
-
-    renderMembersPanel: function(org){
-        console.log('render members list');
-        'use strict';
-        var template,
-            membersPanel;
-
-        if (org) {
-            this.members = org.get("members");
-        }
-
-        template = _.template(
-            fun.utils.getTemplate(fun.conf.templates.membersPanel)
-        );
-
-        membersPanel = this.$('#fun-members-panel');
-
-        membersPanel.html(template);
 
         this.membersList = this.$('#members-list');
         
@@ -68,6 +52,9 @@ fun.views.members = Backbone.View.extend({
         this.renderMemberRows();
     },
 
+    /*
+    * Render member rows
+    */
     renderMemberRows: function(){
 
         console.log('render member rows');
@@ -101,7 +88,6 @@ fun.views.members = Backbone.View.extend({
                 this.membersList.append(itemTemplate);
             }
         }
-
     },
 
     /*

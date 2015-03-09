@@ -388,7 +388,7 @@ initialize: function(){
         onSuccess = function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
-                fun.instances.teams.renderTeamsPanel(
+                fun.instances.teams.render(
                     resources.org
                 );
             }
@@ -399,7 +399,7 @@ initialize: function(){
             fun.instances.navbar.render();
             fun.instances.subheader.render(teams);
             fun.instances.subheader.renderHeadNav();
-            fun.instances.teams.render();
+            //fun.instances.teams.render();
             for (resource in resources){
                 resources[resource].fetch({
                     success: onSuccess,
@@ -438,7 +438,7 @@ initialize: function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
 
-                fun.instances.members.renderMembersPanel(
+                fun.instances.members.render(
                     resources.org
                 );
             }
@@ -450,7 +450,7 @@ initialize: function(){
             fun.instances.subheader.render(members);
             fun.instances.subheader.renderHeadNav();
             // render memberss view
-            fun.instances.members.render();
+            //fun.instances.members.render();
 
             for (resource in resources){
                 resources[resource].fetch({

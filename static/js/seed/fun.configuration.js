@@ -250,10 +250,12 @@ fun.conf.templates = {
     profile: fun.utils.format('%s/profile.html', fun.conf.html),
 
     activity: fun.utils.format('%s/activity.html', fun.conf.html),
+    
     members: fun.utils.format('%s/members.html', fun.conf.html),
-    membersPanel: fun.utils.format('%s/membersPanel.html', fun.conf.html),
     memberRow: fun.utils.format('%s/memberRow.html', fun.conf.html),
+
     teams: fun.utils.format('%s/teams.html', fun.conf.html),
+    teamRow: fun.utils.format('%s/teamRow.html', fun.conf.html),
 
     contacts: fun.utils.format('%s/contacts.html', fun.conf.html),
     allContacts: fun.utils.format('%s/allContacts.html', fun.conf.html),
