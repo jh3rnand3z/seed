@@ -264,4 +264,3 @@ jQuery.extend(jQuery.validator.messages, {
  */
 var translate = fun.utils.translate;
 var round = fun.utils.round;
-

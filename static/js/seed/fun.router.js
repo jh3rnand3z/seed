@@ -23,6 +23,9 @@ fun.Router = Backbone.Router.extend({
         "dashboard": "dashboard",        
         "dashboard/a:account": "dashboard",
         "dashboard/a:account/o:org": "dashboard",
+
+        "contacts": "contacts",
+        "contacts/p:page": "contacts",
         
         "campaigns": "campaigns",
         "orgs": "orgs",
@@ -38,13 +41,11 @@ fun.Router = Backbone.Router.extend({
         "numbers": "phone_numbers",
         "carriers": "carriers",
         
-        "contacts": "contacts",
-        "contacts/p:page": "contacts",
-        
         "sounds":"sounds",
         "recordings": "recordings",
         "gateways": "gateways",
         "support": "support",
+
         "settings": "settings",
         "logout": "logout"
     },
@@ -365,6 +366,55 @@ initialize: function(){
         fun.instances.footer.render();
     },
 
+    teams: function(){
+        'use strict';
+        var resourceCount = 0,
+            resources,
+            resource,
+            account,
+            context,
+            teams,
+            onSuccess;
+
+        teams = translate('teams');
+
+        context = sessionStorage.getItem("context");
+
+        console.log(context);
+        resources = {
+            org: new fun.models.Org({'account':context})
+        };
+
+        onSuccess = function(){
+            if(++resourceCount == _.keys(resources).length){
+                console.log('get resources success!');
+                fun.instances.teams.renderTeamsPanel(
+                    resources.org
+                );
+            }
+        };
+
+        if(fun.utils.loggedIn()){
+            fun.utils.hideAll();
+            fun.instances.navbar.render();
+            fun.instances.subheader.render(teams);
+            fun.instances.subheader.renderHeadNav();
+            fun.instances.teams.render();
+            for (resource in resources){
+                resources[resource].fetch({
+                    success: onSuccess,
+                    error: function() {
+                        console.log('fuck error!');
+                    }
+                });
+            }
+        } else {
+            fun.utils.redirect(fun.conf.hash.login);
+        }
+
+        fun.instances.footer.render();
+    },
+
     members: function(){
         'use strict';
         var resourceCount = 0,
@@ -657,17 +707,6 @@ initialize: function(){
         fun.instances.subheader.render(activity);
         fun.instances.subheader.renderHeadNav();
         fun.instances.activity.render();
-        
-        fun.instances.footer.render();
-    },
-
-    teams: function(){
-        var teams = translate('teams');
-        fun.utils.hideAll();
-        fun.instances.navbar.render();
-        fun.instances.subheader.render(teams);
-        fun.instances.subheader.renderHeadNav();
-        fun.instances.teams.render();
         
         fun.instances.footer.render();
     },

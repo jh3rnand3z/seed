@@ -226,7 +226,7 @@ fun.strings = {
     whyLove: "Why you'll love io fun",
     growingMango: "Growing mango trees in the home landscape will give you a lifetime of fresh pungent fruit from an attractive shade tree",
     outboundCampaigns: "Outbound campaigns for the loudest animals",
-
+    goodBye: "Good bye",
     asterisk: "*",
     pound: "#"
 }
