@@ -260,58 +260,65 @@ initialize: function(){
     },
 
     howto: function(){
+        var howto = translate('howto');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Howto');
+        fun.instances.subheader.render(howto);
         fun.instances.howto.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
     },
 
     features: function(){
+        var features = translate('features');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Features');
+        fun.instances.subheader.render(features);
         fun.instances.features.render();
         fun.instances.footer.render();
     },
 
     enterprise: function(){
+        var enterprise = translate('enterprise');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Enterprise');
+        fun.instances.subheader.render(enterprise);
         fun.instances.enterprise.render();
         fun.instances.footer.render();
     },
 
     terms: function(){
+        var terms = translate('terms');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Terms');
+        fun.instances.subheader.render(terms);
         fun.instances.terms.render();
         fun.instances.footer.render();
     },
 
     privacy: function(){
+        var privacy = translate('privacy');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Privacy');
+        fun.instances.subheader.render(privacy);
         fun.instances.privacy.render();
         fun.instances.footer.render();
     },
 
     security: function(){
+        var security = translate('security');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Security');
+        fun.instances.subheader.render(security);
         fun.instances.security.render();
         fun.instances.footer.render();
     },
 
     blog: function(){
+        var blog = translate('blog');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Blog');
+        fun.instances.subheader.render(blog);
         fun.instances.blog.render();
         
         fun.instances.footer.render();
@@ -319,36 +326,40 @@ initialize: function(){
 
     status: function(){
         'use strict';
+        var status = translate('status');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Status');
+        fun.instances.subheader.render(status);
         fun.instances.status.render();
         fun.instances.footer.render();
     },
 
     developers: function(){
         'use strict';
+        var developers = translate('developers');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Developers');
+        fun.instances.subheader.render(developers);
         fun.instances.developers.render();
         fun.instances.footer.render();
     },
 
     help: function(){
         'use strict';
+        var help = translate('help');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Help');
+        fun.instances.subheader.render(help);
         fun.instances.help.render();
         fun.instances.footer.render();
     },
 
     support: function(){
         'use strict';
+        var support = translate('support');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Support');
+        fun.instances.subheader.render(support);
         fun.instances.support.render();
         fun.instances.extra.render();
         fun.instances.footer.render();
@@ -361,7 +372,10 @@ initialize: function(){
             resource,
             account,
             context,
+            members,
             onSuccess;
+
+        members = translate('members');
 
         context = sessionStorage.getItem("context");
 
@@ -383,7 +397,7 @@ initialize: function(){
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
             fun.instances.navbar.render();
-            fun.instances.subheader.render('Members');
+            fun.instances.subheader.render(members);
             fun.instances.subheader.renderHeadNav();
             // render memberss view
             fun.instances.members.render();
@@ -404,7 +418,7 @@ initialize: function(){
     },
 
     contacts: function(page){
-        '';
+        var contacts = translate('contacts');
         // and now for something completely different
         var resourceCount = 0;
         
@@ -434,7 +448,7 @@ initialize: function(){
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
             fun.instances.navbar.render();
-            fun.instances.subheader.render('Contacts');
+            fun.instances.subheader.render(contacts);
             fun.instances.subheader.renderHeadNav();
             // render contacts view
             fun.instances.contacts.render();
@@ -454,6 +468,7 @@ initialize: function(){
     },
 
     signup: function(){
+        var signup = translate('signup');
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
         } else {
@@ -466,12 +481,13 @@ initialize: function(){
     },
     
     login: function(){
+        var login = translate('login');
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
         } else {
             fun.utils.hideAll();
             fun.instances.navbar.render();
-            fun.instances.subheader.render('Login');
+            fun.instances.subheader.render(login);
             fun.instances.login.render();
         }
 
@@ -538,10 +554,12 @@ initialize: function(){
 
         if(fun.utils.loggedIn()){
 
+            var dashboard = translate('dashboard');
+
             fun.utils.hideAll();
             fun.instances.navbar.render();
 
-            fun.instances.subheader.render('Dashboard');
+            fun.instances.subheader.render(dashboard);
             fun.instances.subheader.renderHeadNav();
 
             fun.instances.dashboard.render();
@@ -561,11 +579,14 @@ initialize: function(){
 
     campaigns: function(){
         'use strict';
+
+        var campaigns = translate('campaigns');
+
         fun.utils.hideAll();
 
         fun.instances.navbar.render();
 
-        fun.instances.subheader.render('Campaigns');
+        fun.instances.subheader.render(campaigns);
 
         fun.instances.subheader.renderHeadNavCampaigns();
 
@@ -576,11 +597,14 @@ initialize: function(){
 
     carriers: function(){
         'use strict';
+
+        var carriers = translate('carriers');
+
         fun.utils.hideAll();
 
         fun.instances.navbar.render();
 
-        fun.instances.subheader.render('Carriers');
+        fun.instances.subheader.render(carriers);
 
         fun.instances.subheader.renderHeadNav();
 
@@ -590,9 +614,11 @@ initialize: function(){
     },
 
     gateways: function(){
+        var gateways = translate('gateways');
+
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Gateways');
+        fun.instances.subheader.render(gateways);
         fun.instances.subheader.renderHeadNav();
 
         fun.instances.gateways.render();
@@ -601,9 +627,11 @@ initialize: function(){
     },
 
     orgs: function(){
+        var organizations = translate('organizations');
+        
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Organizations');
+        fun.instances.subheader.render(organizations);
         fun.instances.subheader.renderHeadNav();
         fun.instances.orgs.render();
         
@@ -611,18 +639,22 @@ initialize: function(){
     },
 
     profile: function(){
+        var profile = translate('profile');
+
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Profile');
+        fun.instances.subheader.render(profile);
         fun.instances.profile.render();
         
         fun.instances.footer.render();
     },
 
     activity: function(){
+        var activity = translate('activity');
+
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Activity');
+        fun.instances.subheader.render(activity);
         fun.instances.subheader.renderHeadNav();
         fun.instances.activity.render();
         
@@ -630,9 +662,10 @@ initialize: function(){
     },
 
     teams: function(){
+        var teams = translate('teams');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Teams');
+        fun.instances.subheader.render(teams);
         fun.instances.subheader.renderHeadNav();
         fun.instances.teams.render();
         
@@ -640,25 +673,28 @@ initialize: function(){
     },
 
     phone: function(){
+        var phone = translate('phone');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Phone');
+        fun.instances.subheader.render(phone);
         fun.instances.phone.render();
         fun.instances.footer.render();
     },
 
     phoneNumbers: function(){
+        var numbers = translate('numbers');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Numbers');
+        fun.instances.subheader.render(numbers);
         fun.instances.phoneNumbers.render();
         fun.instances.footer.render();
     },
 
     sounds: function(){
+        var sounds = translate('sounds');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Sounds');
+        fun.instances.subheader.render(sounds);
         fun.instances.subheader.renderHeadNavCampaigns();
         fun.instances.sounds.render();
         //fun.instances.footer.render();
@@ -666,10 +702,11 @@ initialize: function(){
 
     reports: function(page){
         if(fun.utils.loggedIn()){
+            var reports = translate('reports');
             fun.utils.hideAll();
             fun.instances.navbar.render();
 
-            fun.instances.subheader.render('Reports');
+            fun.instances.subheader.render(reports);
             fun.instances.subheader.renderHeadNavReports();
 
             fun.instances.reports.render();
@@ -681,27 +718,30 @@ initialize: function(){
     },
 
     recordings: function(){
+        recordings = translate('recordings');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Recordings');
+        fun.instances.subheader.render(recordings);
         fun.instances.subheader.renderHeadNavCampaigns();
         fun.instances.recordings.render();
         fun.instances.footer.render();
     },
 
     settings: function(){
+        var settings = translate('settings');
         fun.utils.hideAll();
         fun.instances.navbar.render();
-        fun.instances.subheader.render('Settings');
+        fun.instances.subheader.render(settings);
         fun.instances.settings.render();
         fun.instances.footer.render();
     },
 
     logout: function(){
+        var goodBye = translate('goodBye');
         fun.utils.logout();
         fun.utils.hideAll();
         fun.instances.navbar.render()
-        fun.instances.subheader.render('Good bye!');      
+        fun.instances.subheader.render(goodBye);      
         fun.instances.login.render();
         //fun.instances.footer.render();
     }
