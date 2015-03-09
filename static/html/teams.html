@@ -4,22 +4,22 @@
         
         <div class="col-md-3">
 
-            <div class="vcard" itemscope="" itemtype="http://schema.org/Person">
-                <a href="#settings" aria-label="Change your avatar" class="vcard-avatar">
+            <div>
+                <a href="#settings">
 
                     <img src="/static/img/heads/organization.png" class="img-responsive" alt="Your image">
 
                 </a>
 
-                <h1 class="vcard-names">
-                    <span class="vcard-fullname" itemprop="name">IO FUN</span>
-                    <span class="vcard-username" itemprop="additionalName">io fun</span>
-                </h1>
+                <h2>
+                    <span class="vcard-fullname" itemprop="name"><%= name %></span>
+                    <span class="vcard-username" itemprop="additionalName"><%= description %></span>
+                </h2>
 
                 <ul class="vcard-details list-unstyled">
                     <li>
                         <i class="fa fa-users fa-fw"></i>
-                        io fun
+                        <%= org %>
                     </li>
                     <li>
                         <i class="fa fa-map-marker fa-fw"></i>

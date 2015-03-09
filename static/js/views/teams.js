@@ -12,22 +12,45 @@ fun.views.teams = Backbone.View.extend({
     */
     initialize: function(options){
         fun.containers.teams = this.$el;
+        // get username account from localStorage
+        this.account = localStorage.getItem("username");
     },
 
     /*
     * Render view
     */
-    render: function(){
+    render: function(org){
+        'use strict';
+        var data,
+            context,
+            template;
+
         console.log('render teams view');
 
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.teams));
+        context = sessionStorage.getItem("context");
+
+        if (org){
+            this.teams = org.get("teams");
+        }
+
+        data = {
+            'org': context,
+            'name': false,
+            'description': false
+        };
+
+        template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.teams)
+        )(data);
 
         this.$el.html(template);
+        this.teamsList = this.$('#teams-list');
         this.$el.show();
+        this.renderTeamRows();
     },
 
-    renderTeamsPanel: function(org){
-        console.log('render teams panel');
+    renderTeamRows: function(){
+        console.log('render team rows');
     },
 
     /*

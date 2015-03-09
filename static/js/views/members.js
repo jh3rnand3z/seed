@@ -14,7 +14,6 @@ fun.views.members = Backbone.View.extend({
         fun.containers.members = this.$el;
 
         this.account = localStorage.getItem("username");
-        this.context = sessionStorage.getItem("context");
     },
 
     /*
@@ -23,21 +22,22 @@ fun.views.members = Backbone.View.extend({
     render: function(org){
         'use strict';
         var data,
+            context,
             template;
 
         console.log('render members view');
+
+        context = sessionStorage.getItem("context");
 
         if (org) {
             this.members = org.get("members");
         }
 
         data = {
-            'org': this.context,
+            'org': context,
             'name': false,
             'description': false
         };
-
-        console.log("org = " + this.context);
 
         template = _.template(
             fun.utils.getTemplate(fun.conf.templates.members)
