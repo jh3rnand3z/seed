@@ -23,15 +23,15 @@
                     </li>
                     <li>
                         <i class="fa fa-map-marker fa-fw"></i>
-                        Costa Rica
+                        <%= location %>
                     </li>
                     <li>
                         <i class="fa fa-envelope-o fa-fw"></i>
-                        <a class="email" href="mailto:info@iofun.io">info@iofun.io</a>
+                        <a class="email" href="mailto:<%= email %>"><%= email %></a>
                     </li>
                     <li>
                         <i class="fa fa-link fa-fw"></i>
-                        <a href="https://iofun.io/iofun" class="url" rel="nofollow me">http://iofun.io/iofun</a>
+                        <a href="https://iofun.io/iofun" class="url" rel="nofollow me"><%= uri %></a>
                     </li>
                    <li>
                        <i class="fa fa-clock-o fa-fw"></i>
@@ -65,7 +65,7 @@
                     <div class="pull-right">
                         <a class="btn btn-default" data-toggle="modal" data-target="#addMemberModal">
                             <i class="fa fa-user-plus fa-fw"></i>
-                            Add member
+                            <%= translate("addMember") %>
                         </a>
                     </div>
                                 
@@ -79,7 +79,7 @@
                     <div id="fun-members-panel" class="panel panel-default">
 
                         <div class="panel-heading">
-                            <h3 class="panel-title">Members</h3>
+                            <h3 class="panel-title"><%= translate("members") %></h3>
                         </div>
 
                         <!-- List group -->

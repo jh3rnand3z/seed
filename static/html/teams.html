@@ -52,9 +52,9 @@
                 <div class="col-md-6">
 
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Find a team…">
+                        <input type="text" class="form-control" placeholder="<%= translate("findAteam") %>">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Search</button>
+                            <button class="btn btn-default" type="button"><%= translate("search") %></button>
                         </span>    
                     </div>
                     
@@ -66,12 +66,12 @@
                         
                         <a href="#settings" class="btn btn-default">
                             <i class="fa fa-at fa-fw"></i>
-                            My teams
+                            <%= translate("myTeams") %>
                         </a>
 
                         <a class="btn btn-success" data-toggle="modal" data-target="#addTeamModal">
                             <i class="fa fa-paw fa-fw"></i>
-                            New team
+                            <%= translate("newTeam") %>
                         </a>
 
                     </div>
