@@ -36,7 +36,10 @@ fun.views.members = Backbone.View.extend({
         data = {
             'org': context,
             'name': false,
-            'description': false
+            'description': false,
+            'email': 'example@example.com',
+            'location': 'mars',
+            'uri': 'http://iofun.io'
         };
 
         template = _.template(
@@ -79,9 +82,7 @@ fun.views.members = Backbone.View.extend({
 
                 itemData = _.extend(memberData, {i:i+1});
 
-                console.log(itemData);
-
-                var itemTemplate = _.template(
+                itemTemplate = _.template(
                     fun.utils.getTemplate(fun.conf.templates.memberRow)
                 )(itemData);
 
