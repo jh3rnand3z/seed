@@ -62,6 +62,7 @@ fun.views.teams = Backbone.View.extend({
             length,
             teamData,
             itemData,
+            innerDiv,
             itemTemplate;
 
         //length = this.teams.length;
@@ -70,21 +71,26 @@ fun.views.teams = Backbone.View.extend({
         if(length > 0){
 
             // please see if _.each make sense here.
-            // <div class="row"></div>
-            // <div class="row"></div>
-
             for (i; i < length; ++i){
                 teamData = this.teams[i];
                 itemData = _.extend(teamData, {i:i+1});
 
-                console.log((i+1) % 2 == 0);
+                if ((i+1) % 2 !== 0){
+                    this.innerDiv = document.createElement('div');
+                    this.innerDiv.className = 'row';
+                }
 
                 itemTemplate = _.template(
                     fun.utils.getTemplate(fun.conf.templates.teamRow)
                 )(itemData);
 
-                this.teamsList.append(itemTemplate);
+                $(itemTemplate).appendTo(this.innerDiv);
 
+                if ((i+1) % 2 == 0){
+                    this.teamsList.append(this.innerDiv);
+                }
+
+                // need to check for errors on single or N % !== 0 values.
             }
         }
     },
