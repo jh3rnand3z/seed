@@ -38,7 +38,7 @@ fun.views.members = Backbone.View.extend({
             'name': false,
             'description': false,
             'email': 'example@example.com',
-            'location': 'mars',
+            'location': 'Mars',
             'uri': 'http://iofun.io'
         };
 
@@ -47,11 +47,8 @@ fun.views.members = Backbone.View.extend({
         )(data);
 
         this.$el.html(template);
-
         this.membersList = this.$('#members-list');
-        
         this.$el.show();
-
         this.renderMemberRows();
     },
 
@@ -59,10 +56,8 @@ fun.views.members = Backbone.View.extend({
     * Render member rows
     */
     renderMemberRows: function(){
-
-        console.log('render member rows');
-
         'use strict';
+        
         var i = 0,
             length,
             memberData,
