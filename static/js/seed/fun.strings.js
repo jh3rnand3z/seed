@@ -34,8 +34,7 @@ fun.strings = {
     nine: "9",
 
     oldManAristotle: 'Greek philosopher Aristotle, 320 BC.',
-    anAssistant: 'an artificial intelligence and research assistant meant to aid IO Fun in competing on the creation of artificial intelligence technology systems.',
-
+    anAssistant: 'an artificial intelligence and research assistant meant to aid on the creation of artificial intelligence technology systems.',
     ioFunBanner: "Fantastical unbelievable communication.",
     ioFunLandingText: "Powerful organization, account management, record and call review for inbound and outbound campaigns.",
     howItWorks: "How it works",
@@ -146,6 +145,7 @@ fun.strings = {
     email: "Email",
     sendVerificationEmail: "Send verification email",
     usernameOrPasswordError: "The username or password you entered is incorrect.",
+    passwordStuffs: "Use at least one lowercase letter, one numeral, and seven characters.",
     addEmailAddress: "Add email address",
     add: "Add",
     primary: "Primary",
