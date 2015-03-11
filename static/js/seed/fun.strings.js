@@ -207,6 +207,7 @@ fun.strings = {
     transferNumber: "Transfer number",
     maxTransfers: "Max transfers",
     createOrganization: "Create organization",
+    createApassword: "Create a password",
     date: "Date",
     account: "Account",
     source: "Source",

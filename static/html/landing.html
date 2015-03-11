@@ -26,15 +26,15 @@
                 <form id="home-signup-form" class="form-signup" novalidate="novalidate">
     
                     <div class="form-group">
-                        <input type="text" id="signup_username" name="signup_username" class="form-control" placeholder="Your username" autofocus="">
+                        <input type="text" id="signup_username" name="signup_username" class="form-control" placeholder="<%= translate("yourUsername") %>" autofocus="">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" id="signup_email" name="signup_email" class="form-control" placeholder="Your email">
+                        <input type="text" id="signup_email" name="signup_email" class="form-control" placeholder="<%= translate("yourEmail") %>">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Create a password"/>
+                        <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="<%= translate("createApassword") %>"/>
                         <p class="text-muted"><%= translate("passwordStuffs") %><p>
                     </div>
                     
