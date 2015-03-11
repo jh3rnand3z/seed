@@ -32,6 +32,10 @@ fun.strings = {
     seven: "7",
     eight: "8",
     nine: "9",
+
+    oldManAristotle: 'Greek philosopher Aristotle, 320 BC.',
+    anAssistant: 'an artificial intelligence and research assistant meant to aid IO Fun in competing on the creation of artificial intelligence technology systems.',
+
     ioFunBanner: "Fantastical unbelievable communication.",
     ioFunLandingText: "Powerful organization, account management, record and call review for inbound and outbound campaigns.",
     howItWorks: "How it works",
@@ -177,6 +181,8 @@ fun.strings = {
     oneWeek: "1 Week",
     oneMonth: "1 Month",
     all: "All",
+    org: "Organization",
+    monkeys: "Monkeys",
     active: "Active",
     inactive: "Inactive",
     inbound: "Inbound",
@@ -224,6 +230,7 @@ fun.strings = {
     accounts: "Accounts",
     cohorts: "Cohorts",
     whyLove: "Why you'll love io fun",
+    oldMan: "If every tool, when ordered, or even of its own accord, could do the work that befits it... then there would be no need either of apprentices for the master workers or of slaves for the lords.",
     growingMango: "Growing mango trees in the home landscape will give you a lifetime of fresh pungent fruit from an attractive shade tree",
     outboundCampaigns: "Outbound campaigns for the loudest animals",
     goodBye: "Good bye",

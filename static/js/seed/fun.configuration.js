@@ -9,6 +9,9 @@ fun.conf = {
     domain: 'iofun.io',
 
     urlRoot: '/api/',
+    sw:'',
+    hw:'',
+    sip:'',
 
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
@@ -300,12 +303,13 @@ fun.conf.hash = {
 
     dashboard : '#dashboard',
     dashboardWithAccount: '#dashboard/a{account}',
-    //dashboardWithOrg: '#dashboard/o{org}',
 
+    profile: '#profile',
+    profileWithAccount: '#profile/a{account}',
+
+    activity: '#activity',
     orgs: '#orgs',
     campaigns: '#campaigns',
-    profile: '#profile',
-    activity: '#activity',
     members: '#members',
     teams: '#teams',
     phone: '#phone',
