@@ -22,6 +22,7 @@ fun.strings = {
     validateRange: "Please enter a value between {0} and {1}.",
     validateMax: "Please enter a value less than or equal to {0}.",
     validateMin: "Please enter a value greater than or equal to {0}.",
+    clickYouAgree: 'By clicking "Sign up", you agree to our',
     zero: "0",
     one: "1",
     two: "2",
@@ -32,7 +33,6 @@ fun.strings = {
     seven: "7",
     eight: "8",
     nine: "9",
-
     oldManAristotle: 'Greek philosopher Aristotle, 320 BC.',
     anAssistant: 'an artificial intelligence and research assistant meant to aid on the creation of artificial intelligence technology systems.',
     ioFunBanner: "Fantastical unbelievable communication.",
@@ -69,6 +69,7 @@ fun.strings = {
     todayActivity: "Today Activity",
     latestRecords: "Latest Records",
     minutes: "Minutes",
+    orgs: "Organizations",
     calls: "Calls",
     records: "Records",
     total: "Total",

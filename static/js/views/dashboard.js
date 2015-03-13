@@ -40,22 +40,17 @@ fun.views.dashboard = Backbone.View.extend({
 
     renderAccountDropdown: function(account){
         // Render account dropdown
-        //'use strict';
+        'use strict';
         //console.log(account);
-        var counter, // i
+        var counter = 0, // i
             length,
             orgData,
             itemData,
-            data,
             itemTemplate;
 
         // Can I get the list from localStorage?, pretty please.
 
         if (account) {
-            //data = account.toJSON();
-
-            console.log(account);
-
             this.orgs = account.get("orgs");
         } else {
             this.orgs = 0;
@@ -63,7 +58,6 @@ fun.views.dashboard = Backbone.View.extend({
 
         this.accountList = this.$('#account-dropdown ul');
 
-        counter = 0;
         length = this.orgs.length;
         
         if (length > 0){
@@ -221,7 +215,7 @@ fun.views.dashboard = Backbone.View.extend({
         'use strict';
         var data,
             series,
-            i,
+            i = 0,
             counter,
             recordType,
             template;
@@ -230,26 +224,13 @@ fun.views.dashboard = Backbone.View.extend({
         data = [],
         series = Math.floor(Math.random() * 6) + 3;
 
-        for (var i = 0; i < series; i++) {
+        for (i; i < series; i++) {
             data[i] = {
                 label: "Series" + (i + 1),
                 data: Math.floor(Math.random() * 100) + 1
             }
         }
-        /*
-        //A custom label formatter used by several of the plots
-        function labelFormatter(label, series) {
-            return "<div 
-                            style='font-size:8pt;
-                            text-align:center;
-                            padding:2px; 
-                            color:white;'>"
-                    + label
-                    + "<br/>"
-                    + Math.round(series.percent)
-                    + "%</div>";
-        }
-        */
+
         template = _.template(
             fun.utils.getTemplate(fun.conf.templates.recordType)
         )(data);
@@ -268,18 +249,24 @@ fun.views.dashboard = Backbone.View.extend({
 
     renderRows: function(){
         // Render rows
-        var i = 0;
-        var length = this.collection.length;
+        'use strict';
+        var i = 0,
+            length,
+            rows,
+            data,
+            template;
+
+        length = this.collection.length;
 
         if (length > 0){
-            var rows = this.tbody.html('');
+            rows = this.tbody.html('');
            
             // da fuq dude?
             for ( i; i < 7; ++i ) {
 
-                var data = _.extend(this.collection.at(i).toJSON(), {i:i});
+                data = _.extend(this.collection.at(i).toJSON(), {i:i});
 
-                var template = _.template(
+                template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.recordRow)
                 )(data);
 
@@ -291,43 +278,51 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     noRecords: function() {
+        'use strict';
+        var template,
+            noRecords;
         // No records
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});
 
-        var noRecords = this.$('#no-records');
+        noRecords = this.$('#no-records');
 
         noRecords.html(template);
     },
 
     today: function(event){
+        'use strict';
         // Today
         console.log('today event');
     },
 
     thisWeek: function(event) {
+        'use strict';
         // This week
         console.log('this week event');
     },
 
     thisMonth: function(event){
+        'use strict';
         // This month
         console.log('this month event');
     },
 
     thisYear: function(event){
+        'use strict';
         // This year
         console.log('this year event');
     },
 
     setContext: function(event){
+        'use strict';
+        var idVal;
         // Set context org
-
         console.log('setting up activity context');
 
         $('input[name="current_account"]:checked').each(function() {
-            var idVal = $(this).attr("id");
+            idVal = $(this).attr("id");
 
             // Check browser support
             if (typeof(Storage) != "undefined") {
