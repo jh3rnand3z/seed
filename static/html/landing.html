@@ -39,7 +39,7 @@
                     </div>
                     
                     <button id="signup-btn" class="btn btn-lg btn-primary btn-block" type="submit"><%= translate("signUp") %></button>
-                    <p class="text-muted"><%= translate("clickYouAgree") %> <a href="#terms">terms of service</a> and <a href="#privacy">privacy policy</a>. We will send you account related emails occasionally.</p>
+                    <p class="text-muted"><%= translate("clickYouAgree") %> <a href="#terms"><%= translate("termsOfService") %></a> <%= translate("and") %> <a href="#privacy"><%= translate("privacyPolicy") %></a>. <%= translate("willSendRelatedEmails") %>.</p>
                 </form>
             </div>
         </div>
@@ -63,10 +63,8 @@
                 <i class="fa fa-spinner fa-stack-1x"></i>
             </span>
 -->
-            
-            <h2>Why you'll love it</h2>
-            
-            <h3>Powerful features to make communication campaigns more collaborative, intelligente and simple.</h3>
+            <h2><%= translate("youLoveIt") %></h2>         
+            <h3><%= translate("powerComCamColIntAndS") %>.</h3>
 
             <!--<p><%= translate("oldMan") %></p> <b><%= translate("oldManAristotle") %></b>-->
             
@@ -81,8 +79,8 @@
                 <i class="fa fa-bullhorn fa-stack-1x"></i>
             </span>
 
-            <h3>Broadcast messages to thousands of contacts.</h3>
-            <p>Send voice messages and reminders to thousands or millions of contacts at high speed.</p>
+            <h3><%= translate("bcastMsgsThsndsCnts") %>.</h3>
+            <p><%= translate("sndVoiceMsgsCnts") %>.</p>
         </div>
 
         <div class="col-md-6">
@@ -91,8 +89,8 @@
                 <i class="fa fa-users fa-stack-1x"></i>
             </span>
 
-            <h3>Friction-less development across teams.</h3>
-            <p>Work with project collaborators or teams of people in organization accounts to communicate with ease..</p>
+            <h3><%= translate("devAcrossTeams") %>.</h3>
+            <p><%= translate("workWithTeams") %>.</p>
         </div>
 
     </div>
@@ -105,8 +103,8 @@
                 <i class="fa fa-pie-chart fa-stack-1x"></i>
             </span>
 
-            <h3>Great communication starts with collaboration.</h3>
-            <p>Review changes, comment on lines of code, report issues, and plan the future of your project with discussion tools.</p>
+            <h3><%= translate("greatComStartWcoll") %>.</h3>
+            <p><%= translate("planFutureDiscussionTools") %>.</p>
         </div>
                     
         
@@ -118,8 +116,8 @@
                 <i class="fa fa-phone fa-stack-1x"></i>
             </span>
 
-            <h3>Manage inbound and outbound.</h3>
-            <p>Match callers and custom teams as they wait for an answer, get real-time stats on the number of calls per queues, teams and wait times.</p>
+            <h3><%= translate("manageInbondAndOutbound") %>.</h3>
+            <p><%= translate("matchCallersandTeams") %>.</p>
         </div>
     </div>
 
@@ -127,13 +125,12 @@
     <div class="row">
         <div class="col-md-12 marketing-header">
 
-            <h2>Bring the fun to your data center.</h2>
+            <h2><%= translate("bringFunDataCenter") %>.</h2>
 
-            
-            <h3>Use IO FUN Enterprise, the best way to manage communications, on your servers.</h3>
+            <h3><%= translate("useFunEnterprise") %>.</h3>
 
             <p class="landing-actions">
-                <a href="#enterprise" class="btn btn-large">Learn more about Enterprise</a>
+                <a href="#enterprise" class="btn btn-large"><%= translate("learnAboutEnterprise") %></a>
             </p> 
             
         </div>
