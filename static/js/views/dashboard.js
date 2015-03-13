@@ -23,9 +23,10 @@ fun.views.dashboard = Backbone.View.extend({
         
         // Render view function
         'use strict';
+        var template;
         console.log("username = " + this.account)
 
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.dashboard)
         )({'account':this.account});
 
