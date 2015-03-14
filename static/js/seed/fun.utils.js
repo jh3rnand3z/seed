@@ -1,6 +1,6 @@
-/**
- * Fun namespace object
- */
+/*
+* Fun namespace object
+*/
 var fun = {
     account: {}, 
     utils: {},
@@ -16,10 +16,10 @@ var fun = {
 };
 
 
-/**
- * Fetches the session from it's container (cookie)
- * @return Object: Session data
- */
+/*
+* Fetches the session from it's container (cookie)
+* @return Object: Session data
+*/
 fun.utils.getSession = function() {
     var session = null;
     
@@ -222,8 +222,11 @@ fun.utils.validationRules = function () {
  * string 'join' format
  */
 fun.utils.format = function () {
-    var args = [].slice.call(arguments);
-    var initial = args.shift();
+    'use strict';
+    var args,
+        initial;
+    args = [].slice.call(arguments);
+    initial = args.shift();
 
     function replacer (text, replacement) {
         return text.replace('%s', replacement);

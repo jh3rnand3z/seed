@@ -10,7 +10,7 @@ fun.views.navbar = Backbone.View.extend({
         this.account = localStorage.getItem("username");
         this.context = sessionStorage.getItem("context");
 
-        fun.omnibus.on("some:event", function(){
+        fun.omnibus.on("change:context", function(){
             this.renderDashboard();
         }, this);
     },

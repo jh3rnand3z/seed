@@ -17,8 +17,7 @@ fun.views.subheader = Backbone.View.extend({
         this.account = localStorage.getItem("username");
         this.context = sessionStorage.getItem("context");
 
-        fun.omnibus.on("some:event", function(){
-            //console.log("some event was fired on subheader!");
+        fun.omnibus.on("change:context", function(){
             this.renderHeadNav();
         }, this);
     },

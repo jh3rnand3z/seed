@@ -332,11 +332,7 @@ fun.views.dashboard = Backbone.View.extend({
             }
         });
 
-        //console.log(fun.conf.hash.dashboard);
-        //Backbone.history.loadUrl();
-        fun.instances.subheader.renderHeadNav();
-        return false;
-        //fun.utils.redirect(fun.conf.hash.dashboard);
+        fun.omnibus.trigger("change:context");
     }
 
 });
