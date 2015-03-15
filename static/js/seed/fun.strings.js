@@ -93,6 +93,8 @@ fun.strings = {
     powerComCamColIntAndS: "Powerful features to make communication campaigns more intelligente and simple",
     bcastMsgsThsndsCnts: "Broadcast messages to thousands of contacts",
     sndVoiceMsgsCnts: "Send voice messages and reminders to thousands or millions of contacts at high speed bananas",
+    orgToolMonkeys: "Organization tools for message passing artificial monkeys",
+    orgToolMonkeyDescription: "nodes, clusters, cohorts, and clouds; that talk with each other by messages.",
     devAcrossTeams: "Friction-less development across teams",
     workWithTeams: "Work with project collaborators or teams of people in organization accounts to communicate with ease",
     greatComStartWcoll: "Great communication starts with collaboration",
