@@ -92,7 +92,7 @@ fun.strings = {
     willSendRelatedEmails: "We will send you account related emails occasionally",
     powerComCamColIntAndS: "Powerful features to make communication campaigns more intelligente and simple",
     bcastMsgsThsndsCnts: "Broadcast messages to thousands of contacts",
-    sndVoiceMsgsCnts: "Send voice messages and reminders to thousands or millions of contacts at high speed",
+    sndVoiceMsgsCnts: "Send voice messages and reminders to thousands or millions of contacts at high speed bananas",
     devAcrossTeams: "Friction-less development across teams",
     workWithTeams: "Work with project collaborators or teams of people in organization accounts to communicate with ease",
     greatComStartWcoll: "Great communication starts with collaboration",
