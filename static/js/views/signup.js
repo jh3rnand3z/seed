@@ -1,6 +1,6 @@
 fun.views.signup = Backbone.View.extend({
 
-    /**
+    /*
      * Bind the events functions to the different HTML elements
      */
     events : {
@@ -8,25 +8,28 @@ fun.views.signup = Backbone.View.extend({
         'click #signup-btn': 'signup'
     },
     
-    /**
+    /*
      * Class constructor
      */
     initialize : function(options) {
         fun.containers.signup = this.$el;
     },
     
-    /**
+    /*
      * Renders the signup view
      */
     render : function(){
+        'use strict';
+        var template;
         if (!this.$el.html()){
-            var template = _.template(fun.utils.getTemplate(fun.conf.templates.signup));
+            template = _.template(fun.utils.getTemplate(fun.conf.templates.signup));
             this.$el.html(template);
 
             // Cache the DOM stuff
             this.signupError = this.$('#signup-error');
             // Form inputs
             this.account = this.$('#signup_username');
+            this.newAccount = this.account;
             this.email = this.$('#signup_email');
             this.password = this.$('#signup_password');
             this.confirmPassword = this.$('#confirm_password');
@@ -34,26 +37,36 @@ fun.views.signup = Backbone.View.extend({
         this.$el.show();
     },
     
-    /**
+    /*
      * login event
      */
     login: function() {
         window.location = fun.conf.hash.login;
     },
     
-    /**
+    /*
      * signup event
      */
     signup: function(event){
-        //event.preventDefault();
-        var signupError = this.signupError;
-        var account = this.account.val();
-        var password = this.password.val();
-        var email = this.email.val();
+        'use strict';
+        var signupError,
+            account,
+            password,
+            email,
+            view,
+            rules,
+            validationRules,
+            callbacks,
+            validForm;
+        event.preventDefault();
+        signupError = this.signupError;
+        account = this.account.val();
+        password = this.password.val();
+        email = this.email.val();
         // check if this view stuff is really needed
-        var view = this;
+        view = this;
         // form validation rules
-        var rules = {
+        rules = {
             rules: {
                 signup_username: {
                     minlength: 2,
@@ -68,14 +81,14 @@ fun.views.signup = Backbone.View.extend({
                     required: true
                 },
                 confirm_password: {
-                    required: true,
+                    required: false,
                     minlength: 6,
                     equalTo: '#signup_password'
                     
                 }
             }
         }
-        var validationRules = $.extend (rules, fun.utils.validationRules);
+        validationRules = $.extend (rules, fun.utils.validationRules);
         $('#signup-form').validate(validationRules);
         
         // new user account callbacks
@@ -96,12 +109,10 @@ fun.views.signup = Backbone.View.extend({
                         error : function(xhr, status, error){
                             // aqui es donde tiene sentido 
                             // enviar al dude a login con un error.
-
-
                             fun.utils.redirect(fun.conf.hash.login);
                         }
                     }
-                )
+                );
             },
 
             error: function(model, error){
@@ -122,9 +133,9 @@ fun.views.signup = Backbone.View.extend({
         };
         
         // check for a valid form and create the new user account
-        var validForm = $('#signup-form').valid();
+        validForm = $('#signup-form').valid();
         if (validForm){
-            event.preventDefault();
+            //event.preventDefault();
             this.model = new fun.models.Account();
             this.model.save(
                 {
