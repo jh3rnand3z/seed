@@ -52,6 +52,7 @@ fun.views.signup = Backbone.View.extend({
         var signupError,
             account,
             password,
+            confirmPassword,
             email,
             view,
             rules,
@@ -62,6 +63,7 @@ fun.views.signup = Backbone.View.extend({
         signupError = this.signupError;
         account = this.account.val();
         password = this.password.val();
+        confirmPassword = this.confirmPassword.val();
         email = this.email.val();
         // check if this view stuff is really needed
         view = this;
@@ -89,6 +91,9 @@ fun.views.signup = Backbone.View.extend({
             }
         }
         validationRules = $.extend (rules, fun.utils.validationRules);
+
+        console.log(validationRules);
+
         $('#signup-form').validate(validationRules);
         
         // new user account callbacks
