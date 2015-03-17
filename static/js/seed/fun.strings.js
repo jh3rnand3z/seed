@@ -25,6 +25,7 @@ fun.strings = {
     clickYouAgree: 'By clicking "Sign up", you agree to our',
     zero: "0",
     one: "1",
+    call: "Call",
     two: "2",
     three: "3",
     four: "4",
