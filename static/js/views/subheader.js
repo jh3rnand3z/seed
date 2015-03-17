@@ -4,6 +4,7 @@ fun.views.subheader = Backbone.View.extend({
     * Bind the event functions to the different HTML elements
     */
     events : {
+        'click #call-btn': 'call',
 
     },
     
@@ -87,6 +88,10 @@ fun.views.subheader = Backbone.View.extend({
         var headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
+    },
+
+    call: function(event) {
+        console.log('call some fucking one');
     }
 
 });
