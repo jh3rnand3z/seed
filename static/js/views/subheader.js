@@ -5,7 +5,6 @@ fun.views.subheader = Backbone.View.extend({
     */
     events : {
         'click #call-btn': 'call',
-
     },
     
     /**
@@ -27,17 +26,20 @@ fun.views.subheader = Backbone.View.extend({
      * Render the subheader view
      */
     render : function(header){
+        'use strict';
+        var data, template;
+        
         if(header){
             this.header = header;
         } else {
             this.header = 'nonsense';
         }
 
-        var data = {
+        data = {
             header:this.header
         };
 
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.subheader))(data);
+        template = _.template(fun.utils.getTemplate(fun.conf.templates.subheader))(data);
 
         this.$el.html(template);
         this.$el.show();
@@ -71,21 +73,25 @@ fun.views.subheader = Backbone.View.extend({
     },
 
     renderHeadNavCampaigns : function(){
-        var template = _.template(
+        'use strict';
+        var template, headNav;
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.headNavCampaigns)
         );
 
-        var headNav = this.$('#fun-head-nav');
+        headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
     },
 
     renderHeadNavReports : function(){
-        var template = _.template(
+        'use strict';
+        var template, headNav;
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.headNavReports)
         );
 
-        var headNav = this.$('#fun-head-nav');
+        headNav = this.$('#fun-head-nav');
 
         headNav.html(template);
     },
