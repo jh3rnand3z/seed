@@ -91,6 +91,8 @@ fun.views.subheader = Backbone.View.extend({
     },
 
     call: function(event) {
+        'use strict';
+        event.preventDefault();
         console.log('call some fucking one');
     }
 
