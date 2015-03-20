@@ -7,6 +7,12 @@ fun.Router = Backbone.Router.extend({
         "": "home",
         "home": "home",
         "landing": "landing",
+        "dashboard": "dashboard",        
+        "dashboard/a:account": "dashboard",
+        "dashboard/a:account/o:org": "dashboard",
+        "signup": "signup",
+        "login": "login",
+
         "howto": "howto",
         "features": "features",
         "enterprise": "enterprise",
@@ -17,12 +23,6 @@ fun.Router = Backbone.Router.extend({
         "status": "status",
         "developers": "developers",
         "help": "help",
-        "signup": "signup",
-        "login": "login",
-
-        "dashboard": "dashboard",        
-        "dashboard/a:account": "dashboard",
-        "dashboard/a:account/o:org": "dashboard",
 
         "contacts": "contacts",
         "contacts/p:page": "contacts",
@@ -627,23 +627,79 @@ initialize: function(){
         fun.instances.footer.render();
     },
 
+
     campaigns: function(){
         'use strict';
+        var resourceCount = 0,
+            resources,
+            resource,
+            account,
+            context,
+            campaigns,
+            onSuccess;
 
-        var campaigns = translate('campaigns');
+        campaigns = translate('campaigns');
 
-        fun.utils.hideAll();
+        context = sessionStorage.getItem("context");
 
-        fun.instances.navbar.render();
+        console.log(context);
 
-        fun.instances.subheader.render(campaigns);
+        resources = {
+            account: new fun.models.Account({'account':account})
+        };
 
-        fun.instances.subheader.renderHeadNavCampaigns();
+        onSuccess = function(){
+            if(++resourceCount == _.keys(resources).length){
+                console.log('get resources success!');
 
-        fun.instances.campaigns.render();
+                fun.instances.campaigns.render(
+                    resources.account
+                );
+            }
+        };
 
-        //fun.instances.footer.render();
+        if(fun.utils.loggedIn()){
+            fun.utils.hideAll();
+            fun.instances.navbar.render();
+            fun.instances.subheader.render(members);
+            fun.instances.subheader.renderHeadNav();
+            // render memberss view
+            //fun.instances.members.render();
+
+            for (resource in resources){
+                resources[resource].fetch({
+                    success: onSuccess,
+                    error: function() {
+                        console.log('fuck error!');
+                    }
+                });
+            }
+        } else {
+            fun.utils.redirect(fun.conf.hash.login);
+        }
+
+        fun.instances.footer.render();
     },
+
+
+//    campaigns: function(){
+//        'use strict';
+//
+//        var campaigns = translate('campaigns');
+//
+//        fun.utils.hideAll();
+//
+//        fun.instances.navbar.render();
+//
+//        fun.instances.subheader.render(campaigns);
+//
+//        fun.instances.subheader.renderHeadNavCampaigns();
+//
+//        fun.instances.campaigns.render();
+//
+//        //fun.instances.footer.render();
+//    },
+
 
     carriers: function(){
         'use strict';
