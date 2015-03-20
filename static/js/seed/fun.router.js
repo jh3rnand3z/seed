@@ -663,8 +663,8 @@ initialize: function(){
             fun.instances.navbar.render();
             fun.instances.subheader.render(campaigns);
             fun.instances.subheader.renderHeadNav();
-            // render memberss view
-            //fun.instances.members.render();
+            
+            fun.instances.campaigns.render();
 
             for (resource in resources){
                 resources[resource].fetch({
@@ -678,7 +678,7 @@ initialize: function(){
             fun.utils.redirect(fun.conf.hash.login);
         }
 
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
 
 
