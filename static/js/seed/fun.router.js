@@ -661,7 +661,7 @@ initialize: function(){
         if(fun.utils.loggedIn()){
             fun.utils.hideAll();
             fun.instances.navbar.render();
-            fun.instances.subheader.render(members);
+            fun.instances.subheader.render(campaigns);
             fun.instances.subheader.renderHeadNav();
             // render memberss view
             //fun.instances.members.render();
