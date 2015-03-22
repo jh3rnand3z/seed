@@ -50,7 +50,7 @@ fun.strings = {
     signup: "Signup",
     isFastToGetStarted: "Is fast to get started",
     createYourUserAccount: "Create your user account",
-    itsFastToGetStarted: "Fast to GET started",
+    itsFastToGetStarted: "Is fast to get started",
     todayActivity: "Today Activity",
     yourUsername: "Your Username",
     yourAccount: "Your Account",
