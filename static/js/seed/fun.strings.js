@@ -3,6 +3,7 @@
  */
 fun.strings = {
     ioFun: "IO FUN",
+    login: "Login",
     noDataAvailable : 'No Data Available.',
     warning : 'Warning!',
     validateRequired: "This field is required.",
