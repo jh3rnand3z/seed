@@ -828,7 +828,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render(settings);
         fun.instances.settings.render();
-        fun.instances.footer.render();
+        //fun.instances.footer.render();
     },
 
     logout: function(){
