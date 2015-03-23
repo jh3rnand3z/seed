@@ -35,6 +35,8 @@ fun.strings = {
     seven: "7",
     eight: "8",
     nine: "9",
+    cube: "Cube",
+    cubes: "Cubes",
     oldManAristotle: 'Greek philosopher Aristotle, 320 BC.',
     anAssistant: 'an artificial intelligence and research assistant meant to aid on the creation of artificial intelligence technology systems.',
     ioFunBanner: "Fantastical unbelievable communication.",
