@@ -234,7 +234,7 @@ initialize: function(){
     },
     
     home: function(){
-
+        'use strict';
         console.log('spawn some fun get account and context');
 
         // get account and context
@@ -474,6 +474,7 @@ initialize: function(){
     },
 
     contacts: function(page){
+        'use strict';
         var contacts = translate('contacts');
         // and now for something completely different
         var resourceCount = 0;
@@ -524,6 +525,7 @@ initialize: function(){
     },
     
     cubes: function(){
+        'use strict';
         var cubes = translate('cubes');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -534,6 +536,7 @@ initialize: function(){
     },
 
     signup: function(){
+        'use strict';
         var signup = translate('signup');
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
@@ -547,6 +550,7 @@ initialize: function(){
     },
     
     login: function(){
+        'use strict';
         var login = translate('login');
         if(fun.utils.loggedIn()){
             fun.utils.redirect(fun.conf.hash.dashboard);
@@ -697,26 +701,6 @@ initialize: function(){
         //fun.instances.footer.render();
     },
 
-
-//    campaigns: function(){
-//        'use strict';
-//
-//        var campaigns = translate('campaigns');
-//
-//        fun.utils.hideAll();
-//
-//        fun.instances.navbar.render();
-//
-//        fun.instances.subheader.render(campaigns);
-//
-//        fun.instances.subheader.renderHeadNavCampaigns();
-//
-//        fun.instances.campaigns.render();
-//
-//        //fun.instances.footer.render();
-//    },
-
-
     carriers: function(){
         'use strict';
 
@@ -749,6 +733,7 @@ initialize: function(){
     },
 
     orgs: function(){
+        'use strict';
         var organizations = translate('organizations');
         
         fun.utils.hideAll();
@@ -812,6 +797,7 @@ initialize: function(){
     },
 
     reports: function(page){
+        'use strict';
         if(fun.utils.loggedIn()){
             var reports = translate('reports');
             fun.utils.hideAll();
@@ -839,6 +825,7 @@ initialize: function(){
     },
 
     settings: function(){
+        'use strict';
         var settings = translate('settings');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -848,6 +835,7 @@ initialize: function(){
     },
 
     logout: function(){
+        'use strict';
         var goodBye = translate('goodBye');
         fun.utils.logout();
         fun.utils.hideAll();
