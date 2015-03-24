@@ -529,7 +529,7 @@ initialize: function(){
         fun.instances.navbar.render();
         fun.instances.subheader.render(cubes);
         fun.instances.cubes.render();
-        
+        fun.instances.subheader.renderHeadNav();
         fun.instances.footer.render();
     },
 
