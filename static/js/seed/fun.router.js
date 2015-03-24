@@ -524,7 +524,7 @@ initialize: function(){
     },
     
     cubes: function(){
-        var blog = translate('cubes');
+        var cubes = translate('cubes');
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.subheader.render(cubes);
