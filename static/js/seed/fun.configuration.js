@@ -18,6 +18,7 @@ fun.conf = {
     uuidCarrier: 'carrier_uuid',
     uuidCampaign: 'campaign_uuid',
     uuidContact: 'contact_uuid',
+    uuidCube: 'cube_uuid',
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
 
@@ -149,6 +150,9 @@ fun.conf.urls = {
 
     contact: fun.utils.format('/contacts/%s', fun.conf.uuidContact),
     contacts: '/contacts/',
+    
+    cube: fun.utils.format('/cubes/%s', fun.conf.uuidCube),
+    cubes: '/cubes/',
 
     directory: fun.utils.format('/directories/%s', fun.conf.uuidDirectory),
     directories: '/directories/',
@@ -266,6 +270,9 @@ fun.conf.templates = {
     contactRow: fun.utils.format('%s/contactRow.html', fun.conf.html),
     directoryRow: fun.utils.format('%s/directoryRow.html', fun.conf.html),
     sounds: fun.utils.format('%s/sounds.html', fun.conf.html),
+    
+    cubes: fun.utils.format('%s/cubes.html', fun.conf.html),
+    
     recordings: fun.utils.format('%s/recordings.html', fun.conf.html),
     reports: fun.utils.format('%s/reports.html', fun.conf.html),
     settings: fun.utils.format('%s/settings.html', fun.conf.html),
@@ -318,6 +325,7 @@ fun.conf.hash = {
     carriers: '#carriers',
 
     contacts: '#contacts',
+    cubes: '#cubes',
     contactsWithPage: '#contacts/p{page}',
 
     sounds: '#sounds',

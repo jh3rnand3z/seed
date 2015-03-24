@@ -28,6 +28,7 @@ fun.Router = Backbone.Router.extend({
         "contacts/p:page": "contacts",
         
         "campaigns": "campaigns",
+        "cubes": "cubes",
         "orgs": "orgs",
         "activity": "activity",
         "profile": "profile",
@@ -184,6 +185,11 @@ initialize: function(){
         // contacts
         fun.instances.contacts = new fun.views.contacts({
             el:"#fun-contacts"
+        });
+        
+        // cubes
+        fun.instances.cubes = new fun.views.cubes({
+            el:"#fun-cubes"
         });
 
         // recordings
@@ -514,6 +520,16 @@ initialize: function(){
         } else {
             fun.utils.redirect(fun.conf.hash.login);
         }
+        fun.instances.footer.render();
+    },
+    
+    cubes: function(){
+        var blog = translate('cubes');
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render(cubes);
+        fun.instances.cubes.render();
+        
         fun.instances.footer.render();
     },
 
