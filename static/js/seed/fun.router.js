@@ -720,6 +720,8 @@ initialize: function(){
     },
 
     gateways: function(){
+        'use strict';
+
         var gateways = translate('gateways');
 
         fun.utils.hideAll();
@@ -746,6 +748,7 @@ initialize: function(){
     },
 
     profile: function(){
+        'use strict';
         var profile = translate('profile');
 
         fun.utils.hideAll();
@@ -757,6 +760,7 @@ initialize: function(){
     },
 
     activity: function(){
+        'use strict';
         var activity = translate('activity');
 
         fun.utils.hideAll();
@@ -769,6 +773,7 @@ initialize: function(){
     },
 
     phone: function(){
+        'use strict';
         var phone = translate('phone');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -778,6 +783,7 @@ initialize: function(){
     },
 
     phoneNumbers: function(){
+        'use strict';
         var numbers = translate('numbers');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -787,6 +793,7 @@ initialize: function(){
     },
 
     sounds: function(){
+        'use strict';
         var sounds = translate('sounds');
         fun.utils.hideAll();
         fun.instances.navbar.render();

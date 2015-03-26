@@ -1,26 +1,20 @@
 <ul class="nav navbar-nav navbar-right">
+    
     <li>
-        <a href="#profile">
-            <span class="glyphicon glyphicon-user">
+        <a href="#profile" title="<%= translate("Profile") %>">
+            <i class="fa fa-use fa-fw"></i>
                 <%= translate("Profile") %>
-            </span>
         </a>
     </li>
-<!--
-    <li>
-        <a href="#reports">
-            <span class="glyphicon glyphicon-stats">
-                <%= translate("Reports") %>
-            </span>
-        </a>
-    </li>
--->
+
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-plus">
-                <%= translate("Create") %>
-            </span>
+            <i class="fa fa-plus fa-fw"></i>
+            <%= translate("Create") %>
+            
         </a>
+        
+
         <ul class="dropdown-menu" role="menu">
             <li><a href="#contacts"><i class="fa fa-book fa-fw"></i> <%= translate("newContact") %></a></li>
             <li id="nav-new-member" class="hide"><a href="#members"><i class="fa fa-user-plus fa-fw"></i> <%= translate("newMember") %></a></li>
