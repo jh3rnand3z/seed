@@ -24,6 +24,7 @@ fun.strings = {
     validateMax: "Please enter a value less than or equal to {0}.",
     validateMin: "Please enter a value greater than or equal to {0}.",
     clickYouAgree: 'By clicking "Sign up", you agree to our',
+    weSpawn: 'We spawn the stuff for you everywhere',
     zero: "0",
     one: "1",
     call: "Call",
