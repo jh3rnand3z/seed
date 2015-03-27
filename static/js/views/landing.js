@@ -19,8 +19,20 @@ fun.views.landing = Backbone.View.extend({
     * Render view
     */
     render: function(){
-        var template = _.template(fun.utils.getTemplate(fun.conf.templates.landing));
-        this.$el.html(template);
+        'use strict';
+        var template;
+        if (!this.$el.html()){
+            template = _.template(fun.utils.getTemplate(fun.conf.templates.landing));
+            this.$el.html(template);
+
+            // Cache the DOM stuff
+            this.signupError = this.$('#landing-alert');
+            // Form inputs
+            this.account = this.$('#landing_username');
+            this.newAccount = this.account;
+            this.email = this.$('#landing_email');
+            this.password = this.$('#landing_password');
+        }
         this.$el.show();
     },
 
@@ -39,7 +51,6 @@ fun.views.landing = Backbone.View.extend({
         signupError = this.signupError;
         account = this.account.val();
         password = this.password.val();
-        confirmPassword = this.confirmPassword.val();
         email = this.email.val();
         // check if this view stuff is really needed
         view = this;

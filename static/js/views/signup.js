@@ -26,7 +26,7 @@ fun.views.signup = Backbone.View.extend({
             this.$el.html(template);
 
             // Cache the DOM stuff
-            this.signupError = this.$('#signup-error');
+            this.signupError = this.$('#signup-alert');
             // Form inputs
             this.account = this.$('#signup_username');
             this.newAccount = this.account;
