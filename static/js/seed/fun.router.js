@@ -691,21 +691,24 @@ fun.Router = Backbone.Router.extend({
     campaigns: function(){
         'use strict';
         var campaigns,
+            account,
+            context,
             resourceCount = 0,
             resources,
             resource,
-            account,
-            context,
             onSuccess;
 
         campaigns = translate('campaigns');
 
+        // get account and context
+        account = localStorage.getItem("username");
         context = sessionStorage.getItem("context");
 
-        console.log(context);
+        console.log(account, context);
 
         resources = {
             //account: new fun.models.Account({'account':account}),
+            user: new fun.models.User({'account':account}),
             campaigns: new fun.models.Campaigns()            
         };
 
