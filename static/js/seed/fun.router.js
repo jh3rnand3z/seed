@@ -507,16 +507,22 @@ fun.Router = Backbone.Router.extend({
 
     contacts: function(page){
         'use strict';
-        var contacts = translate('contacts');
+        var contacts,
+            resourceCount,
+            resources,
+            resource,
+            onSuccess;
+
+        contacts = translate('contacts');
         // and now for something completely different
-        var resourceCount = 0;
+        resourceCount = 0;
         
-        var resources = {
+        resources = {
             contacts: new fun.models.Contacts(),
             directories: new fun.models.Directories()
         };
 
-        var onSuccess = function(){
+        onSuccess = function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
 
@@ -542,7 +548,7 @@ fun.Router = Backbone.Router.extend({
             // render contacts view
             fun.instances.contacts.render();
 
-            for (var resource in resources){
+            for (resource in resources){
                 resources[resource].fetch({
                     success: onSuccess,
                     error: function() {
@@ -684,12 +690,12 @@ fun.Router = Backbone.Router.extend({
 
     campaigns: function(){
         'use strict';
-        var resourceCount = 0,
+        var campaigns,
+            resourceCount = 0,
             resources,
             resource,
             account,
             context,
-            campaigns,
             onSuccess;
 
         campaigns = translate('campaigns');
@@ -699,7 +705,8 @@ fun.Router = Backbone.Router.extend({
         console.log(context);
 
         resources = {
-            account: new fun.models.Account({'account':account})
+            account: new fun.models.Account({'account':account}),
+            campaigns: new fun.models.Campaigns()            
         };
 
         onSuccess = function(){
