@@ -3,7 +3,21 @@
 */
 
 fun.models.Account = Backbone.Model.extend({
-    urlRoot: fun.conf.urls.users,
+    idAttribute: 'uuid',
+    
+    initialize: function(options) {
+        this.account = options.account;
+    },
+    
+    urlRoot: fun.conf.urls.user,
+    
+    url: function(){
+        var url = this.urlRoot.replace(fun.conf.account, this.account);
+        if (!this.isNew()){
+            url += '/' + this.id;
+        }
+        return url;
+    },
 
     sync: function(method, model, options){
         options.contentType = 'application/json';
