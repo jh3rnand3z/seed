@@ -19,6 +19,7 @@ fun.conf = {
     uuidCampaign: 'campaign_uuid',
     uuidContact: 'contact_uuid',
     uuidCube: 'cube_uuid',
+    uuidTask: 'task_uuid',
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
 
@@ -154,6 +155,9 @@ fun.conf.urls = {
     cube: fun.utils.format('/cubes/%s', fun.conf.uuidCube),
     cubes: '/cubes/',
 
+    task: fun.utils.format('/tasks/%s', fun.conf.uuidTask),
+    tasks: '/tasks/',
+
     directory: fun.utils.format('/directories/%s', fun.conf.uuidDirectory),
     directories: '/directories/',
 
@@ -197,6 +201,7 @@ fun.conf.templates = {
     howto: fun.utils.format('%s/howto.html', fun.conf.html),
     blog: fun.utils.format('%s/blog.html', fun.conf.html),
     status: fun.utils.format('%s/status.html', fun.conf.html),
+    tasks: fun.utils.format('%s/tasks.html', fun.conf.html),
     developers: fun.utils.format('%s/developers.html', fun.conf.html),
     help: fun.utils.format('%s/help.html', fun.conf.html),
     security: fun.utils.format('%s/security.html', fun.conf.html),
@@ -327,6 +332,8 @@ fun.conf.hash = {
     contacts: '#contacts',
     cubes: '#cubes',
     contactsWithPage: '#contacts/p{page}',
+
+    tasks: '#tasks',
 
     sounds: '#sounds',
     recordings: '#recordings',

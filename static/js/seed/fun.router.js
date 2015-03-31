@@ -1,7 +1,10 @@
+/*
+* In a client-server architecture routes are resource address capability service nouns.
+*/
 fun.Router = Backbone.Router.extend({
 
     /*
-     Seed routes
+     Seed server routes
     */
     routes: {
         "": "home",
@@ -26,6 +29,10 @@ fun.Router = Backbone.Router.extend({
 
         "contacts": "contacts",
         "contacts/p:page": "contacts",
+
+        "tasks": "tasks",
+        "tasks/p:page": "tasks",
+
         
         "campaigns": "campaigns",
         "cubes": "cubes",
@@ -51,7 +58,8 @@ fun.Router = Backbone.Router.extend({
         "logout": "logout"
     },
 
-initialize: function(){
+    initialize: function(){
+        'use strict';
         // navigation bar
         fun.instances.navbar = new fun.views.navbar({
             el:"#fun-navbar"
@@ -177,6 +185,11 @@ initialize: function(){
             el:"#fun-carriers"
         });
 
+        // tasks
+        fun.instances.tasks = new fun.views.tasks({
+            el:"#fun-tasks"
+        });
+
         // campaigns
         fun.instances.campaigns = new fun.views.campaigns({
             el:"#fun-campaigns"
@@ -259,6 +272,7 @@ initialize: function(){
     },
 
     landing: function(){
+        'use strict';
         fun.utils.hideAll();
         fun.instances.navbar.render();
         fun.instances.landing.render();
@@ -267,6 +281,7 @@ initialize: function(){
     },
 
     howto: function(){
+        'use strict';
         var howto = translate('howto');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -277,6 +292,7 @@ initialize: function(){
     },
 
     features: function(){
+        'use strict';
         var features = translate('features');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -286,6 +302,7 @@ initialize: function(){
     },
 
     enterprise: function(){
+        'use strict';
         var enterprise = translate('enterprise');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -295,6 +312,7 @@ initialize: function(){
     },
 
     terms: function(){
+        'use strict';
         var terms = translate('terms');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -303,7 +321,19 @@ initialize: function(){
         fun.instances.footer.render();
     },
 
+    tasks: function(){
+        'use strict';
+        var tasks = translate('tasks');
+        fun.utils.hideAll();
+        fun.instances.navbar.render();
+        fun.instances.subheader.render(tasks);
+        fun.instances.subheader.renderHeadNav();
+        fun.instances.tasks.render();
+        fun.instances.footer.render();
+    },
+
     privacy: function(){
+        'use strict';
         var privacy = translate('privacy');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -313,6 +343,7 @@ initialize: function(){
     },
 
     security: function(){
+        'use strict';
         var security = translate('security');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -322,6 +353,7 @@ initialize: function(){
     },
 
     blog: function(){
+        'use strict';
         var blog = translate('blog');
         fun.utils.hideAll();
         fun.instances.navbar.render();
@@ -594,6 +626,8 @@ initialize: function(){
 
         if (org) {
             models.org = new fun.models.Org({'account': org});
+            
+            // set custom url tree
             //window.history.pushState('orgDashboard', 'Dashboard', '/orgs/iofun/dashboard');
         }
 
