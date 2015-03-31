@@ -3,7 +3,12 @@
 */
 
 fun.models.Account = Backbone.Model.extend({
-    urlRoot: fun.conf.urls.users
+    urlRoot: fun.conf.urls.users,
+
+    sync: function(method, model, options){
+        options.contentType = 'application/json';
+        return Backbone.sync(method, model, options);
+    }
 });
 
 
