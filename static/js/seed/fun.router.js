@@ -709,20 +709,20 @@ fun.Router = Backbone.Router.extend({
         // first of all here on resources the stuff seems to be fine.
 
         resources = {
-            account: new fun.models.Account({'account':account}),
+            //account: new fun.models.Account({'account':account}),
             user: new fun.models.User({'account':account}),
             campaigns: new fun.models.Campaigns()            
         };
 
         // but, onSuccess we're rendering multiple times the same campaigns.render()
-        // and that stuff is bananas.
+        // and that stuff is bananas. ok
 
         onSuccess = function(){
             if(++resourceCount == _.keys(resources).length){
                 console.log('get resources success!');
 
-                fun.instances.campaigns.render(
-                    resources.account
+                fun.instances.campaigns.renderCampaignsList(
+                    resources.campaigns
                 );
             }
         };
