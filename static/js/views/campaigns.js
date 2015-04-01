@@ -51,7 +51,7 @@ fun.views.campaigns = Backbone.View.extend({
             account,
             campaign,
             campaignName,
-            campaignDescription,
+            campaignDescription;
 
         console.log('create campaign event');
 
