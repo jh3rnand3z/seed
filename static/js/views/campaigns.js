@@ -24,12 +24,15 @@ fun.views.campaigns = Backbone.View.extend({
 
         console.log('render campaigns view');
 
+        account = localStorage.getItem("username");
+
         if (!this.$el.html()){
             template = _.template(fun.utils.getTemplate(fun.conf.templates.campaigns)
             )({'account':account});
             this.$el.html(template);
-            
             // DOM cache stuff on form fields
+            this.campaignName = this.$('#campaign_name');
+            this.campaignDescription = this.$('#campaign_description');
             
             //this.campaignType =
             //this.campaignAccount =
@@ -45,7 +48,7 @@ fun.views.campaigns = Backbone.View.extend({
     createCampaign: function(event){
         'use strict';
         event.preventDefault();
-        
+        // view cache
         var view = this,
             account,
             campaign,
@@ -56,14 +59,9 @@ fun.views.campaigns = Backbone.View.extend({
 
         account = this.account;
 
-        this.campaignName = this.$('#campaign_name');
-        this.campaignDescription = this.$('#campaign_description'); 
-
         campaignName = this.campaignName.val();
 
         campaignDescription = this.campaignDescription.val();
-
-        console.log(campaignName, campaignDescription);
 
         campaign = new fun.models.Campaign({
             account: account,
