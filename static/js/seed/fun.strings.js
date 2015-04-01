@@ -199,6 +199,7 @@ fun.strings = {
     sounds: "Sounds",
     contact: "Contact",
     allContacts: "All Contacts",
+    allCampaigns: "All Campaigns",
     members: "Members",
     teams: "Teams",
     member: "Member",

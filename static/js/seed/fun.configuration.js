@@ -217,7 +217,8 @@ fun.conf.templates = {
 
     orgs: fun.utils.format('%s/orgs.html', fun.conf.html),
     campaigns: fun.utils.format('%s/campaigns.html', fun.conf.html),
-
+    allCampaigns: fun.utils.format('%s/allCampaigns.html', fun.conf.html),
+    
     accountListItem: fun.utils.format('%s/accountListItem.html', fun.conf.html),
     
     recordRow: fun.utils.format('%s/recordRow.html', fun.conf.html),
@@ -271,6 +272,7 @@ fun.conf.templates = {
 
     contacts: fun.utils.format('%s/contacts.html', fun.conf.html),
     allContacts: fun.utils.format('%s/allContacts.html', fun.conf.html),
+
     directoryList: fun.utils.format('%s/directoryList.html', fun.conf.html),
     contactRow: fun.utils.format('%s/contactRow.html', fun.conf.html),
     directoryRow: fun.utils.format('%s/directoryRow.html', fun.conf.html),

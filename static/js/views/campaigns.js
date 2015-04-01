@@ -48,19 +48,19 @@ fun.views.campaigns = Backbone.View.extend({
     renderCampaignsList: function(campaigns){
         'use strict';
         var template,
-            allContacts;
+            allCampaigns;
         console.log('render campaigns list');
         if (campaigns) {
             this.campaigns = campaigns;
         }
 
         template = _.template(
-            fun.utils.getTemplate(fun.conf.templates.allContacts)
+            fun.utils.getTemplate(fun.conf.templates.allCampaigns)
         );
 
-        allContacts = this.$('#all-campaigns-tab');
+        allCampaigns = this.$('#all-campaigns-tab');
 
-        allContacts.html(template);
+        allCampaigns.html(template);
 
         this.tbody = this.$('#campaigns-list > tbody');
         this.$el.show();
