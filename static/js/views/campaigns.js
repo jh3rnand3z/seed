@@ -46,16 +46,19 @@ fun.views.campaigns = Backbone.View.extend({
     * Render campaigns list
     */
     renderCampaignsList: function(campaigns){
+        'use strict';
+        var template,
+            allContacts;
         console.log('render campaigns list');
         if (campaigns) {
             this.campaigns = campaigns;
         }
 
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.allContacts)
         );
 
-        var allContacts = this.$('#all-campaigns-tab');
+        allContacts = this.$('#all-campaigns-tab');
 
         allContacts.html(template);
 
@@ -68,16 +71,20 @@ fun.views.campaigns = Backbone.View.extend({
     * Render campaign rows
     */
     renderCampaignRows: function(){
+        'use strict';
+        var length,
+            i = 0,
+            rows,
+            data,
+            template;
         // campaigns length
-        var length = this.campaigns.length;
-        var i = 0;
-        console.log(length)
+        length = this.campaigns.length;
         if (length > 0){
-            var rows = this.tbody.html('');
+            rows = this.tbody.html('');
             for (i; i < length; ++i) {
-                var data = _.extend(this.campaigns.at(i).toJSON(), {i:i});
+                data = _.extend(this.campaigns.at(i).toJSON(), {i:i});
 
-                var template = _.template(
+                template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.campaignRow)
                 )(data);
 
@@ -92,11 +99,14 @@ fun.views.campaigns = Backbone.View.extend({
     * No campaigns
     */
     noCampaigns: function(){
-        var template = _.template(
+        'use strict';
+        var template,
+            noCampaigns;
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});
 
-        var noCampaigns = this.$('#no-campaigns');
+        noCampaigns = this.$('#no-campaigns');
 
         noCampaigns.html(template);
     },
