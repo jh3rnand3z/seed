@@ -20,9 +20,11 @@ fun.views.contacts = Backbone.View.extend({
     * Render view
     */
     render: function(){
+        'use strict';
+        var template;
         console.log('render contacts view');
         if (!this.$el.html()){
-            var template = _.template(fun.utils.getTemplate(fun.conf.templates.contacts));
+            template = _.template(fun.utils.getTemplate(fun.conf.templates.contacts));
             this.$el.html(template);
             // DOM cache stuff on form fields
             this.contactFirstName = this.$('#contact_first_name');

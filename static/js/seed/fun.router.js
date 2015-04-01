@@ -707,7 +707,7 @@ fun.Router = Backbone.Router.extend({
         console.log(account, context);
 
         resources = {
-            //account: new fun.models.Account({'account':account}),
+            account: new fun.models.Account({'account':account}),
             user: new fun.models.User({'account':account}),
             campaigns: new fun.models.Campaigns()            
         };
