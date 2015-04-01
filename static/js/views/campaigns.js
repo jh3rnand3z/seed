@@ -34,8 +34,8 @@ fun.views.campaigns = Backbone.View.extend({
             this.campaignName = this.$('#campaign_name');
             this.campaignDescription = this.$('#campaign_description');
             
-            //this.campaignType =
-            //this.campaignAccount =
+            //this.campaignType = this.stuff.is.missing
+            //this.campaignAccount = ?
             
             this.account = account;
         }
@@ -121,6 +121,8 @@ fun.views.campaigns = Backbone.View.extend({
         campaignName = this.campaignName.val();
 
         campaignDescription = this.campaignDescription.val();
+
+        console.log(account, campaignName, campaignDescription);
 
         campaign = new fun.models.Campaign({
             account: account,
