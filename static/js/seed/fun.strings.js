@@ -41,6 +41,7 @@ fun.strings = {
     railgun: "Railgun",
     campaign: "Campaign",
     numbers: "Numbers",
+    strategy: "Strategy",
     callerId: "CallerID",
     blacklist: "Blacklist",
     actions: "Actions",
