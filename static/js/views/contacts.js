@@ -46,16 +46,19 @@ fun.views.contacts = Backbone.View.extend({
     * Render contact lists
     */
     renderContactLists: function(contacts){
+        'use strict';
+        var template,
+            allContacts;
         console.log('render contact lists');
         if (contacts) {
             this.contacts = contacts;
         }
 
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.allContacts)
         );
 
-        var allContacts = this.$('#all-contacts-tab');
+        allContacts = this.$('#all-contacts-tab');
 
         allContacts.html(template);
 
@@ -68,16 +71,21 @@ fun.views.contacts = Backbone.View.extend({
     * Render contact rows
     */
     renderContactRows: function(){
+        'use strict';
+        var length,
+            i = 0,
+            rows,
+            data,
+            template;
         // contacts length
-        var length = this.contacts.length;
-        var i = 0;
+        length = this.contacts.length;
         console.log(length)
         if (length > 0){
-            var rows = this.tbody.html('');
+            rows = this.tbody.html('');
             for (i; i < length; ++i) {
-                var data = _.extend(this.contacts.at(i).toJSON(), {i:i});
+                data = _.extend(this.contacts.at(i).toJSON(), {i:i});
 
-                var template = _.template(
+                template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.contactRow)
                 )(data);
 
@@ -92,11 +100,14 @@ fun.views.contacts = Backbone.View.extend({
     * No contacts
     */
     noContacts: function(){
-        var template = _.template(
+        'use strict';
+        var template,
+            noContacts;
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});
 
-        var noContacts = this.$('#no-contacts');
+        noContacts = this.$('#no-contacts');
 
         noContacts.html(template);
     },
@@ -105,16 +116,19 @@ fun.views.contacts = Backbone.View.extend({
     * Render directory lists
     */
     renderDirectoryLists: function(directories){
+        'use strict';
+        var template,
+            directoryList;
         console.log('render directory lists');
         if (directories) {
             this.directories = directories;
         }
 
-        var template = _.template(
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.directoryList)
         );
 
-        var directoryList = this.$('#directories-tab');
+        directoryList = this.$('#directories-tab');
 
         directoryList.html(template);
 
@@ -127,18 +141,22 @@ fun.views.contacts = Backbone.View.extend({
     * Render directory rows
     */
     renderDirectoryRows: function(){
+        'use strict';
+        var length,
+            i = 0,
+            rows,
+            data,
+            template;
         // directory length
-        var length = this.directories.length;
-        var i = 0;
+        length = this.directories.length;
         console.log(length)
         if (length > 0){
-            var rows = this.dtbody.html('');
-            //for (i; i < 20; ++i) {
+            rows = this.dtbody.html('');
             for (i; i < length; ++i) {
 
-                var data = _.extend(this.directories.at(i).toJSON(), {i:i});
+                data = _.extend(this.directories.at(i).toJSON(), {i:i});
 
-                var template = _.template(
+                template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.directoryRow)
                 )(data);
 
@@ -153,13 +171,16 @@ fun.views.contacts = Backbone.View.extend({
     * No directories
     */
     noDirectories: function(){
-        var template = _.template(
+        'use strict';
+        var template,
+            noDirectories;
+        template = _.template(
             fun.utils.getTemplate(fun.conf.templates.warning)
         )({message:'noDataAvailable'});
 
-        var noContacts = this.$('#no-directories');
+        noDirectories = this.$('#no-directories');
 
-        noContacts.html(template);
+        noDirectories.html(template);
     },
 
     /*
@@ -182,24 +203,29 @@ fun.views.contacts = Backbone.View.extend({
     * Add contact
     */
     addContact: function(event){
+        'use strict';
         event.preventDefault();
-
-        // view cache
         var view = this;
+            firstName,
+            lastName,
+            newNumber
+            countryData,
+            numberType
+            contact;
 
         console.log('new contact event');
 
-        var firstName = this.contactFirstName.val();
+        firstName = this.contactFirstName.val();
 
-        var lastName = this.contactLastName.val();
+        lastName = this.contactLastName.val();
 
-        var newNumber = this.newPhoneNumber.intlTelInput("getNumber");
+        newNumber = this.newPhoneNumber.intlTelInput("getNumber");
 
-        var countryData = this.newPhoneNumber.intlTelInput("getSelectedCountryData");
+        countryData = this.newPhoneNumber.intlTelInput("getSelectedCountryData");
 
-        var numberType = this.newPhoneNumber.intlTelInput("getNumberType");
+        numberType = this.newPhoneNumber.intlTelInput("getNumberType");
 
-        var contact = new fun.models.Contact({
+        contact = new fun.models.Contact({
             first_name: firstName,
             last_name: lastName,
             phone_number: newNumber,
