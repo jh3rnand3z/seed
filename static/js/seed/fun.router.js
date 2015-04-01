@@ -604,11 +604,17 @@ fun.Router = Backbone.Router.extend({
     
     dashboard: function(account, org){
         'use strict';
+        var account,
+            modelCount = 0,
+            models,
+            onSuccess,
+            dashboard,
+            message;
 
         console.log(account, org);
 
         if (!account){
-            var account = localStorage.getItem("username");
+            account = localStorage.getItem("username");
         } else {
             if (account.substring(0, 1) == ':') { 
                 account = account.substring(1);
@@ -616,10 +622,8 @@ fun.Router = Backbone.Router.extend({
         }
 
         console.log(account);
-
-        var modelCount = 0;
         
-        var models = {
+        models = {
             user: new fun.models.User({'account':account}),
             records: new fun.models.Records(),
             billings: new fun.models.Billings(),
@@ -629,7 +633,6 @@ fun.Router = Backbone.Router.extend({
             })
         };
 
-
         if (org) {
             models.org = new fun.models.Org({'account': org});
             
@@ -637,7 +640,7 @@ fun.Router = Backbone.Router.extend({
             //window.history.pushState('orgDashboard', 'Dashboard', '/orgs/iofun/dashboard');
         }
 
-        var onSuccess = function(){
+        onSuccess = function(){
             if(++modelCount == _.keys(models).length){
                 console.log('spawn daemon success!');
 
@@ -664,7 +667,7 @@ fun.Router = Backbone.Router.extend({
 
         if(fun.utils.loggedIn()){
 
-            var dashboard = translate('dashboard');
+            dashboard = translate('dashboard');
 
             fun.utils.hideAll();
             fun.instances.navbar.render();
@@ -673,7 +676,7 @@ fun.Router = Backbone.Router.extend({
             fun.instances.subheader.renderHeadNav();
 
             fun.instances.dashboard.render();
-            for (var message in models){
+            for (message in models){
                 models[message].fetch({
                     success: onSuccess,
                     error: function() {
@@ -686,7 +689,6 @@ fun.Router = Backbone.Router.extend({
         }
         fun.instances.footer.render();
     },
-
 
     campaigns: function(){
         'use strict';
