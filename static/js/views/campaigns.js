@@ -43,6 +43,65 @@ fun.views.campaigns = Backbone.View.extend({
     },
 
     /*
+    * Render campaigns list
+    */
+    renderCampaignsList: function(campaigns){
+        console.log('render campaigns list');
+        if (campaigns) {
+            this.campaigns = campaigns;
+        }
+
+        var template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.allContacts)
+        );
+
+        var allContacts = this.$('#all-campaigns-tab');
+
+        allContacts.html(template);
+
+        this.tbody = this.$('#campaigns-list > tbody');
+        this.$el.show();
+        this.renderCampaignRows();
+    },
+
+    /*
+    * Render campaign rows
+    */
+    renderCampaignRows: function(){
+        // campaigns length
+        var length = this.campaigns.length;
+        var i = 0;
+        console.log(length)
+        if (length > 0){
+            var rows = this.tbody.html('');
+            for (i; i < length; ++i) {
+                var data = _.extend(this.campaigns.at(i).toJSON(), {i:i});
+
+                var template = _.template(
+                    fun.utils.getTemplate(fun.conf.templates.campaignRow)
+                )(data);
+
+                rows.append(template);
+            }
+        } else {
+            this.noCampaigns();
+        }
+    },
+
+    /*
+    * No campaigns
+    */
+    noCampaigns: function(){
+        var template = _.template(
+            fun.utils.getTemplate(fun.conf.templates.warning)
+        )({message:'noDataAvailable'});
+
+        var noCampaigns = this.$('#no-campaigns');
+
+        noCampaigns.html(template);
+    },
+
+    /*
     * Create campaign
     */
     createCampaign: function(event){
