@@ -83,6 +83,8 @@ fun.strings = {
     summary: "Summary",
     todayActivity: "Today Activity",
     latestRecords: "Latest Records",
+    from: "From",
+    to: "To",
     minutes: "Minutes",
     orgs: "Organizations",
     calls: "Calls",
