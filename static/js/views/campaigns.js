@@ -122,7 +122,8 @@ fun.views.campaigns = Backbone.View.extend({
             account,
             campaign,
             campaignName,
-            campaignDescription;
+            campaignDescription,
+            campaignPayload;
 
         console.log('create campaign event');
 
@@ -137,14 +138,17 @@ fun.views.campaigns = Backbone.View.extend({
 
         console.log(account, campaignName, campaignDescription);
 
-        campaign = new fun.models.Campaign({
+        campaignPayload = {
             account: account,
             name: campaignName,
             description: campaignDescription
-        });
+        };
 
-        campaign.save();
-        
+        if (account != undefined & campaignName != undefined){
+            campaign = new fun.models.Campaign();
+            campaign.save();
+        }
+
         // Clear the stuff from the inputs ;)
         view.$('#campaign_name').val('');
         view.$('#campaign_description').val('');

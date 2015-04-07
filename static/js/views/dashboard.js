@@ -41,7 +41,7 @@ fun.views.dashboard = Backbone.View.extend({
     renderAccountDropdown: function(account){
         // Render account dropdown
         'use strict';
-        //console.log(account);
+        console.log('render account dropdown for ' + account);
         var counter = 0, // i
             length,
             orgData,
@@ -187,7 +187,6 @@ fun.views.dashboard = Backbone.View.extend({
 
     renderLatestRecords: function(collection){
         // Render latesst records
-        
         'use strict';
         var template,
             latestRecords;
@@ -278,6 +277,7 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     noRecords: function() {
+        // No records
         'use strict';
         var template,
             noRecords;
