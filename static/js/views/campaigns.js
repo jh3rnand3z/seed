@@ -126,6 +126,9 @@ fun.views.campaigns = Backbone.View.extend({
 
         console.log('create campaign event');
 
+        this.campaignName = this.$('#campaign_name');
+        this.campaignDescription = this.$('#campaign_description');
+
         account = this.account;
 
         campaignName = this.campaignName.val();
