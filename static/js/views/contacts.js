@@ -208,9 +208,9 @@ fun.views.contacts = Backbone.View.extend({
         var view = this,
             firstName,
             lastName,
-            newNumber
+            newNumber,
             countryData,
-            numberType
+            numberType,
             contact;
 
         console.log('new contact event');
