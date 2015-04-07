@@ -205,7 +205,7 @@ fun.views.contacts = Backbone.View.extend({
     addContact: function(event){
         'use strict';
         event.preventDefault();
-        var view = this;
+        var view = this,
             firstName,
             lastName,
             newNumber
