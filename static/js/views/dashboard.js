@@ -15,7 +15,6 @@ fun.views.dashboard = Backbone.View.extend({
         // initialize view constructor
         'use strict';
         fun.containers.dashboard = this.$el;
-
         this.account = localStorage.getItem("username");
     },
 
