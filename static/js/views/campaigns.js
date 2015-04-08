@@ -46,9 +46,7 @@ fun.views.campaigns = Backbone.View.extend({
         'use strict';
         var template,
             allCampaigns;
-        
         console.log('render campaigns list');
-        
         if (campaigns) {
             this.campaigns = campaigns;
         }
@@ -146,7 +144,7 @@ fun.views.campaigns = Backbone.View.extend({
         };
 
         if (account != undefined & campaignName != undefined){
-            campaign = new fun.models.Campaign();
+            campaign = new fun.models.Campaign(campaignPayload);
             campaign.save();
         }
 
