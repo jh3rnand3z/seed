@@ -23,7 +23,6 @@ fun.views.campaigns = Backbone.View.extend({
             template;
 
         console.log('render campaigns view');
-
         account = localStorage.getItem("username");
 
         if (!this.$el.html()){
