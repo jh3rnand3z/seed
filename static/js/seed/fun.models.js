@@ -706,8 +706,7 @@ fun.models.Campaign = Backbone.Model.extend({
         this.campaignId = options.campaignId;
     },
 
-
-    urlRoot: fun.conf.urls.contact,
+    urlRoot: fun.conf.urls.campaign,
 
     url: function() {
         var url = this.urlRoot.replace(fun.conf.campaignId, this.campaignId);

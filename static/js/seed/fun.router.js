@@ -135,11 +135,6 @@ fun.Router = Backbone.Router.extend({
             el:"#fun-dashboard"
         });
 
-        // campaigns
-        fun.instances.campaigns = new fun.views.campaigns({
-            el:"#fun-campaigns"
-        });
-
         // orgs
         fun.instances.orgs = new fun.views.orgs({
             el:"#fun-orgs"

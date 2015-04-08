@@ -19,6 +19,8 @@ fun.conf = {
     uuidCampaign: 'campaign_uuid',
     uuidContact: 'contact_uuid',
     uuidCube: 'cube_uuid',
+    uuidCluster: 'cluster_uuid',
+    uuidCohort: 'cohort_uuid',
     uuidTask: 'task_uuid',
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
@@ -170,11 +172,9 @@ fun.conf.urls = {
     phoneNumber: fun.utils.format('/phonenumbers/%s', fun.conf.uuidPhoneNumber),
     phoneNumbers: '/phonenumbers/',
 
-
     sounds: fun.utils.format('/sounds/')
 
     /*sounds, recordings*/
-
 };
 
 /*

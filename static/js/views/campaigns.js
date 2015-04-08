@@ -34,9 +34,6 @@ fun.views.campaigns = Backbone.View.extend({
             this.campaignName = this.$('#campaign_name');
             this.campaignDescription = this.$('#campaign_description');
             
-            //this.campaignType = this.stuff.is.missing
-            //this.campaignAccount = ?
-            
             this.account = account;
         }
         this.$el.show();
@@ -49,7 +46,9 @@ fun.views.campaigns = Backbone.View.extend({
         'use strict';
         var template,
             allCampaigns;
+        
         console.log('render campaigns list');
+        
         if (campaigns) {
             this.campaigns = campaigns;
         }
@@ -63,7 +62,9 @@ fun.views.campaigns = Backbone.View.extend({
         allCampaigns.html(template);
 
         this.tbody = this.$('#campaigns-list > tbody');
+
         this.$el.show();
+        
         this.renderCampaignRows();
     },
 

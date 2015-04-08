@@ -12,14 +12,13 @@ fun.views.dashboard = Backbone.View.extend({
     },
 
     initialize: function(options){
-        // initialize view constructor
+        // Initialize view constructor
         'use strict';
         fun.containers.dashboard = this.$el;
         this.account = localStorage.getItem("username");
     },
 
     render: function(account, summary, billing){
-        
         // Render view function
         'use strict';
         var template;
@@ -174,6 +173,7 @@ fun.views.dashboard = Backbone.View.extend({
             lines: {lineWidth: 2, fill: false}
         });
         
+        // html template
         template = _.template(
             fun.utils.getTemplate(fun.conf.templates.todayActivityChart)
         )(data);
@@ -249,7 +249,7 @@ fun.views.dashboard = Backbone.View.extend({
     renderRows: function(){
         // Render rows
         'use strict';
-        var i = 0,
+        var counter = 0,
             length,
             rows,
             data,
@@ -261,9 +261,9 @@ fun.views.dashboard = Backbone.View.extend({
             rows = this.tbody.html('');
            
             // da fuq dude?
-            for ( i; i < 7; ++i ) {
+            for ( counter; counter < 7; ++counter ) {
 
-                data = _.extend(this.collection.at(i).toJSON(), {i:i});
+                data = _.extend(this.collection.at(counter).toJSON(), {counter:counter});
 
                 template = _.template(
                     fun.utils.getTemplate(fun.conf.templates.recordRow)
