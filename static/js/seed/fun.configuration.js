@@ -2,31 +2,37 @@
  Configuration seed
 */
 fun.conf = {
+    // username account
     account: 'account',
-    context: 'context', // dashboard context "organization"
-
+    // dashboard context "organization"
+    context: 'context',
+    // html templates
     html: '/static/html',
+    // internet domain
     domain: 'iofun.io',
-
+    // seed url root
     urlRoot: '/api/',
+    // software
     sw:'',
+    // hardware
     hw:'',
+    // sip protocol
     sip:'',
-
+    // system uuid's
     uuidRecord: 'record_uuid',
     uuidBilling: 'billing_uuid',
     uuidCarrier: 'carrier_uuid',
     uuidCampaign: 'campaign_uuid',
     uuidContact: 'contact_uuid',
-    uuidCube: 'cube_uuid',
+    uuidNode: 'node_uuid',
     uuidCluster: 'cluster_uuid',
     uuidCohort: 'cohort_uuid',
+    uuidCube: 'cube_uuid',
     uuidTask: 'task_uuid',
     uuidDirectory: 'directory_uuid',
     uuidSound: 'sound_uuid',
-
     uuidGateway: 'gateway_uuid',
-    uuidPhoneNumber: 'phone_number_uuid',
+    uuidNumber: 'number_uuid',
 
     lapse: 'lapse',
 
@@ -47,7 +53,7 @@ fun.conf = {
 };
 
 /*
- Configuration SIP WS
+ Configuration daemons
 */
 fun.conf.daemons = {
     ws_server: 'ws://' + fun.conf.domain,
@@ -109,6 +115,8 @@ fun.conf.urls = {
     user: fun.utils.format('/users/%s', fun.conf.account),
     users: '/users/',
 
+    userRegister: fun.utils.format('/users/%s/register/', fun.conf.account),
+
     org: fun.utils.format('/orgs/%s', fun.conf.account),
     orgs: '/orgs/',
 
@@ -169,6 +177,9 @@ fun.conf.urls = {
     gateway: fun.utils.format('/gateways/%s', fun.conf.uuidGateway),
     gateways: '/gateways/',
 
+    number: fun.utils.format('/numbers/%s', fun.conf.uuidNumber),
+    numbers: '/numbers/',
+
     phoneNumber: fun.utils.format('/phonenumbers/%s', fun.conf.uuidPhoneNumber),
     phoneNumbers: '/phonenumbers/',
 
@@ -216,13 +227,23 @@ fun.conf.templates = {
     dashboard: fun.utils.format('%s/dashboard.html', fun.conf.html),
 
     orgs: fun.utils.format('%s/orgs.html', fun.conf.html),
+    
     campaigns: fun.utils.format('%s/campaigns.html', fun.conf.html),
     allCampaigns: fun.utils.format('%s/allCampaigns.html', fun.conf.html),
-
     campaignRow: fun.utils.format('%s/campaignRow.html', fun.conf.html),
     
+    cubes: fun.utils.format('%s/cubes.html', fun.conf.html),
+    allCubes: fun.utils.format('%s/allCubes.html', fun.conf.html),
+    cubeRow: fun.utils.format('%s/cubeRow.html', fun.conf.html),
+   
+
     accountListItem: fun.utils.format('%s/accountListItem.html', fun.conf.html),
     
+    campaignListItem: fun.utils.format('%s/campaignListItem.html', fun.conf.html),
+    
+    cubeListItem: fun.utils.format('%s/cubeListItem.html', fun.conf.html),
+    
+
     recordRow: fun.utils.format('%s/recordRow.html', fun.conf.html),
     typeRow: fun.utils.format('%s/typeRow.html', fun.conf.html),
     sumRow: fun.utils.format('%s/sumRow.html', fun.conf.html),
@@ -260,6 +281,8 @@ fun.conf.templates = {
     errorMedium: fun.utils.format('%s/errorMedium.html', fun.conf.html),
     errorLarge: fun.utils.format('%s/errorLarge.html', fun.conf.html),
 
+    numbers: fun.utils.format('%s/numbers.html', fun.conf.html),
+
     phoneNumbers: fun.utils.format('%s/phoneNumbers.html', fun.conf.html),
 
     profile: fun.utils.format('%s/profile.html', fun.conf.html),
@@ -280,7 +303,6 @@ fun.conf.templates = {
     directoryRow: fun.utils.format('%s/directoryRow.html', fun.conf.html),
     sounds: fun.utils.format('%s/sounds.html', fun.conf.html),
     
-    cubes: fun.utils.format('%s/cubes.html', fun.conf.html),
     
     recordings: fun.utils.format('%s/recordings.html', fun.conf.html),
     reports: fun.utils.format('%s/reports.html', fun.conf.html),
@@ -326,17 +348,19 @@ fun.conf.hash = {
     activity: '#activity',
     orgs: '#orgs',
     campaigns: '#campaigns',
+    cohorts: '#cohorts',
+    nodes: '#nodes',
+    clusters: '#clusters',
     members: '#members',
+    numbers: '#numbers',
     teams: '#teams',
     phone: '#phone',
     reports: '#reports',
     reportsWithPage: '#reports/p{page}',
     carriers: '#carriers',
-
     contacts: '#contacts',
     cubes: '#cubes',
     contactsWithPage: '#contacts/p{page}',
-
     tasks: '#tasks',
 
     sounds: '#sounds',
