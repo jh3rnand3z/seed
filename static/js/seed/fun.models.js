@@ -741,7 +741,7 @@ fun.models.Campaigns = Backbone.Collection.extend({
     },
 
     parse: function(response){
-        return response.results;
+        return response.campaigns;
     }
 });
 
