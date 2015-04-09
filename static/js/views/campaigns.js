@@ -77,6 +77,9 @@ fun.views.campaigns = Backbone.View.extend({
             template;
         // campaigns length
         length = this.campaigns.length;
+
+        console.log('campaigns length: ',length);
+
         if (length > 0){
             rows = this.tbody.html('');
             for (i; i < length; ++i) {
