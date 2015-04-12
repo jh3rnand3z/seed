@@ -5,6 +5,8 @@ fun.views.cubes = Backbone.View.extend({
     */
     events : {
 
+        'click #create-cube-btn': 'createCube',
+
     },
     
     /*
@@ -23,6 +25,12 @@ fun.views.cubes = Backbone.View.extend({
             this.$el.html(template);
         }
         this.$el.show();
+    },
+
+    createCube: function(event){
+        'use strict';
+        event.preventDefault();
+        console.log('create cube');
     }
 
 });
