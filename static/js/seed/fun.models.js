@@ -3,18 +3,26 @@
 */
 
 fun.models.Account = Backbone.Model.extend({
+
     idAttribute: 'uuid',
     
-    initialize: function(options) {
-        this.account = options.account;
+    initialize: function(options){
+        if (typeof(options) != "undefined"){
+            this.account = options.account;    
+        }
     },
     
     urlRoot: fun.conf.urls.user,
     
     url: function(){
-        var url = this.urlRoot.replace(fun.conf.account, this.account);
+        var url;
+        if (this.account){
+            url = this.urlRoot.replace(fun.conf.account, this.account);    
+        }
         if (!this.isNew()){
             url += '/' + this.id;
+        } else {
+            url = fun.conf.urls.users;
         }
         return url;
     },
