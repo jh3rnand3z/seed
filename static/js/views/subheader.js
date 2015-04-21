@@ -63,12 +63,19 @@ fun.views.subheader = Backbone.View.extend({
         account = localStorage.getItem("username");
         context = sessionStorage.getItem("context");
 
+        console.log(account, context);
+        
         if (account !== context){
             this.$('#head-nav-members').removeClass('hide').addClass('show');
             this.$('#head-nav-teams').removeClass('hide').addClass('show');
+            this.$('#head-nav-contacts').removeClass('hide').addClass('showf');
+            this.$('#head-nav-activity').removeClass('hide').addClass('show');
         } else {
             this.$('#head-nav-members').removeClass('show').addClass('hide');
             this.$('#head-nav-teams').removeClass('show').addClass('hide');   
+            
+            this.$('#head-nav-contacts').removeClass('show').addClass('hide');
+            this.$('#head-nav-activity').removeClass('show').addClass('hide');
         }
     },
 

@@ -188,7 +188,8 @@ fun.views.contacts = Backbone.View.extend({
     */
     uploadCSV: function(event){
         event.preventDefault();
-        console.log('uploadCSV event');
+        console.log('upload csv event, please upload your file with this function');
+        console.log('and stuff...');
     },
 
     /*
