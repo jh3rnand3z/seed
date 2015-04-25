@@ -45,6 +45,8 @@ fun.strings = {
     callerId: "CallerID",
     blacklist: "Blacklist",
     actions: "Actions",
+    gratsBrokeIt: "grats you broke my heart",
+    takeYourCrash: "This doesn't  exist or some horrible error has ocurred; some has crashed.",
     multipleAddress: "include multiple address lines to handle international numbers: country code, international postal codes, and an expanded telephone number field, many ship too and bill too addresses and much more",
     oldManAristotle: 'Greek philosopher Aristotle, 320 BC.',
     anAssistant: 'an artificial intelligence and research assistant meant to aid on the creation of artificial intelligence technology systems.',
