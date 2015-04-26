@@ -285,6 +285,21 @@ fun.strings = {
     oldMan: "If every tool, when ordered, or even of its own accord, could do the work that befits it... then there would be no need either of apprentices for the master workers or of slaves for the lords.",
     growingMango: "Growing mango trees in the home landscape will give you a lifetime of fresh pungent fruit from an attractive shade tree",
     outboundCampaigns: "Outbound campaigns for the loudest animals",
+
+
+    suitWelcome: "Welcome to the golem protective system, for use in hazardous environment conditions.",
+    suitArmorActivated: "High impact reactive armor activated",
+    suitAtmosphericActivated: "Atmospheric contaminant sensors activated",
+    suitVitalActivated: "Vital sign monitoring activated",
+    suitMedicalEngaged: "Automatic medical systems engaged",
+    suitDefensiveActivated: "Defensive weapon selection system activated",
+    suitAmmunitionActivated: "Ammunition level monitoring activated",
+    suitCommunicationOnline: "Communication interface online",
+    suitHaveSafeDay: "Have a very safe day!",
+    suitPower: "Power",
+    suitPercent: "percent.",
+    suitPowerLevel: "Power level is one hundred percent.",
+
     goodBye: "Good bye",
     asterisk: "*",
     pound: "#"
