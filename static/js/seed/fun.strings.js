@@ -300,6 +300,7 @@ fun.strings = {
     suitPercent: "percent.",
     suitPowerLevel: "Power level is one hundred percent.",
 
+
     goodBye: "Good bye",
     asterisk: "*",
     pound: "#"
