@@ -34,6 +34,16 @@ fun.models.Account = Backbone.Model.extend({
 });
 
 
+fun.models.upload = Backbone.Model.extend({
+
+    urlRoot: fun.conf.urls.upload,
+
+    url: function(){
+        return this.urlRoot;
+    }
+});
+
+
 fun.models.login = Backbone.Model.extend({
 
     urlRoot: fun.conf.urls.login,
