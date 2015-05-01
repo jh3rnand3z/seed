@@ -4,6 +4,8 @@
 fun.strings = {
     ioFun: "IO FUN",
     login: "Login",
+    transactions: "Transactions",
+    merchants: "Merchants",
     noDataAvailable : 'No Data Available.',
     warning : 'Warning!',
     validateRequired: "This field is required.",

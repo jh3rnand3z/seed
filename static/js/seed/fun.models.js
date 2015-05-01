@@ -34,7 +34,7 @@ fun.models.Account = Backbone.Model.extend({
 });
 
 
-fun.models.upload = Backbone.Model.extend({
+fun.models.Upload = Backbone.Model.extend({
 
     urlRoot: fun.conf.urls.upload,
 

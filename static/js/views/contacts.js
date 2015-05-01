@@ -4,6 +4,7 @@ fun.views.contacts = Backbone.View.extend({
     * Bind the event functions to the different HTML elements
     */
     events: {
+        'change input[type=file]': 'encodeFile',
         'click #upload-csv-btn': 'uploadCSV',
         'click #get-dir-btn': 'getDirectory',
         'click #add-contact-btn': 'addContact'
@@ -184,12 +185,48 @@ fun.views.contacts = Backbone.View.extend({
     },
 
     /*
+    * Encode File
+    */
+    encodeFile: function (event) {
+        'use strict';
+        var file,
+            reader;
+        this.model = new fun.models.Upload
+        file = event.currentTarget.files[0];
+        reader = new FileReader();
+        reader.onload = function (fileEvent) {
+            this.model.set({
+                'filearg': fileEvent.target.result // file name is part of the data
+            });
+        }.bind(this)
+        reader.onerror = function () {
+            console.log("error", arguments)
+        }
+        reader.readAsDataURL(file);
+    },
+
+    /*
     * Upload CSV
     */
     uploadCSV: function(event){
+        'use strict';
         event.preventDefault();
-        console.log('upload csv event, please upload your file with this function');
-        console.log('and stuff...');
+        var view = this,
+            directoryName,
+            directoryDescription,
+            upload;
+        
+        upload = this.model;
+
+        directoryName = this.directoryName.val();
+        directoryDescription = this.directoryDescription.val();
+
+        upload.set({
+            'directory_name': directoryName,
+            'directory_description': directoryDescription
+        });
+
+        upload.save();
     },
 
     /*

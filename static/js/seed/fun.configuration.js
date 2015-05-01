@@ -109,7 +109,7 @@ fun.conf.sip = {
  System urls
 */
 fun.conf.urls = {
-    upload: '/upload',
+    upload: '/upload/',
     login: '/login',
     logout: '/logout',
 
